@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>每日抽奖</title>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 640 ? 640 : document.documentElement.clientWidth) / 20 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+    <style>
+        /*样式重置start*/
+        html, body, div, ul, li, h1, h2, h3, h4, h5, p, em, i, img {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        em, i {
+            font-style: normal;
+        }
+        /*全局样式 start*/
+        html {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+
+        body {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+            font: normal normal 0px/18px;
+            font-family: Arial,'Microsoft YaHei';
+            background-color: #fff;
+            background: url(//rescdn.sitezt.cn/A/resource/mrcj/bg.jpg) center top no-repeat;
+            background-size: 100% auto;
+        }
+        html,body{
+            min-height: 100%;
+        }
+        .mrcj{
+            min-height: 100%;
+            padding-bottom: 0.75rem;
+        }
+        .mrcj .m-head{
+            padding-top: 1.34rem;
+            padding-left: 1.34rem;
+            overflow: hidden;
+            height: 1.88rem;
+        }
+        .mrcj .m-head .logo{
+            float: left;
+            width: 1.88rem;
+            height: 1.88rem;
+            margin-right: 0.66rem;
+        }
+        .mrcj .m-head h4{
+            float: left;
+            width: 7.72rem;
+            height: 1.88rem;
+            background: url(//rescdn.sitezt.cn/A/resource/mrcj/head.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .mrcj .m-times{
+            padding:0.88rem 1.48rem 0 1.34rem;
+            height: 1.16rem;
+        }
+        .mrcj .m-times .times{
+            margin-top: 0.04rem;
+            float: left;
+            padding:0 0.5rem;
+            height: 0.96rem;
+            background-color: #fff;
+            border: 0 none;
+            border-radius: 0.48rem;
+            line-height: 0.96rem;
+            font-size: 0.48rem;
+            color: #333;
+        }
+        .mrcj .m-times .times i{
+            font-size: 0.7rem;
+            color: #ff0137;
+            padding:0 0.1rem;
+        }
+        .mrcj .m-times .share{
+            float: right;
+            width: 3.9rem;
+            height: 1.02rem;
+            background:url(//rescdn.sitezt.cn/A/resource/mrcj/share.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .mrcj .m-loop{
+            padding-top: 0.46rem;
+            padding-left: 0.52rem;
+            width: 12.44rem;
+            height: 12.88rem;
+            margin:0 auto 0.6rem;
+            background:url(//rescdn.sitezt.cn/A/resource/mrcj/loopbg1.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .mrcj .m-loop2{
+            background:url(//rescdn.sitezt.cn/A/resource/mrcj/loopbg2.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .mrcj .m-loop li{
+            float: left;
+            width:3.98rem;
+            height: 4.06rem;
+        }
+        .mrcj .m-loop .gift .touch{
+            position:absolute;
+            width:3.98rem;
+            height: 4.06rem;
+            background:url(//rescdn.sitezt.cn/A/resource/mrcj/gift_on.png) center center no-repeat;
+            background-size:100% 100%;
+        }
+        .mrcj .m-ruler{
+            width: 13.26rem;
+            height: 6rem;
+            background:url(//rescdn.sitezt.cn/A/resource/mrcj/ruler.png) center center no-repeat;
+            background-size: 100% 100%;
+            margin:0 auto;
+        }
+        .mrcj .m-fixed{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top:0;
+            background: rgba(0,0,0,0.8);
+        }
+        .mrcj .m-fixed .win{
+            position: absolute;
+            top: 50%;
+            margin-top: -10rem;
+            left : 50%;
+            margin-left : -7.5rem;
+            width: 15rem;
+            height: 8.62rem;
+            background:url(//rescdn.sitezt.cn/A/resource/mrcj/win.png) center center no-repeat;
+            background-size: 100% 100%;
+            padding-top: 6.54rem;
+        }
+        .mrcj .m-fixed .win .text{
+            line-height: 0.78rem;
+            font-size: 0.6rem;
+            color:#d92f2f;
+            text-align: center;
+        }
+        .mrcj .m-fixed .win .text .cj{
+            line-height: 1.2rem;
+            font-size: 0.8rem;
+            color:#d92f2f;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+
+<body id="dom">
+   <div class="mrcj">
+        <div class="m-head">
+            <img class="logo" style="display: none;" src="//rescdn.sitezt.cn/A/resource/mrcj/logo.png" width="100%" height="100%">
+            <h4></h4>
+        </div>
+        <div class="m-times">
+            <div class="times">您还有<i id="chanceCount">0</i>次抽奖机会</div>
+            <span class="share"></span>
+        </div>
+        <ul class="m-loop">
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift1.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift2.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift3.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift4.png" width="100%" height="100%" />
+            </li>
+            <li class="gift center draw gift_b">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift5.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift6.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift7.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift8.png" width="100%" height="100%" />
+            </li>
+            <li class="gift">
+                <img src="//rescdn.sitezt.cn/A/resource/mrcj/gift9.png" width="100%" height="100%" />
+            </li>
+        </ul>
+        <div class="m-ruler"></div>
+        <div class="m-fixed" style="display: none;">
+            <div class="win">
+                <div class="text"></div>
+            </div>
+        </div>
+   </div>
+    <script type="text/javascript">
+        var dom = document.getElementById('dom');
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        var UiUrl=GetQueryString("ui");
+        var resourcePath ='//rescdn.sitezt.cn/A';
+        var jsArr=[resourcePath+"/resource/CommonJs/jquery-1.8.2.min.js", resourcePath+"/resource/js/mrcj.js"];
+        for(var i=0 ;i<jsArr.length;i++){
+            var newScript = document.createElement('script');
+            newScript.type = 'text/javascript';
+            newScript.async=false;
+            newScript.src=jsArr[i];
+            dom.appendChild(newScript);
+        }
+    </script>
+</body>
+
+</html>

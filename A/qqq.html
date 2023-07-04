@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>关闭提示</title>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+    <style>
+        html,
+        body,
+        div,
+        ul,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p,
+        em,
+        i,
+        img {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle
+        }
+
+        html {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+
+        body {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+            font: normal normal 0px/18px;
+            font-family: Arial, 'Microsoft YaHei';
+            background-color: #fff;
+        }
+
+        .none {
+            display: none;
+        }
+        .close-container{
+          box-sizing: border-box;
+          width: 100%;
+          height: auto;
+        }
+        .close-banner img{
+          width: 100%;
+        }
+        .close-body{
+          background: #eeeeed;
+          text-align:center;
+          padding-bottom: 1.08rem;
+        }
+        .close-body section{
+          box-sizing: border-box;
+          padding: 0 0.84rem;
+          margin: 0 auto;
+          margin-bottom: 1.28rem;
+        }
+        .close-body h3{
+          font-size: 0.76rem;
+          padding: 0.68rem 0 .64rem 0;
+        }
+        .close-body p{
+          font-size: 0.56rem;
+          font-weight: bold;
+          color:#666666;
+          /* padding-bottom: .76rem; */
+        }
+        .close-body img {
+          margin-top: .76rem;
+          display: block;
+          width: 100%;
+        }
+        .blue{
+          color:#2c9eed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="close-container">
+      <div class="close-banner">
+        <img src="//rescdn.sitezt.cn/A/resource/qqq/close_banner.jpg" alt="">
+      </div>
+      <div class="close-body">
+        <section>
+          <h3>一、进入APP个人中心</h3>
+          <p>
+            <span class="blue">“APP个人中心”</span>-点击<span class="blue">“我的”</span>进入
+          </p>
+          <img src="//rescdn.sitezt.cn/A/resource/qqq/section1.jpg" alt="">
+        </section>
+        <section>
+          <h3>二、关闭“分享商品带APP下载”</h3>
+          <p>
+            找<span class="blue">“分享商品带APP下载”</span>，默认开启状态，
+          </p>
+          <p>手动关闭即可</p>
+          <img src="//rescdn.sitezt.cn/A/resource/qqq/section2.jpg" alt="">
+        </section>
+        <section>
+          <h3>三、关闭成功</h3>
+          <p>
+            关闭以后，购买页面即不会显示APP下载引导提示
+          </p>
+          <img src="//rescdn.sitezt.cn/A/resource/qqq/section3.jpg" alt="">
+        </section>
+      </div>
+    </div>
+</body>
+
+</html>

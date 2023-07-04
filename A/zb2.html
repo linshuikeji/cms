@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title></title>
+    <style>
+        /*样式重置start*/
+        html, body, div, ul, li, h1, h2, h3, h4, h5, p, em, i, img {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        em, i {
+            font-style: normal;
+        }
+        /*全局样式 start*/
+        html {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+
+        body {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+            font: normal normal 0px/18px;
+            font-family: Arial,'Microsoft YaHei';
+            background-color: #fff;
+            padding-bottom: 2rem;
+        }
+        html,body{
+            min-height: 100%;
+        }
+        .m-top{
+            height: 8.68rem;
+            background:url(//rescdn.sitezt.cn/A/resource/zb/top.jpg) center center no-repeat;
+            background-size: 100% 100%;
+            padding-top: 3.34rem;
+        }
+        .m-top .video-content{
+            position: relative;
+            display: block;
+            width: 12.72rem;
+            height: 8.68rem;
+            margin:0 auto;
+        }
+        .m-top .video-content .poster{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12.72rem;
+            height: 8.68rem;
+            z-index: 999;
+        }
+        .m-time{
+            height: 3.14rem;
+            background-color: #000;
+            padding-top: 0.38rem;
+        }
+        .m-time .time{
+            height:1.58rem;
+            text-align: center;
+            line-height: 1.58rem;
+            font-size: 0.56rem;
+            color: #fff;
+        }
+        .m-time .time i{
+            font-size: 1.24rem;
+            margin-left: 0.46rem;
+        }
+        .m-time .title{
+            height: 1.3rem;
+            line-height: 1.3rem;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            width: 90%;
+            margin:0 auto;
+        }
+        .m-pro-text{
+            padding: 0.38rem 0.75rem 0;
+            line-height: 0.82rem;
+            text-align: center;
+            background-color: #eaeaea;
+            color: #424242;
+            font-size: 0.54rem;
+            padding-bottom: 0.72rem;
+        }
+        .m-detail{
+            background: url(//rescdn.sitezt.cn/A/resource/zb/detail-title.png) center top no-repeat;
+            background-size: 100% auto;
+            padding-bottom: 0.3rem;
+            background-color: #e2e2e2;
+        }
+        .m-detail .detail-title{
+            height: 2.4rem;
+            padding-top: 0.8rem;
+        }
+        .m-detail .detail-title span{
+            display: block;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #fff;
+            height: 1rem;
+            line-height: 1rem;
+        }
+        .m-detail .detail-title i{
+            display: block;
+            text-align: center;
+            font-size: 0.59rem;
+            font-weight: bold;
+            color: #fff;
+            height: 0.9rem;
+            line-height: 0.9rem;
+        }
+        .m-detail .detail-content{
+            overflow:hidden;
+        }
+        .detail-content h5,.m-last-block h5{
+            position: relative;
+            width: 3.26rem;
+            height: 2.14rem;
+            line-height: 1.2rem;
+            text-align: center;
+            background: url(//rescdn.sitezt.cn/A/resource/zb/title.png) center center no-repeat;
+            background-size: 100% 100%;
+            font-size: 0.5rem;
+            color: #fff;
+            margin:0 auto 0.38rem;
+            font-weight: 100;
+        }
+        .detail-content h5 span,.m-last-block h5 span{
+            position: absolute;
+            bottom: 0.4rem;
+            left: 0;
+            height: 0.76rem;
+            line-height: 0.76rem;
+            text-align: center;
+            width: 3.26rem;
+            font-size: 0.5rem;
+            font-weight: bold;
+        }
+        .detail-content p{
+            width: 90%;
+            line-height: 0.8rem;
+            font-size: 0.54rem;
+            color: #424242;
+            text-align: center;
+            margin:0 auto 0.38rem;
+        }
+        .detail-content .video-mian{
+            width: 10.36rem;
+            height: 6.3rem;
+            margin:0 auto 0.38rem;
+            border: 1px solid #000;
+        }
+        .detail-content img{
+            display: block;
+            width: 10.2rem;
+            margin:0 auto 0.38rem;
+        }
+        .m-last-block{
+            background-color: #fff;
+            padding-bottom: 1rem;
+        }
+        .m-last-block .start-time{
+            line-height: 1.6rem;
+            font-size: 0.56rem;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .m-last-block .start-time i{
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left:0.72rem;
+        }
+        .m-last-block .buy-btn{
+            display: block;
+            width: 8.4rem;
+            height: 1.96rem;
+            background: url(//rescdn.sitezt.cn/A/resource/zb/buy-btn.png) center center no-repeat;
+            background-size: 100% 100%;
+            margin:0 auto;
+        }
+        .m-last-block .buy-btn2{
+            display: block;
+            width: 8.4rem;
+            height: 1.96rem;
+            background: url(//rescdn.sitezt.cn/A/resource/zb/buy-btn2.png) center center no-repeat;
+            background-size: 100% 100%;
+            margin:0 auto;
+        }
+        .m-fixed-buy{
+            display: none;
+            position: fixed;
+            right: 0.28rem;
+            bottom:3rem;
+            background: url(//rescdn.sitezt.cn/A/resource/zb/fixed-buy.png) center center no-repeat;
+            background-size: 100% 100%;
+            z-index: 99;
+            width: 1.44rem;
+            height: 3.54rem;
+        }
+         #wx {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+        
+        #wx p {
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            width: 9.9rem;
+            height: 7.64rem;
+            background: url(//rescdn.sitezt.cn/A/resource/shopdetail/tishi.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+        .imgzoom_pack {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background: rgba(0, 0, 0, .7);
+            z-index: 999999;
+        }
+
+        .imgzoom_pack .imgzoom_x {
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            background: #000;
+            text-align: center;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .imgzoom_pack .imgzoom_img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        .imgzoom_pack .imgzoom_img img {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+        }
+        .m-fixed-line-buy{
+            box-sizing: border-box;
+            position: fixed;
+            width: 100%;
+            height: 2rem;
+            bottom: 0;
+            left: 0;
+            border-top: 1px solid #dbdbdb;
+            background-color: #fff;
+            padding-top: 0.54rem;
+        }
+        .m-fixed-line-buy .price{
+            float: left;
+            padding-left: 1rem;
+            width: 3.5rem;
+            height: 0.92rem;
+            line-height: 0.92rem;
+            font-size: 0.64rem;
+            margin-left: 0.18rem;
+            color: #000000;
+            font-weight: 600;
+        } 
+        .m-fixed-line-buy .quan{
+            float: left;
+            position: relative;
+            /* padding-left: 0.44rem;
+            padding-right: 0.48rem; */
+            font-size: 0.48rem;
+            height: 0.92rem;
+            width: 3.7rem;
+            line-height: 0.92rem;
+            /* border-top: 1px solid #303030;
+            border-bottom: 1px solid #303030; */
+            background: url(//rescdn.sitezt.cn/A/resource/zb/buy_quan.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            text-align: center;
+        }
+        /* .m-fixed-line-buy .quan:before{
+            position: absolute;
+            top: 0;
+            left: -0.18rem;
+            content: "";
+            display: block;
+            width: 0.18rem;
+            height: 0.92rem;
+            background: url(http://cdn.temzt.cn/AppCms/UI/zb/buy_l.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+        .m-fixed-line-buy .quan:after{
+            position: absolute;
+            top: 0;
+            right:-0.14rem;
+            content: "";
+            display: block;
+            width: 0.14rem;
+            height: 0.92rem;
+            background: url(http://cdn.temzt.cn/AppCms/UI/zb/buy_r.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+        } */
+        .m-fixed-line-buy .fix-buy-btn{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 2rem;
+            width: 5.22rem;
+            background: url(//rescdn.sitezt.cn/A/resource/zb/fix-buy-01.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+        .m-fixed-line-buy .fix-buy-btn2{
+            position: absolute;
+            right: 0;   
+            bottom: 0;
+            height: 2rem;
+            width: 5.22rem;
+            background: url(//rescdn.sitezt.cn/A/resource/zb/fix-buy-02.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+
+<body id="dom">
+    <div class="zb">
+        <div class="m-top">
+            <div class="video-content">
+                
+            </div>
+        </div>
+        <div class="m-time">
+            <div class="time"></div>
+            <div class="title">
+            </div>
+        </div>
+        <div class="m-pro-text">
+        </div>
+        <div class="m-detail">
+            <div class="detail-title">
+                <span>细节展示</span>
+                <i>DETAIL DISPLAY</i>
+            </div>
+            <div class="detail-content">
+            </div>
+        </div>
+        <div class="m-last-block">
+            <h5>
+                我要买
+                <span></span>
+            </h5>
+            <div class="start-time">
+                <i></i>
+            </div>
+            <a class="buy-btn" id="buy-btn" href="javascript:void(0);">
+            </a>
+        </div>
+        <a class="m-fixed-buy" href=""></a>
+        <div class="m-fixed_wx" id="wx">
+            <p></p>
+        </div>
+    </div>
+    <div class="imgzoom_pack" style="display: none;">
+            <div class="imgzoom_x">X</div>
+            <div class="imgzoom_img"><img class="pp" src=""></div>
+    </div>
+    <div class="m-fixed-line-buy">
+        <div class="price"></div>
+        <div class="quan"></div>
+        <a class="fix-buy-btn" id="fix-buy-btn" href="javascript:void(0);"></a>
+    </div>
+    <script type="text/javascript">
+    var dom = document.getElementById('dom');
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    var UiUrl=GetQueryString("ui");
+    var resourcePath ='//rescdn.sitezt.cn/A';
+    var jsArr=[resourcePath+"/resource/CommonJs/jquery-1.8.2.min.js",resourcePath+"/resource/CommonJs/scale.js", resourcePath+"/resource/js/zb.js"];
+    for(var i=0 ;i<jsArr.length;i++){
+        var newScript = document.createElement('script');
+        newScript.type = 'text/javascript';
+        newScript.async=false;
+        newScript.src=jsArr[i];
+        dom.appendChild(newScript);
+    }
+</script>
+</body>
+</html>
