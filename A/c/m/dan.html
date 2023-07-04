@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title></title>
+    <link href="//rescdn.sitezt.cn/A/c/m/css/common.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #f0f0f0;
+        }
+        .dan{
+            overflow: hidden;
+            padding-bottom: 2rem;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+
+<body id="dom">
+    <div class="dan">
+        <div class="common-title"><a href="javascript:history.back(-1);" class="back"></a><span></span></div>
+        <div class="common-fill">
+            <a class="cur_a p_default" data-type='0' href="javascript:void(0)">
+                综合排序
+            </a>
+            <a class="p_xp" data-type='1' href="javascript:void(0)">
+                新品
+            </a>
+            <a class="p_sale" data-type='2' href="javascript:void(0)">
+                销量
+            </a>
+            <a class="p_price" href="javascript:void(0)">
+                价格
+                <span></span>
+            </a>
+ 
+        </div>
+        <div class="pro-box">
+            <div class="pro-com-list" id="pro-list">
+            </div>
+        </div>
+        <div class="m-fixed-nav">
+            <a data-ui="home" data-parm="" href="javascript:void(0)">
+                <span class="sy"></span>
+                <i>首页</i>
+            </a>
+            <a data-ui="xsqg" data-parm="" href="javascript:void(0)">
+                <span class="xsqg"></span>
+                <i>限时抢购</i>
+            </a>
+            <a data-ui="ppjx" data-parm="" href="javascript:void(0)">
+                <span class="xbjx"></span>
+                <i>品牌精选</i>
+            </a>
+            <a data-ui="ssbd" data-parm="" href="javascript:void(0)">
+                <span class="crqb"></span>
+                <i>实时榜单</i>
+            </a>
+        </div>
+    </div>
+    <a data-ui="kefuPH" data-parm="" class="g_wx_fixed"></a>
+    <script id="prolistTem" type="text/html">
+        {{each datajson as item i}}
+            <a class="pro ui_jump" data-ui="detail" data-parm="&i={{item.ItemId}}" >
+                <div class="img_a">
+                    <span class="tag">
+                    </span>
+                    {{if i<6}}
+                        <img class="lazy" src="{{item.ItemImage}}" width="100%" height="100%">
+                    {{else}}
+                        <img class="lazy" src="" data-original="{{item.ItemImage}}" width="100%" height="100%">
+                    {{/if}}
+                    
+                </div>
+                <div class="content">
+                    <div class="title">
+                        {{item.ItemTitle}}
+                    </div>
+                    <div class="price-line">
+                        <div class="price">
+                        {{if item.QuanAmount}}
+                            <em>券后</em><i>¥</i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}
+                        {{else}}
+                            <em>折扣价</em>{{(item.DiscountPrice*item.ItemNum-item.ShopJian)/100}}
+                        {{/if}}
+                        </div>
+                       
+                    </div>
+                    <div class="quan-line">
+                        <div class="quan">
+                            <em>领券</em>
+                            <i>减 {{item.QuanAmount/100}}</i>
+                        </div>
+                        <div class="from_t">{{item.SaleCount}}人已</div>
+                    </div>
+                </div>
+                <div class="buy-line">
+                    {{if item.IsTmall==1}}
+                        <div class="buy-num">天猫</div>
+                    {{else}}
+                        <div class="buy-num">淘宝</div>
+                    {{/if}}
+                    <div class="from">{{item.ShopName}}</div>
+                </div>
+            </a>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        (function(){
+            var dom = document.getElementById('dom');
+            function GetQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var url=window.location.search.substr(1);
+                 var r = url.match(reg);
+                 return r ? decodeURIComponent(r[2]) : null;
+            }
+
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType=GetQueryString("test");
+            if(testType){
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/GlobalJsTest/sign.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath+"/c/GlobalJsTest/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath+"/c/mTest/js/dan.js"];
+            }else{
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath+"/c/GlobalJs/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js", resourcePath + "/c/GlobalJs/PhCommon.js", resourcePath+"/c/m/js/dan.js"];
+            }
+            for(var i=0 ;i<jsArr.length;i++){
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async=false;
+                newScript.src=jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+</html>
