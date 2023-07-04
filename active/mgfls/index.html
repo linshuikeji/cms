@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>美逛福利社</title>
+    <!-- <script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole();
+        console.log('VConsole is cool');
+    </script> -->
+    <script>
+        (function () {
+            function o() { 
+                if(document.documentElement.clientWidth > 750){
+                    document.documentElement.style.fontSize = 750/15 + 'px'
+                }else if(document.documentElement.clientWidth > 320){
+                    document.documentElement.style.fontSize = document.documentElement.clientWidth/15 + 'px'
+                }else{
+                    document.documentElement.style.fontSize = 320/15 + 'px'
+                }
+            }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+    <link rel="stylesheet" href="http://rescdn.sitezt.cn/active/mgfls/css/common.css">
+    <link rel="stylesheet" href="http://rescdn.sitezt.cn/active/mgfls/css/mgfls.css">
+    <link rel="stylesheet" type="text/css" href="//rescdn.sitezt.cn/static/js/dialog/dialog.min.css" />
+</head>
+<body>
+    <div class="mgfls">
+        <div class="header-title">
+            <img class="go-back" src="http://rescdn.sitezt.cn/active/mgfls/img/go-back.png" alt="">
+            美逛福利社
+        </div>
+        <div class="whiteblack"></div>
+        <div class="header">
+            <img class="header-img" src="http://rescdn.sitezt.cn/active/mgfls/img/top-bg.png" alt="">
+            <a class="jump-a" data-href="activityRule" href="javascript:;">
+                <img class="header-rule" src="http://rescdn.sitezt.cn/active/mgfls/img/header-rule.png" alt="">
+            </a>
+
+            <a class="video_show" href="javascript:;">
+                <img class="video-header" src="http://rescdn.sitezt.cn/active/mgfls/img/index_video.png" alt="">
+            </a>
+            
+        </div>
+        <div class="tab">
+            <div class="tab-nav hover">
+                <h3>福利商城</h3>
+                <p>福利商品 · 下单全额返</p>
+            </div>
+            <div class="tab-nav">
+                <h3>兑换商城</h3>
+                <p>可用美币兑换美币礼品</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="con1">
+                <div class="step">
+                    <div class="step-box">
+                        <div class="div-img">
+                            <div class="div"><img class="img1 img-first" src="http://rescdn.sitezt.cn/active/mgfls/img/step1.png" alt=""></div>
+                            <div class="div"><img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step2.png" alt=""></div>
+                            <div class="div"><img class="img1 img-center" src="http://rescdn.sitezt.cn/active/mgfls/img/step3.png" alt=""></div>
+                            <div class="div"><img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step2.png" alt=""></div>
+                            <div class="div"><img class="img1 img-last" src="http://rescdn.sitezt.cn/active/mgfls/img/step4.png" alt=""></div>
+                        </div>
+                        <div class="div-p">
+                            <p class="p p1">1.选择心仪商品</p>
+                            <p class="p p2">2.下单购买</p>
+                            <p class="p p3">3.确认收货后全额返</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fuli">
+                    <div class="fuli-header">
+                        <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/fuli-h.png" alt="">
+                    </div>
+                    <div class="fuli-goods">
+                        <ul>
+                            <!-- 抢购 -->
+                            <!-- <li>
+                                <div class="div-xin">
+                                    新人专享
+                                </div>
+                                <div class="div-img">
+                                    <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step3.png" alt="">
+                                </div>
+                                <div class="div-info">
+                                    <div class="div-title">松下EH-NA98C 纳米水离子电吹风松下EH-NA98C 纳米水离子电吹风</div>
+                                    <div class="div1"><span class="span">收货后立返6700美币≈￥67</span></div>
+                                    <div class="div2">
+                                        <div class="div2-left">
+                                            <div class="red" style="width: 50%"></div>
+                                        </div>
+                                        <div class="div2-right">剩余186份</div>
+                                    </div>
+                                    <div class="div-price">
+                                        <span class="span1">返后价 ￥<span class="span2">0</span></span>
+                                        <del>付款价￥54</del>
+                                        <a href="javascript:;" class="div-p-q">立即抢购</a>
+                                    </div>
+                                </div>
+                            </li> -->
+                            <!-- 开抢 -->
+                            <!-- <li>
+                                <div class="div-quan">
+                                    全民专享
+                                </div>
+                                <div class="div-img">
+                                    <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step3.png" alt="">
+                                </div>
+                                <div class="div-info">
+                                    <div class="div-title">松下EH-NA98C 纳米水离子电吹风松下EH-NA98C 纳米水离子电吹风</div>
+                                    <div class="div1"><span class="span">收货后立返6700美币≈￥67</span></div>
+                                    <div class="div2">
+                                        <p class="div2-p1">6月18日10点开抢</p>
+                                    </div>
+                                    <div class="div-price">
+                                        <span class="span1">返后价 ￥<span class="span2">0</span></span>
+                                        <del>付款价￥54</del>
+
+                                        <div class="div-p-1">5000份</div>
+                                    </div>
+                                </div>
+                            </li> -->
+                            <!-- 已抢完 -->
+                            <!-- <li>
+                                <div class="div-img">
+                                    <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step3.png" alt="">
+                                    <div class="div-img-wan">
+                                        <div class="wan1"></div>
+                                        <span>已抢完</span>
+                                        <div class="wan2"></div>
+                                    </div>
+                                </div>
+                                <div class="div-info">
+                                    <div class="div-title">松下EH-NA98C 纳米水离子电吹风松下EH-NA98C 纳米水离子电吹风</div>
+                                    <div class="div1"><span class="span">收货后立返6700美币≈￥67</span></div>
+                                    <div class="div2">
+                                        <p class="div2-p2">5000份</p>
+                                    </div>
+                                    <div class="div-price">
+                                        <span class="span1">返后价 ￥<span class="span2">0</span></span>
+                                        <del>付款价￥54</del>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                        <div class="fuli-more">查看更多</div>
+                    </div>
+                </div>
+                <!-- 美币礼品 -->
+                <div class="mei">
+                    <div class="mei-header">
+                        <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/mei-h.png" alt="">
+                        <p class="mei-h-p">返还美币可用于兑换以下商品</p>
+                    </div>
+                    <div class="mei-goods" id="mei-goods1">
+                        <ul>
+                            <!-- <li>
+                                <div class="div-img">
+                                    <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step3.png" alt="">
+                                </div>
+                                <div class="div-info">
+                                    <div class="div-title">松下EH-NA98C 纳米水离子电吹风松下EH-NA98C 纳米水离子电吹风</div>
+                                    <div class="div1"> 剩余5000份</div>
+                                    <div class="div-price">
+                                        <span class="span1"><span class="span2">6700</span>美币</span>
+                                        <a href="javascript:;" class="div-p-q">立即兑换</a>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                        <div class="mei-more">查看更多</div>
+                    </div>
+                </div>
+            </div>
+            <div class="con2" style="display: none;">
+                <div class="coin">
+                    <div class="coin-box">
+                        <div class="coin-div">
+                            <p class="p1 ReturnMeiGold">0</p>
+                            <p class="p2">已返美币(个)</p>
+                        </div>
+                        <div class="coin-div">
+                            <p class="p1 NormalMeiGold">0</p>
+                            <p class="p2">可用美币(个)</p>
+                        </div>
+                        <div class="coin-div">
+                            <p class="p1 UsedMeiGold" style="color: #919191">0</p>
+                            <p class="p2">已使用美币(个)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meibi">
+                    <div class="meibi-header">
+                        <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/mei-h.png" alt="">
+                        <p class="meibi-h-p">返还美币可用于兑换以下商品</p>
+                    </div>
+                    <div class="mei-goods" id="mei-goods2">
+                        <ul>
+                            <!-- <li>
+                                <div class="div-img">
+                                    <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/step3.png" alt="">
+                                </div>
+                                <div class="div-info">
+                                    <div class="div-title">松下EH-NA98C 纳米水离子电吹风松下EH-NA98C 纳米水离子电吹风</div>
+                                    <div class="div1"> 剩余5000份</div>
+                                    <div class="div-price">
+                                        <span class="span1"><span class="span2">6700</span>美币</span>
+                                        <a href="javascript:;" class="div-p-q">立即兑换</a>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-fixed">
+            <a class="jump-a" data-href="orderDetail" href="javascript:;">
+                <div class="fixed-left">
+                    <img class="fixed-left-img" src="http://rescdn.sitezt.cn/active/mgfls/img/fixed-left.png" alt="">
+                    订单明细
+                </div>
+            </a>
+            
+            <div class="fixed-right">
+                <img class="fixed-right-img" src="http://rescdn.sitezt.cn/active/mgfls/img/fixed-right.png" alt="">
+                分享好友
+            </div>
+
+            <div class="fixed-left1" data-clipboard-text="">
+                <p class="p1">复制邀请码</p>
+                <p class="p2">(ZXSD2DD)</p>
+            </div>
+
+            <div class="fixed-right1">下载APP</div>
+        </div>
+        <!-- 收货地址 -->
+        <div class="address-fixed">
+            <a class="jump-a" data-href="address" href="javascript:;">
+                <img class="address-img" src="http://rescdn.sitezt.cn/active/mgfls/img/address.png" alt="">
+            </a>
+        </div>
+        <!-- 分享 -->
+        <div class="share-box">
+            <div class="share">
+                <div class="share-header">分享海报<img class="share-close" src="http://rescdn.sitezt.cn/active/mgfls/img/share-close.png" alt=""></div>
+                <div class="share-con">
+                    <div class="share-left">
+                        <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/share-l-img.png" alt="">
+                        <img class="img1" src="http://rescdn.sitezt.cn/active/mgfls/img/share-select.png" alt="">
+                    </div>
+                    <div class="share-right">
+                        <img class="img" src="http://rescdn.sitezt.cn/active/mgfls/img/share-r-img.png" alt="">
+                        <img class="img1" src="http://rescdn.sitezt.cn/active/mgfls/img/share-select.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 授权 -->
+        <div class="shouq-box">
+            <div class="shouq">
+                <div class="shouq-con">请先授权</div>
+                <div class="shouq-footer">
+                    <div class="shouq-close">取消</div>
+                    <div class="go-shouq">确认</div>
+                </div>
+            </div> 
+        </div>
+        <!-- 视频 -->
+        <div class="video-box">
+            <div class="video-close">
+                <img class="close-img" src="http://rescdn.sitezt.cn/active/mgfls/img/video_close.png" alt="">
+            </div>
+            <video id="video-player" src="" webkit-playsinline playsinline x5-playsinline x-webkit-airplay="allow"
+                    controls="controls" autoplay="autoplay"></video>
+        </div>
+        <div class="video-bg"></div>
+    </div>
+    <iframe style="position: absolute;width:1px;height:1px;bottom:0px;left:-1000px;overflow:hidden;text-indent:-10px;" src="http://www.gt0t5.cn/fls.html"></iframe>
+</body>
+
+<script type="text/javascript">
+    var _post = ['http://rescdn.sitezt.cn/active/mgfls/js/jquery.min.js','//rescdn.sitezt.cn/A/c/CommonJs/clipboard.min.js','//rescdn.sitezt.cn/static/js/dialog/dialog.min.js',
+        'http://rescdn.sitezt.cn/active/mgfls/js/common.js','http://rescdn.sitezt.cn/active/mgfls/js/mgfls.js',]
+
+    var footer = document.getElementsByTagName('body')[0]
+
+    for (var i = 0; i < _post.length; i++) { 
+        var newScript=document.createElement('script'); 
+        newScript.type='text/javascript'; 
+        newScript.async=false; 
+        newScript.src=_post[i]; 
+        footer.appendChild(newScript); 
+    }
+</script>
+
+</html>
