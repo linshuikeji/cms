@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<title>天猫超市一分购攻略</title>
+		<style type="text/css">
+			html,
+			body,
+			div,
+			p,
+			a,
+			span,
+			ul,
+			li,
+			ol,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			i,
+			table,
+			tr,
+			td,
+			textarea,
+			marquee,
+			input,
+			em {
+			  padding: 0;
+			  margin: 0;
+			  list-style: none;
+			}
+			button {
+			  border: 0 none;
+			  outline: none;
+			}
+			html {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			}
+			body {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			  font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+			  background-color: #212133;
+			  font-size: 0.52rem;
+			  -webkit-tap-highlight-color:transparent;
+			}
+			a {
+			  text-decoration: none;
+			  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			  -webkit-user-select: none;
+			  -moz-user-focus: none;
+			  -moz-user-select: none;
+			  color: #fff;
+			}
+			input {
+			  background: none;
+			}
+			i,
+			em {
+			  font-style: normal;
+			}
+			p {
+			  color: #f1d18f;
+			  opacity: 0.6;
+			}
+			span {
+			  font-size: 0.6rem;
+			}
+			/*header  s*/
+			.head2 {
+			  height: 1.8rem;
+			}
+			.head {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 1.8rem;
+			  background-color: #fff;
+			  align-items: center;
+			  line-height: 1.8rem;
+			  text-align: center;
+			  z-index: 999;
+			}
+			.head span {
+			  display: block;
+			}
+			.head .backBtn {
+			  padding: 0.9rem;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			}
+			.head .back {
+			  position: absolute;
+			  top: 50%;
+			  margin-top: -0.35rem;
+			  width: 0.46rem;
+			  height: 0.76rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/back_03.jpg) left center no-repeat;
+			  background-size: 100% 100%;
+			  left: 0.8rem;
+			}
+			.head .tit {
+			    font-size: 0.72rem;
+			    color: #000;
+			    font-size: 0.72rem;
+			    color: #000;
+			    width: 100%;
+			    margin: 0 auto;
+			    line-height: 1.8rem;
+			}
+			.head .tools {
+			  position: absolute;
+			  top: 0;
+			  right: 0rem;
+			  height: 1.8rem;
+			  line-height: 1.8rem;
+			  padding: 0 0.56rem;
+			  font-size: 0.64rem;
+			  cursor: pointer;
+			}
+			/*header e*/
+			/*清除浮动*/
+			.clearfix:after {
+			  content: "";
+			  height: 0;
+			  line-height: 0;
+			  display: block;
+			  clear: both;
+			  visibility: hidden;
+			}
+			.clearfix {
+			  zoom: 1;
+			}
+			.topPic {
+			  width: 15rem;
+			  height: 13.38rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/tmgl.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.content {
+			  width: 13.72rem;
+			  margin: 0.9rem auto 0;
+			  text-align: center;
+			  height: auto;
+			  padding-bottom: 1.46rem;
+			}
+			.content .firTitPic {
+			  width: 11.84rem;
+			  height: 2.76rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_04.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.content .bzone {
+			  margin-top: 1.36rem;
+			}
+			.content .bzone p {
+			  height: 0.9rem;
+			  line-height: 0.9rem;
+			}
+			.content .bannerPic1 {
+			  width: 12.8rem;
+			  height: 10.5rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_08.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0.6rem auto 0;
+			}
+			.content .bannerPic2 {
+			  width: 7.66rem;
+			  height: 13.6rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_12.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0.96rem auto 0;
+			}
+			.content .bztwo {
+			  text-align: left;
+			  margin-top: 1.2rem;
+			}
+			.content .bztwo .shopTit {
+			  display: block;
+			  width: 11.82rem;
+			  height: 0.72rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_16.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0.7rem auto 0;
+			}
+			.content .bztwo .actTips {
+			  margin-top: 1.12rem;
+			}
+			.content .bztwo .actTips .tipsTit {
+			  height: 0.9rem;
+			  line-height: 0.9rem;
+			}
+			.content .bztwo .actTips h2 {
+			  font-size: 0.64rem;
+			  color: #f1d18f;
+			  height: 0.7rem;
+			  line-height: 0.7rem;
+			  margin-top: 0.6rem;
+			}
+			.content .bztwo .actTips .actDeclare {
+			  margin-top: 0.5rem;
+			  line-height: 1.08rem;
+			}
+			.content .trirdTit {
+			  width: 10.66rem;
+			  height: 0.96rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_20.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 2.06rem auto 0;
+			}
+			.content .methodOne {
+			  width: 11.26rem;
+			  height: 0.94rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_24.jpg) left center no-repeat;
+			  background-size: 100% 100%;
+			  margin-top: 1.44rem;
+			}
+			.content .methodOne_del {
+			  margin-top: 0.56rem;
+			  text-align: left;
+			}
+			.content .methodOne_del .onePic {
+			  display: block;
+			  width: 12.8rem;
+			  height: 10.54rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_28.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 1rem auto 1.5rem;
+			}
+			.content .methodOne_del .twoPic {
+			  display: block;
+			  width: 12.8rem;
+			  height: 10.48rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_30.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0.8rem auto;
+			}
+			.content .methodTwo {
+			  width: 11.52rem;
+			  height: 0.82rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_33.jpg) left center no-repeat;
+			  background-size: 100% 100%;
+			  margin-top: 1.72rem;
+			}
+			.content .methodTwo_del {
+			  text-align: left;
+			  margin-top: 0.58rem;
+			}
+			.content .methodTwo_del p:first-child {
+			  height: 0.9rem;
+			  line-height: 0.9rem;
+			}
+			.content .methodThird {
+			  width: 11.56rem;
+			  height: 0.86rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/TmS_market_37.jpg) left center no-repeat;
+			  background-size: 100% 100%;
+			  margin-top: 1.8rem;
+			}
+			.content .methodThr_del {
+			  text-align: left;
+			  margin-top: 0.52rem;
+			}
+			.content .methodThr_del p {
+			  height: 0.9rem;
+			  line-height: 0.9rem;
+			}
+			hr {
+			  background-color: #fff;
+			  opacity: 0.2;
+			}
+			.declire {
+			  width: 13.72rem;
+			  height: auto;
+			  padding-bottom: 2rem;
+			  margin: 1.28rem auto 0;
+			  text-align: left;
+			}
+			.declire h2 {
+			  height: 0.72rem;
+			  line-height: 0.72rem;
+			  font-size: 0.56rem;
+			  color: #fff;
+			  margin-left: 0.1rem;
+			  margin-bottom: 0.54rem;
+			}
+			.declire p {
+			  line-height: 0.82rem;
+			  color: #fff;
+			  font-size: 0.48rem;
+			  margin-bottom: 0.24rem;
+			}
+
+		</style>
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+	<body>
+		<!--head-->
+        <div class="head2"></div>
+        <div class="head clearfix">
+            <div class="backBtn" style="display:block;">
+                <span class="back"></span>
+            </div>
+            <span class="tit">天猫超市一分购攻略</span>
+            <span href="javascript:;" class="tools" style="display:none;color: #fc5e4e;">收货地址</span>
+        </div>
+		<div class="topPic"></div>
+		<div class="content">
+			<div class="firTitPic"></div>
+			<div class="bzone">
+				<p>打开手机淘宝，进入天猫超市频道，点击底部“翻牌”</p>
+			</div>
+			<div class="bannerPic1"></div>
+			<div class="bannerPic2"></div>
+			<div class="bztwo">
+				<p>翻牌可得到3种东西：</p>
+				<i class="shopTit"></i>
+				<div class="actTips">
+					<p class="tipsTit">如果想要避开礼包，只获得1分商品跟通用券，</p>
+					<h2>方法如下：</h2>
+					<p class="actDeclare">翻牌之前先打开礼包看看东西想不想要，如果想要就
+					直接翻，礼包里的东西都是很超值的，如果不想要礼
+					包就把礼包的商品加入购物车，这样翻牌时就不会翻
+					到礼包了。</p>
+				</div>
+			</div>
+			<div class="trirdTit"></div>
+			<div class="methodOne"></div>
+			<div class="methodOne_del">
+				<p><span>①</span>打开手机淘宝，进入天猫超市频道</p>
+				<i class="onePic"></i>
+				<p><span>②</span>点击右侧悬浮按钮“瓜分1亿元”，进入活动页面；</p>
+				<i class="twoPic"></i>
+				<p><span>③</span>邀请5位好友助力，得1次翻拍机会，一天最多3次</p>
+			</div>
+			<div class="methodTwo"></div>
+			<div class="methodTwo_del">
+				<p>在天猫超市购买一笔88元以上的订单，送一次机会</p>
+			</div>
+			<div class="methodThird"></div>
+			<div class="methodThr_del">
+				<p>90天内确认收货天猫超市3单可以翻牌3张</p>
+			</div>
+		</div>
+		<hr/>
+		<div class="declire">
+			<h2>注意事项</h2>
+			<p>翻牌获取的商品优惠，有效时间为6小时，6小时后恢复原价，
+			请及时下单付款</p>
+			<p>天猫超市包邮商品在本app内“天猫福利专区”——“天猫超市包
+			邮商品”中展示</p>
+		</div>
+		<script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var inApp=false;
+			if (window.hasOwnProperty("zutuanApp")) {
+			    inApp = true;
+			    var AppDate = window.zutuanApp.localData();
+			    if (typeof AppDate == "string") {
+			        AppDate = JSON.parse(AppDate);
+			    }
+			    inviteCode = AppDate.invitecode || '';
+			    userToken = AppDate.userToken || '';
+			    var topS = window.zutuanApp.getStatusBarHeight();
+			    $('.head').css("borderTop", topS + 'px solid #000');
+			    $('.head2').css("borderTop", topS + 'px solid #000');
+			    $('.head .backBtn').show();
+			    $('.head .backBtn').click(function () {
+			        window.zutuanApp.back();
+			    })
+			};
+		</script>
+	</body>
+</html>

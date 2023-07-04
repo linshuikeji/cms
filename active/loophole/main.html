@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/base.css">
+    <link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/main.css">
+    <!-- <script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole();
+        console.log('VConsole is cool');
+    </script> -->
+</head>
+
+<body>
+    <div class="head2"></div>
+    <div class="head clearfix">
+        <div class="backBtn" style="display:block;">
+            <span class="back"></span>
+        </div>
+        <span class="tit">淘宝福利专区</span>
+        <a class="smsm jump-a" data-href="declire">说明</a>
+        <div class="share">
+            <a href="javascript:;" class="tools" style="display:block;color: #fc5e4e;"></a>
+        </div>
+    </div>
+    <banner class="banner-box">
+        <img src="//rescdn.sitezt.cn/active/loophole/images/banner.png" alt="">
+    </banner>
+    <div class="nav-box-block">
+        <div class="nav-box">
+            <ul>
+                <li>
+                    <a class="jump-a" data-href="activity">
+                        <img src="//rescdn.sitezt.cn/active/loophole/images/nav_01.png" alt="">
+                        <p>天猫超市</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="jump-a" data-href="loophole" data-sea="itemtype=2">
+                        <img src="//rescdn.sitezt.cn/active/loophole/images/nav_03.jpg" alt="">
+                        <p>漏洞单</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="jump-a" data-href="benefit">
+                        <img src="//rescdn.sitezt.cn/active/loophole/images/nav_05.jpg" alt="">
+                        <p>猫超组合</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="jump-a" data-href="loophole" data-sea="itemtype=4">
+                        <img src="//rescdn.sitezt.cn/active/loophole/images/nav_07.jpg" alt="">
+                        <p>猫超包邮</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="jump-a" data-href="coupons">
+                        <img src="//rescdn.sitezt.cn/active/loophole/images/nav_09.png" alt="">
+                        <p>好劵专区</p>
+                        <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 攻略 -->
+    <div class="strategy contain" id="step1">
+        <div>
+            <p class="good-title">天猫超市</p>
+            <!-- <div class="good-more">
+                <a href="activity.html">更多</a>
+                <span></span>
+            </div> -->
+            <div class="tm_gl strategy-content" id="pro_1_list"></div>
+        </div>
+    </div>
+    <div class="loopholes contain ldd" id="step2">
+        <div>
+            <p class="good-title">淘宝漏洞单</p>
+            <!-- <div class="good-more">
+                <a href="loophole.html?itemtype=2">更多</a>
+                <span></span>
+            </div> -->
+            <div class="loopholes-content">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="tmallzh contain" id="step3" style="display:none;">
+        <div>
+            <p class="good-title">天猫超市组合福利</p>
+            <!-- <div class="good-more">
+                <a href="benefit.html">更多</a>
+                <span></span>
+            </div> -->
+            <div class="tmallzh-content swiper-container">
+
+            </div>
+        </div>
+    </div>
+    <div class="loopholes contain tmc" id="step4" style="display:none;">
+        <div>
+            <p class="good-title">天猫超市包邮商品</p>
+            <div class="loopholes-content">
+            </div>
+
+        </div>
+    </div>
+    <div class="quanblock contain" id="step5" style="display:none;">
+        <div>
+            <p class="good-title">淘宝好券专区</p>
+            <!-- <div class="good-more">
+                <a href="coupons.html">更多</a>
+                <span></span>
+            </div> -->
+            <div class="quan-content">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+        function o() {
+            document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 7.5 + "px"
+        }
+        var e = null;
+        window.addEventListener("resize", function () {
+            clearTimeout(e), e = setTimeout(o, 300)
+        }, !1), o()
+    })(window);
+</script>
+<script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js"></script>
+<script src="//rescdn.sitezt.cn/active/loophole/js/template.js"></script>
+<script src="//rescdn.sitezt.cn/active/loophole/js/md5.min.js"></script>
+<script src="//rescdn.sitezt.cn/active/loophole/js/initApp.js"></script>
+<script id="prolistTem" type="text/html">
+    {{each datajson as item i}}
+        <a class="strategy-slide jump-a" data-id="{{item.Id}}" data-href="{{item.U}}">
+            <div class="strategy-img">
+                <img src="{{item.Pic}}" width="100%" height="100%">
+            </div>
+            <div class="strategy-right">
+                <h3>{{item.Title}}</h3>
+                <p>{{item.Recommend}}</p>
+                <span>{{item.LookOverCount}}已阅</span>
+                <div class="look">
+                    <i>
+                        立即查看
+                        <span></span>
+                    </i>
+                </div>
+            </div>
+        </a>
+    {{/each}}
+</script>
+<script id="prolistTem2" type="text/html">
+    {{each datajson as item i}}
+
+        <div class="pro-content">
+            <div class="pro click_pro" data-id="{{item.Id}}" data-quan="{{item.QuanActivityId}}" data-q-url="{{item.QuanUrl}}">
+                <div class="content-top">
+                    <div class="content-img">
+                        <img src="{{item.ItemPic}}" width="100%" height="100%">
+                        {{if item.fxz}}
+                            <div class="fx-line">
+                                分享赚¥{{item.fxz}}
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div class="content-main">
+                        <p class="title">{{item.ItemTitle}}</p>
+                        <div class="remark" style="color: #cd0244;">{{item.Recommend}}</div>
+                        <div class="price_line">
+                            <span class="new-money">¥<i>{{(item.ShowPrice/100-item.QuanAmount/100).toFixed('1').replace('.0','')}}</i></span>
+                            <del>￥{{(item.ShowPrice/100).toFixed('1').replace('.0','')}}</del>
+                            {{if item.QuanAmount}}
+                            <div class="seep">
+                                <p>{{(item.QuanAmount/100).toFixed('1').replace('.0','')}}元劵</p>
+                                <div class="circle circle-left"></div>
+                                <div class="circle circle-right"></div>
+                            </div>
+                            {{/if}}
+                        </div>
+                        <div class="loophole-footer">
+                            <span>{{item.SaleCount}}已买</span>
+                            <a href="javascript:void(0);">购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    {{/each}}
+</script>
+<script id="prolistTem3" type="text/html">
+    {{each datajson as item i}}
+    <div class="pro-content">
+        <a class="pro jump-a" data-href="loophole" data-sea="itemtype=3&zhid={{item.Id}}&tit={{item.Title}}">
+            <div class="content-img">
+                <img src="{{item.Pic}}" width="100%" height="100%">
+            </div>
+            <div class="content-main">
+                <div class="title">{{item.Title}}</div>
+                <div class="tips">
+                    {{item.Recommend}}
+                </div>
+                <div class="bottom">
+                    <span>精选{{item.ItemCount}}件商品</span>
+                    <i>查看详情</i>
+                </div>
+            </div>
+            
+        </a>
+    </div>
+    {{/each}}
+</script>
+<script id="prolistTem4" type="text/html">
+    {{each datajson as item i}}
+    <a class="pro pro-quan" href="javascript:void(0);" data-url="{{item.QuanUrl}}">
+        <div class="coupons-left">
+            <img src="{{item.ItemPic}}" width='100%' height='100%'>
+        </div>
+        <div class="coupons-right">
+            <h3>{{item.ItemTitle}}</h3>
+            <p class="coupons-content">{{item.Recommend}}</p>
+            {{if item.QuanAmount}}
+            <div class="seep">
+                <p class="seep-money">{{item.QuanAmount/100}}元劵</p>
+                <div class="circle circle-left"></div>
+                <div class="circle circle-right"></div>
+            </div>
+            {{/if}}
+            <div class="look">
+                <span>
+                    立即领券
+                    <i>></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script>
+    //var postUrl = '//proxytest.sitezt.cn';
+    var postUrl = 'https://dl.sitezt.cn';
+   // var invitecode = 'ZC3CGP8';
+    var rollflag=true;
+    var G_pageNum=1;
+    var PostDateType=0;
+    var customCode='';
+    var invitecode = '';
+    var url = ['Tmglue', 'Tmty', 'Tm9go'];
+    if (window.hasOwnProperty("zutuanApp")) { //判断是否在app内部
+        inApp = true; //在app内部，为true
+        var AppDate = window.zutuanApp.localData();
+        if (typeof AppDate == "string") {
+            AppDate = JSON.parse(AppDate);
+        };
+        invitecode = AppDate.invitecode || '';
+        customCode = AppDate.customCode || '';
+        var topS = window.zutuanApp.getStatusBarHeight();
+        $('.head').css("borderTop", topS + 'px solid #000');
+        $('.head2').css("borderTop", topS + 'px solid #000');
+        $('.head .backBtn').show();
+        $('.head .backBtn').click(function () {
+            window.zutuanApp.finish();
+        });
+        //分享按钮【带二维码图片后期找产品】
+        location.href = 'mg://web?action=toInit&data={"canShare":1,"appShareType":17,"webShareType":7,"showType":2,"shareUrl":"' + encodeURIComponent('http://lunam.kceluwyxrm.cn/AppCms/index.html') + '","shareTitle":"' + '组合福利清单' + '","description":"' + '组合福利清单。' + '","pic":"https://dl.sitezt.cn/s11re/images/s11.png"}';
+        $('body').on('click', '.share', function () {
+            window.zutuanApp.share();
+        })
+    }
+    function PostDate1(){
+        $.ajax({
+            type: "GET",
+            url: postUrl + "/api/ldd/getlddzh",
+            data: {
+                zhtype: 1,
+                pageSize: 5,
+                pageNum: G_pageNum
+            },
+            success: function (data) {
+                if(data.data.length==0){
+                    $('#step3').show();
+                    G_pageNum=1;
+                    PostDateType=1;
+                    rollflag=true;
+                    return false;
+                }
+                for (var i = 0; i < data.data.length; i++) {
+                    data.data[i].U = url[i];
+                }
+                var Tdata = {
+                    datajson: data.data
+                }
+                var html = template('prolistTem', Tdata);
+                if(G_pageNum==1){
+                    $('.strategy-content').html(html);
+                }else{
+                    $('.strategy-content').html(html);
+                }
+    
+
+                G_pageNum++;
+                rollflag=true;
+            },
+            complete:function(){
+            }
+        });
+    }
+    function PostDate2(){
+        $.ajax({
+            type: "GET",
+            url: postUrl + "/api/ldd/getitem",
+            data: {
+                itemtype: 2,
+                pageSize: 10,
+                pageNum: G_pageNum
+            },
+            success: function (data) {
+                if(data.data.length==0){
+                    $('#step4').show();
+                    G_pageNum=1;
+                    PostDateType=2;
+                    rollflag=true;
+                    return false;
+                }
+                for (var i = 0; i < data.data.length; i++) {
+                    if (!data.data[i].QuanUrl) {
+                        data.data[i].fxz=window.zutuanApp.calcShareMoney((data.data[i].ShowPrice-data.data[i].QuanAmount)/100,data.data[i].Rate,10000);
+                    }
+                }
+                var Tdata = {
+                    datajson: data.data
+                }
+                var html = template('prolistTem2', Tdata);
+                if(G_pageNum==1){
+                    $('.ldd .loopholes-content').html(html);
+                }else{
+                    $('.ldd .loopholes-content').html($('.ldd .loopholes-content').html()+html);
+                }
+                
+                G_pageNum++;
+                rollflag=true;
+            },
+            complete:function(){
+            }
+        });
+    }
+    function PostDate3(){
+        $.ajax({
+            type: "GET",
+            url: postUrl + "/api/ldd/getlddzh",
+            data: {
+                zhtype: 2,
+                pageSize: 10,
+                pageNum: G_pageNum
+            },
+            success: function (data) {
+                if(data.data.length==0){
+                    $('#step5').show();
+                    G_pageNum=1;
+                    PostDateType=3;
+                    rollflag=true;
+                    return false;
+                }
+                var Tdata = {
+                    datajson: data.data
+                }
+                var html = template('prolistTem3', Tdata);
+                if(G_pageNum==1){
+                    $('.tmallzh-content').html(html);
+                }else{
+                    $('.tmallzh-content').html($('.tmallzh-content').html()+html);
+                }
+                
+                G_pageNum++;
+                // var mySwiper3 = new Swiper('.tmallzh-content', {
+                //     pagination: '.tmallzh-content .swiper-pagination',
+                //     loop: true,
+                //     speed:1200,
+                // });
+                rollflag=true;
+            },
+            complete:function(){
+                
+            }
+        });
+    }
+    function PostDate4(){
+        $.ajax({
+            type: "GET",
+            url: postUrl + "/api/ldd/getitem",
+            data: {
+                itemtype: 4,
+                pageSize: 10,
+                pageNum: G_pageNum
+            },
+            success: function (data) {
+                if(data.data.length==0){
+                    G_pageNum=1;
+                    PostDateType=4;
+                    rollflag=true;
+                    return false;
+                }
+                for (var i = 0; i < data.data.length; i++) {
+                    if (!data.data[i].QuanUrl) {
+                        data.data[i].fxz=window.zutuanApp.calcShareMoney((data.data[i].ShowPrice-data.data[i].QuanAmount)/100,data.data[i].Rate,10000);
+                    }
+                }
+                var Tdata = {
+                    datajson: data.data
+                }
+                var html = template('prolistTem2', Tdata);
+                if(G_pageNum==1){
+                    $('.tmc .loopholes-content').html(html);
+                }else{
+                    $('.tmc .loopholes-content').html($('.tmc .loopholes-content').html()+html);
+                }
+                G_pageNum++;
+                rollflag=true;
+            },
+            complete:function(){
+            }
+        });
+    }
+    function PostDate5(){
+        $.ajax({
+            type: "GET",
+            url: postUrl + "/api/ldd/getitem",
+            data: {
+                itemtype: 5,
+                pageSize: 5,
+                pageNum: G_pageNum
+            },
+            success: function (data) {
+                if(!data||!data.data||data.data.length==0){
+                    rollflag=false;
+                    return false;
+                }
+                var Tdata = {
+                    datajson: data.data
+                }
+                console.log(data);
+                var html = template('prolistTem4', Tdata);
+                if(G_pageNum==1){
+                    $('.quanblock .quan-content').html(html);
+                }else{
+                    $('.quanblock .quan-content').html($('.quanblock .quan-content').html()+html);
+                }
+                rollflag=true;
+            }
+        });
+    }
+
+    $('body').on('click', '.click_pro', function () {
+        var id = $(this).attr('data-id');
+        var quan = $(this).attr('data-quan') || "";
+        var quanUrl = $(this).attr('data-q-url');
+        if (quanUrl) {
+            var url = decodeURIComponent(quanUrl).replace(/\+/g, '%2b');
+            location.href = 'mg://web?action=toWeb&data=' + encodeURIComponent('{\"webUrl\":\"' + url + '\"}');
+        } else {
+            // $.ajax({
+            //     type: "GET",
+            //     url: postUrl + "/api/ldd/ldditemplan",
+            //     data: {
+            //         itemId: id,
+            //         invitecode: invitecode,
+            //         activityId: quan
+            //     },
+            //     success: function (data) {
+            //         if (data.code == 200) {
+            //             var url = decodeURIComponent(data.data.CilckUrl).replace(/\+/g, '%2b');
+            //             location.href = 'mg://web?action=toWeb&data=' + encodeURIComponent('{\"webUrl\":\"' + url + '\"}');
+            //         }
+            //     }
+            // });
+
+            $.ajax({
+                url: '//mgi.sitezt.cn/' + "api/b/lddbuy",
+                type:"Get",
+                data:{'Dto.rId': '','Dto.inviteCode': invitecode,'Dto.shortInviteCode':customCode,'Dto.pId':'','Dto.userToken':'','Dto.domain': '','Dto.id':id,'Dto.itemInfo':false,'Dto.url':true,'Dto.kL':true,'Dto.shortUrl':true},
+                success:function(data){
+                    if(!data.hasOwnProperty('code') ||(data.hasOwnProperty('code') && data.code === 0)){
+                        data.Url = decodeURIComponent(data.Url).replace(/\+/g, '%2b');
+                        location.href = 'mg://web?action=toWeb&data=' + encodeURIComponent('{\"webUrl\":\"' + data.Url + '\"}');
+                    }
+                }
+            });
+
+        }
+
+    });
+    $('body').on('click', '.pro-quan', function () {
+        var url = $(this).attr('data-url');
+        url = decodeURIComponent(url).replace(/\+/g, '%2b');
+        location.href = 'mg://web?action=toWeb&data=' + encodeURIComponent('{\"webUrl\":\"' + url + '\"}');
+    });
+    var t1=$(".nav-box-block").offset().top;
+
+    //init
+    PostDate1();
+    $(window).scroll(function () {
+        if (($(document).height() - $(this).scrollTop() - $(this).height() < 20) && rollflag) {
+            rollflag = false;
+            if(PostDateType==0){
+                PostDate1();
+            }else if(PostDateType==1){
+                PostDate2();
+            }else if(PostDateType==2){
+                PostDate3();
+            }else if(PostDateType==3){
+                PostDate4();
+            }else if(PostDateType==4){
+                PostDate5();
+            }
+        }
+
+
+
+        if ($(this).scrollTop() > t1-(parseFloat($('.head').css('height'))*1+parseFloat($('.head').css('borderTopWidth')))) {
+            $(".nav-box").addClass("nav-box_1");
+            $(".nav-box_1").css('top',parseFloat($('.head').css('height'))*1+parseFloat($('.head').css('borderTopWidth'))+'px');
+        } else {
+            $(".nav-box").removeClass("nav-box_1");
+            $(".nav-box").css('top',0);
+        }
+        if($(this).scrollTop() > 0 && $(this).scrollTop() < $("#step1").offset().top){
+            $(".nav-box li").find('a').removeClass("on");
+        }
+        else if ($(this).scrollTop() > $("#step1").offset().top && $(this).scrollTop() < $("#step2").offset().top) {
+            $(".nav-box li").find('a').removeClass("on");
+            $(".nav-box li").eq(0).find('a').addClass("on");
+        } else if ($(this).scrollTop() >= $("#step2").offset().top - 80 && $(this).scrollTop() < $("#step3").offset().top - 80) {
+            $(".nav-box li").find('a').removeClass("on");
+            $(".nav-box li").eq(1).find('a').addClass("on");
+        } else if ($(this).scrollTop() >= $("#step3").offset().top && $(this).scrollTop() < $("#step4").offset().top) {
+            $(".nav-box li").find('a').removeClass("on");
+            $(".nav-box li").eq(2).find('a').addClass("on");
+        } else if ($(this).scrollTop() >= $("#step4").offset().top - 80 && $(this).scrollTop() < $("#step5").offset().top - 80) {
+            $(".nav-box li").find('a').removeClass("on");
+            $(".nav-box li").eq(3).find('a').addClass("on");
+        } else if ($(this).scrollTop() >= $("#step5").offset().top) {
+            if($(this).scrollTop() >$("#step1").offset().top){
+                $(".nav-box li").find('a').removeClass("on");
+                $(".nav-box li").eq(4).find('a').addClass("on");
+            }
+      
+        }
+        console.log($(window).scrollTop())
+    });
+
+
+    // 页面跳转
+    function hrefUrl(hrefUI,search){
+
+    var hrefUI = hrefUI;
+    var jumpUrl = '';
+    var domain = window.location.protocol + "//"+ window.location.host + window.location.pathname;
+    var l_href = location.href
+    var _search = search||''
+    if(l_href.indexOf('ui=')>-1){
+        jumpUrl = domain + '?ui=active_loophole_' + hrefUI + '&' + _search;
+    }else{
+        _search = _search?('?' + _search):''
+        if(l_href.indexOf('.html')>-1){
+            var href_arr = l_href.split('.html')[0].split('/')
+            href_arr.pop()
+            jumpUrl = href_arr.join('/') + '/' + hrefUI + '.html' + _search
+        }else{
+            jumpUrl = domain + hrefUI + '.html' + _search
+        }
+    };
+    location.href = jumpUrl;
+    }
+
+
+    $(document).on('click','.jump-a',function(){
+    hrefUrl($(this).data('href'),$(this).data('sea'))
+    })
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>说明</title>
+    <link rel="stylesheet" type="text/css" href="//rescdn.sitezt.cn/active/loophole/style/base.css"/>
+    <style type="text/css">
+    	body{
+    		background-color: #fff;
+    	}
+    	.declireTips{
+		    width: 7rem;
+		    margin: 0.27rem auto 0;
+		    height: auto;
+		    padding-bottom: 0.7rem;
+		    font-size: 0.28rem;
+    	}
+    	.declireTips p{
+		    line-height: 0.45rem;
+		    color: #333333
+    	}
+    </style>
+    <script>
+         (function () {
+            function o() {
+                document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 7.5 + "px"
+            }
+            var e = null;
+            window.addEventListener("resize", function () {
+                clearTimeout(e), e = setTimeout(o, 300)
+            }, !1), o()
+        })(window);   
+    </script>
+    </head>
+	<body>
+		<!--head-->
+		<div class="head2"></div>
+		<div class="head clearfix">
+			<div class="backBtn" id="goBack" style="display:block;">
+				<span class="back"></span>
+			</div>
+			<span class="tit">说明</span>
+			<div class="share">
+				<a href="javascript:;" class="tools" style="display:none;"></a>
+			</div>
+		</div>
+		<div class="declireTips">
+			<p>1.淘宝福利专区中小编为大家寻找到的各种淘宝内优惠的店铺券，各种优惠消息。</p>
+			<p>2.部分商品存在没有佣金，请在购买商品的时候认真留意。</p>
+			<p>3.淘宝领券专场的优惠券（并非特定商品，全场通用）</p>
+			<p>4.天猫超市内购物，需要满88元包邮，不足88元可以选择</p>
+			<p>小编精选为你挑选的天猫超市包邮商品。</p>
+			<p>5.天猫活动为天猫运营，活动具体规则以天猫官方发布为准。</p>
+		</div>
+	</body>
+	<script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		var inApp=false;
+		var back=document.getElementById('goBack');
+		if (window.hasOwnProperty("zutuanApp")) {
+		    inApp = true;
+		    var AppDate = window.zutuanApp.localData();
+		    if (typeof AppDate == "string") {
+		        AppDate = JSON.parse(AppDate);
+		    }
+		    inviteCode = AppDate.invitecode || '';
+		    userToken = AppDate.userToken || '';
+		    var topS = window.zutuanApp.getStatusBarHeight();
+		    $('.head').css("borderTop", topS + 'px solid #000');
+		    $('.head2').css("borderTop", topS + 'px solid #000');
+		    $('.head .backBtn').show();
+		    //返回首页
+		    back.onclick=function(){
+		    	window.zutuanApp.back();
+		    };
+		};
+	</script>
+</html>

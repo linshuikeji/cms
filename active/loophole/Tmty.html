@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<title>天猫超市试用体验馆</title>
+		<style type="text/css">
+			html,
+			body,
+			div,
+			p,
+			a,
+			span,
+			ul,
+			li,
+			ol,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			i,
+			table,
+			tr,
+			td,
+			textarea,
+			marquee,
+			input,
+			em {
+			  padding: 0;
+			  margin: 0;
+			  list-style: none;
+			}
+			button {
+			  border: 0 none;
+			  outline: none;
+			}
+			html {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			}
+			body {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			  font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+			  background-color: #212133;
+			  font-size: 0.52rem;
+			  -webkit-tap-highlight-color:transparent;
+			}
+			a {
+			  text-decoration: none;
+			  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			  -webkit-user-select: none;
+			  -moz-user-focus: none;
+			  -moz-user-select: none;
+			  color: #fff;
+			}
+			input {
+			  background: none;
+			}
+			i,
+			em {
+			  font-style: normal;
+			}
+			p {
+			  color: #f1d18f;
+			  font-size: 0.56rem;
+			  opacity: 0.6;
+			}
+			span {
+			  font-size: 0.6rem;
+			}
+			/*header  s*/
+			.head2 {
+			  height: 1.8rem;
+			}
+			.head {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 1.8rem;
+			  background-color: #fff;
+			  align-items: center;
+			  line-height: 1.8rem;
+			  text-align: center;
+			  z-index: 999;
+			}
+			.head span {
+			  display: block;
+			}
+			.head .backBtn {
+			  padding: 0.9rem;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			}
+			.head .back {
+			  position: absolute;
+			  top: 50%;
+			  margin-top: -0.35rem;
+			  width: 0.46rem;
+			  height: 0.76rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/back_03.jpg) left center no-repeat;
+			  background-size: 100% 100%;
+			  left: 0.8rem;
+			}
+			.head .tit {
+			    font-size: 0.72rem;
+			    color: #000;
+			    font-size: 0.72rem;
+			    color: #000;
+			    width: 100%;
+			    margin: 0 auto;
+			    line-height: 1.8rem;
+			}
+			.head .tools {
+			  position: absolute;
+			  top: 0;
+			  right: 0rem;
+			  height: 1.8rem;
+			  line-height: 1.8rem;
+			  padding: 0 0.56rem;
+			  font-size: 0.64rem;
+			  cursor: pointer;
+			}
+			/*header e*/
+			/*清除浮动*/
+			.clearfix:after {
+			  content: "";
+			  height: 0;
+			  line-height: 0;
+			  display: block;
+			  clear: both;
+			  visibility: hidden;
+			}
+			.clearfix {
+			  zoom: 1;
+			}
+			.topPic {
+			  width: 15rem;
+			  height: 13.44rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/Tmty_01.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.content {
+			  width: 13.3rem;
+			  margin: 0.86rem auto 0;
+			  text-align: center;
+			  height: auto;
+			  padding-bottom: 1.38rem;
+			}
+			.content .firTitPic {
+			  width: 11.86rem;
+			  height: 2.74rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/Tmty_04.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.content .TyTips {
+			  margin-top: 1.36rem;
+			  text-align: left;
+			}
+			.content .TyTips p {
+			  line-height: 0.9rem;
+			}
+			.content .bzone {
+			  text-align: left;
+			  margin-top: 1.16rem;
+			}
+			.content .bzone p:first-child {
+			  height: 0.9rem;
+			  line-height: 0.9rem;
+			  font-size: 0.68rem;
+			}
+			.content .bzone p:last-child {
+			  font-size: 0.56rem;
+			  line-height: 0.8rem;
+			  margin-top: 0.48rem;
+			}
+			.content .bannerPic1 {
+			  width: 7.9rem;
+			  height: 14.06rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/Tmty_08.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0.88rem auto 0;
+			}
+			.content .bztwo {
+			  text-align: left;
+			  margin-top: 1.6rem;
+			}
+			.content .bannerPic2 {
+			  width: 7.88rem;
+			  height: 14.06rem;
+			  background: url(//rescdn.sitezt.cn/active/loophole/images/Tmty_11.jpg) center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 1.68rem auto 0;
+			}
+			.content .declire {
+			  margin-top: 3.1rem;
+			  text-align: left;
+			}
+			.content .declire h2 {
+			  height: 0.7rem;
+			  line-height: 0.7rem;
+			  font-size: 0.56rem;
+			  color: #fff;
+			  margin-left: 0.1rem;
+			  margin-bottom: 0.54rem;
+			}
+			.content .declire p {
+			  height: 0.72rem;
+			  line-height: 0.72rem;
+			  color: #fff;
+			  font-size: 0.48rem;
+			  margin-bottom: 0.24rem;
+			}
+
+		</style>
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+	<body>
+		<!--head-->
+        <div class="head2"></div>
+        <div class="head clearfix">
+            <div class="backBtn" style="display:block;">
+                <span class="back"></span>
+            </div>
+            <span class="tit">天猫超市试用体验馆</span>
+            <span href="javascript:;" class="tools" style="display:none;color: #fc5e4e;">收货地址</span>
+        </div>
+		<div class="topPic"></div>
+		<div class="content">
+			<div class="firTitPic"></div>
+			<div class="TyTips">
+				<p>试用体验馆需要90天内确认收货天猫超市3单可以显
+				示,所以没有的小伙伴不要着急</p>
+			</div>
+			<div class="bzone">
+				<p>如何1分钱试用</p>
+				<p><span>①</span>打开手机淘宝，进入天猫超市频道，点击我的，
+				进入试用体验馆频道</p>
+			</div>
+			<div class="bannerPic1"></div>
+			<div class="bztwo">
+				<p><span>②</span>试用3选一，挑选您喜欢的商品试用即可</p>
+			</div>
+			<div class="bannerPic2"></div>
+			<div class="declire">
+				<h2>试用体验馆资格及说明：</h2>
+				<p>1.参与试用需要用户通过支付宝实名认证；</p>
+				<p>2.参与者90天内需在天猫超市购物3次及以上；</p>
+				<p>3.每人每天只能参与一次试用活动。</p>
+			</div>
+		</div>
+		<script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var inApp=false;
+			if (window.hasOwnProperty("zutuanApp")) {
+			    inApp = true;
+			    var AppDate = window.zutuanApp.localData();
+			    if (typeof AppDate == "string") {
+			        AppDate = JSON.parse(AppDate);
+			    }
+			    inviteCode = AppDate.invitecode || '';
+			    userToken = AppDate.userToken || '';
+			    var topS = window.zutuanApp.getStatusBarHeight();
+			    $('.head').css("borderTop", topS + 'px solid #000');
+			    $('.head2').css("borderTop", topS + 'px solid #000');
+			    $('.head .backBtn').show();
+			    $('.head .backBtn').click(function () {
+			        window.zutuanApp.back();
+			    })
+			};
+		</script>
+	</body>
+</html>

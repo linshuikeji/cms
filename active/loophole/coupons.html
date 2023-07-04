@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>淘宝领券专场</title>
+    <link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/base.css">
+    <link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/coupons.css">
+    <script>
+         (function () {
+            function o() {
+                document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 7.5 + "px"
+            }
+            var e = null;
+            window.addEventListener("resize", function () {
+                clearTimeout(e), e = setTimeout(o, 300)
+            }, !1), o()
+        })(window);   
+    </script>
+</head>
+<body>
+	<!--head-->
+	<div class="head2"></div>
+	<div class="head clearfix">
+		<div class="backBtn" style="display:block;">
+			<span class="back"></span>
+		</div>
+		<span class="tit">淘宝领券专场</span>
+		<div class="share">
+			<a href="javascript:;" class="tools" style="display:block;color: #fc5e4e;"></a>
+		</div>
+	</div>
+    <div class="contain">
+    	<div class="shopUl ul">
+		<!--商品列表数据-->
+		</div>
+    </div>
+	<!--无数据显示-->
+	<div class="noData">已经到底了~~~</div>
+    <script type="text/html" id="shopListTmpl">
+		{{each data as item}}
+			<a href="javascript:void(0);" class="a_go_url"  data-url="{{item.QuanUrl}}">
+	            <div class="coupons-left">
+	                <img src="{{item.ItemPic}}" alt="">
+	            </div>
+	            <div class="coupons-right">
+	                <h3>{{item.ItemTitle}}</h3>
+	                <p class="coupons-content">{{item.Recommend}}</p>
+	                <div class="seep">
+	                    <p class="seep-money">{{item.QuanAmount/100}}元劵</p>
+	                    <div class="circle circle-left"></div>
+	                    <div class="circle circle-right"></div>
+	                </div>
+	                <div class="look">
+	                    <span class="GoQuanUrl" href="javascript:;">立即查看
+	                    	<i>></i>
+	                    </span>
+	                </div>
+	            </div>
+	        </a>
+		{{/each}}
+	</script>
+	<script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/md5.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/src/coupons.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

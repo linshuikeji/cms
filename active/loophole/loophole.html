@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/base.css">
+	<link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/loophole.css">
+	<!-- <script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole();
+        console.log('VConsole is cool');
+    </script> -->
+    <script>
+         (function () {
+            function o() {
+                document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 7.5 + "px"
+            }
+            var e = null;
+            window.addEventListener("resize", function () {
+                clearTimeout(e), e = setTimeout(o, 300)
+            }, !1), o()
+        })(window);   
+    </script>
+</head>
+<body>
+	<!--head-->
+	<div class="head2"></div>
+	<div class="head clearfix">
+		<div class="backBtn" style="display:block;">
+			<span class="back"></span>
+		</div>
+		<span class="tit"></span>
+		<div class="share">
+			<a href="javascript:;" class="tools" style="display:block;color: #fc5e4e;"></a>
+		</div>
+	</div>
+	
+    <div class="contain">
+    	<div class="description"></div>
+        <ul class="ldOrders clearfix">
+            <!--数据获取-->
+        </ul>
+    </div>
+    <!--无数据显示-->
+	<div class="noData">已经到底了~~~</div>
+    <script type="text/html" id="LdOrderTmpl">
+    	{{each data as item}}
+			<li class="item" data-itemId1="{{item.ItemId}}" data-itemId="{{item.Id}}" data-actId = "{{item.QuanActivityId}}" data-q-url="{{item.QuanUrl}}">
+	            <div class="content-top">
+	                <div class="content-img">
+						<img src="{{item.ItemPic}}" alt="">
+						{{if item.fxz}}
+	                    <div class="tip">
+	                        <p>分享赚￥{{item.fxz}}</p>
+						</div>
+						{{/if}}
+	                </div>
+					<p class="title">{{item.ItemTitle}}</p>
+					<div class="remark" style="color: #cd0244;">{{item.Recommend}}</div>
+	                <span class="new-money">￥{{(item.ShowPrice-item.QuanAmount)/100}}</span>
+					<del>￥{{item.ShowPrice/100}}</del>
+					{{if item.QuanAmount}}
+	                <div class="seep">
+	                    <p>{{item.QuanAmount/100}}元劵</p>
+	                    <div class="circle circle-left"></div>
+	                    <div class="circle circle-right"></div>
+					</div>
+					{{/if}}
+	                <div class="loophole-footer clearfix">
+	                    <span>{{item.SaleCount}}已买</span>
+	                    <a href="javascript:;">购买</a>
+					</div>
+	            </div>
+	        </li>
+    	{{/each}}
+    </script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/md5.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/src/loophole.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

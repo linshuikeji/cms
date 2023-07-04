@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天猫超市组合福利</title>
+    <link rel="stylesheet" href="//rescdn.sitezt.cn/active/loophole/style/benefit.css">
+    <script>
+         (function () {
+            function o() {
+                document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+            }
+            var e = null;
+            window.addEventListener("resize", function () {
+                clearTimeout(e), e = setTimeout(o, 300)
+            }, !1), o()
+        })(window);   
+    </script>
+</head>
+<body>
+	<!--head-->
+	<div class="head2"></div>
+	<div class="head clearfix">
+		<div class="backBtn" style="display:block;">
+			<span class="back"></span>
+		</div>
+		<span class="tit">天猫超市组合福利</span>
+		<div class="share">
+			<a href="javascript:;" class="tools" style="display:block;color: #fc5e4e;"></a>
+		</div>
+	</div>
+    <div class="contain clearfix">
+        <!--组合福利清单数据-->
+    </div>
+    <!--无数据显示-->
+	<div class="noData">已经到底了~~~</div>
+    <!--数据模板-->
+    <script type="text/html" id="orderTmpl">
+		{{each data as item}}
+			<a class="item" href="javascript:;" data-Id="{{item.Id}}" data-tit="{{item.Title}}" data-type="3" data-Recommend="{{item.Recommend}}">
+	        	<div class="imgBox">
+	        		<img src="{{item.Pic}}" width="100%" height="100%" />
+	        	</div>
+	        	<div class="itemMark">{{item.Title}}</div>
+	        	<div class="itemDesc">
+	        		<p>{{item.Recommend}}</p>
+	        	</div>
+	        	<div class="botMsg clearfix">
+	        		<p>精选{{item.ItemCount}}件商品</p>
+	        		<p>查看详情</p>
+	        	</div>
+        	</a>
+		{{/each}}
+    </script>
+	<script src="//rescdn.sitezt.cn/active/loophole/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/md5.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//rescdn.sitezt.cn/active/loophole/js/src/benefit.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
