@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="//rescdn.sitezt.cn/A/c/p/css/common.css" rel="stylesheet">
+    <style>
+        .m-dan-block {
+            padding-top: 20px;
+            width: 1200px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body id="dom">
+    <div class="dan">
+        <div class="g-m-top_line">
+            <div class="clearFix">
+                <a class="u-qq have_u_qq" target="_blank" href="javascript:void(0);">欢迎光临，我们竭诚为您推荐高质量的商品</a>
+                <div class="u-nav">
+                    <a onclick="SetHome(this)" href="javascript:void(0)" class="home">
+                        <i></i>设为首页</a>
+                    <a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)" class="collect">
+                        <i></i>加入收藏</a>
+                    <a target="_blank" class="question" href="javascript:void(0);">遇到购物问题</a>
+                    <a target="_blank" class="call" href="javascript:void(0);">
+                        <i></i>联系我&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="g-head">
+            <div class="clearFix">
+                <a href="javascript:void(0);" class="u-logo">
+                    <img src="" alt="">
+                </a>
+                <ul class="u-show">
+                    <li class="li1">
+                        <i></i>全场包邮</li>
+                    <li class="li2">
+                        <i></i>人工筛选</li>
+                    <li class="li3">
+                        <i></i>专业砍价</li>
+                </ul>
+                <div class="u-search">
+                    <input class="text" type="text" name="Key" data-bind="value:searchKey" placeholder="搜索站内优惠商品">
+                    <span class="submit">搜站内</span>
+                    <span class="submitall">搜全网</span>
+                </div>
+            </div>
+        </div>
+        <div class="g-nav">
+            <div class="clearFix">
+                <a class="jrsx" data-ui="home" data-parm="" href="javascript:void(0)">今日上新</a>
+                <a data-ui="ssbd" data-parm="" href="javascript:void(0)">实时榜单</a>
+                <a data-ui="qtbd" data-parm="" href="javascript:void(0)">全天榜单</a>
+                <a data-ui="9k9" data-parm="" href="javascript:void(0)">9.9包邮</a>
+                <a data-ui="ppjx" data-parm="" href="javascript:void(0)">品牌精选</a>
+                <a data-ui="xsqg" data-parm="" href="javascript:void(0)">限时抢购</a>
+            </div>
+        </div>
+        <div class="g-sub-nav">
+            <div class="clearFix">
+                <ul class="m-filter_sort_top" id="SollHeight">
+                    <li class="cur_a">
+                        <a data-id="0" href="javascript:void(0)">
+                            全部<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="1" href="javascript:void(0)">
+                            女装<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="17" href="javascript:void(0)">
+                            美食<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="31" href="javascript:void(0)">
+                            美妆<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="47" href="javascript:void(0)">
+                            居家日用<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-id="59" href="javascript:void(0)">
+                            男装<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="72" href="javascript:void(0)">
+                            鞋品<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="83" href="javascript:void(0);">
+                            数码家电<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="98" href="javascript:void(0)">
+                            母婴<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="113" href="javascript:void(0)">
+                            箱包<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="125" href="javascript:void(0)">
+                            文娱车品<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="135" href="javascript:void(0)">
+                            配饰<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="147" href="javascript:void(0)">
+                            内衣<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="159" href="javascript:void(0)">
+                            家装家纺<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="172" href="javascript:void(0)">
+                            户外运动<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-id="182" href="javascript:void(0)">
+                            其他<br>
+                            <i>(0)</i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="m-filter_sort_bottom">
+                    <ul class="f-select">
+                        <li>
+                            <a data-type="isJiukaijiu" href="javascript:void(0)">
+                                <i></i>9块9
+                            </a>
+                        </li>
+                        <li>
+                            <a data-type="isTmall" href="javascript:void(0)">
+                                <i></i>天猫商品
+                            </a>
+                        </li>
+                        <li>
+                            <a data-type="isBrand" href="javascript:void(0)">
+                                <i></i>品牌
+                            </a>
+                        </li>
+                        <li>
+                            <a data-type="isJHS" href="javascript:void(0)">
+                                <i></i>聚划算
+                            </a>
+                        </li>
+                        <li>
+                            <a data-type="isTaoQiangGou" href="javascript:void(0)">
+                                <i></i>淘抢购
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="f-sort">
+                        <i>排序</i>
+                        <a data-type='0' class="cur_a" href="javascript:void(0);">
+                            默认
+                        </a>
+                        <a data-type='1' href="javascript:void(0);">
+                            新品
+                        </a>
+                        <a data-type='2' href="javascript:void(0);">
+                            销量
+                        </a>
+                        <a class="price" href="javascript:void(0);">
+                            价格
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-dan-pro">
+            <div class="clearFix">
+                <div class="m-dan-block">
+                    <div class="m-common-pro" id="pro_list">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-page">
+            <div class="clearFix">
+                <ul class="u-commodity_page">
+                    <li class="cur_li">
+                        <a data-page="1" href="javascript:void(0);">1</a>
+                    </li>
+                    <li>
+                        <a data-page="2" href="javascript:void(0);">2</a>
+                    </li>
+                    <li>
+                        <a data-page="3" href="javascript:void(0);">3</a>
+                    </li>
+                    <li>
+                        <a data-page="4" href="javascript:void(0);">4</a>
+                    </li>
+                    <li>
+                        <a data-page="5" href="javascript:void(0);">5</a>
+                    </li>
+                    <li class="text">
+                        <a data-page="2" href="javascript:void(0);">下一页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wx_fixed"></div>
+    <div class="wx-lary">
+        <div class="wx_fixe_block">
+            <div class="line"><span class="title">微信：</span><span class="val"></span><div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div></div>
+            <div class="line"><span class="title">QQ：</span><span class="val"></span><div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div></div>
+            <div class="close">关闭</div>
+        </div>
+    </div>
+    <script id="prolistTem" type="text/html">
+        {{each data as item i}}
+            <div class="u-single">
+                <div class="img_a">
+                    <div class="u-tag">
+                        <!-- <span class="tag">品牌精选</span>
+                        <span class="tag1">今日上新</span> -->
+                    </div>
+                    {{if i>8}}
+                    <img class="lazy" src="//rescdn.sitezt.cn/A/c/p/images/loading.png" data-original="{{item.ItemImage}}" width="100%" height="100%">
+                    {{else}}
+                    <img  src="{{item.ItemImage}}" width="100%" height="100%">
+                    {{/if}}
+                    <a class="hover-buy" data-ui="detail" data-parm="&i={{item.ItemId}}" target="_blank"  href="javascript:void(0);">
+                        <div class="go-buy" ></div>
+                    </a>
+                </div>
+                <div class="content">
+                    <div class="title">
+                        {{item.ItemTitle}}
+                    </div>
+                    <div class="price-line">
+                        <div class="price">
+                            {{if item.QuanAmount}}
+                                券后：<em>¥</em><i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ManJianAmount)/100}}</i>元
+                            {{else}}
+                                折扣价:<em>¥</em><i>{{(item.DiscountPrice*item.ItemNum-item.ManJianAmount)/100}}</i>元
+                            {{/if}}
+                        </div>
+                        {{if item.IsTmall==1}}
+                            <span class="tian">{{item.ShopName||''}}</span>
+                        {{else}}
+                            <span class="tao">{{item.ShopName||''}}</span>
+                        {{/if}}
+                    </div>
+                    <div class="quan-line">
+                        <a class="quan" data-ui="detail" data-parm="&i={{item.ItemId}}" target="_blank"  href="javascript:void(0);">
+                            <i>¥
+                                <em>{{item.QuanAmount/100}}</em>
+                            </i>
+                            <span></span>
+                        </a>
+                        <div class="sale">
+                            销量：
+                            <i>{{item.SaleCount}}</i>件
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        (function(){
+            var dom = document.getElementById('dom');
+            function GetQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var url=window.location.search.substr(1);
+                 var r = url.match(reg);
+                 return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType=GetQueryString("test");
+            if(testType){
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/GlobalJsTest/sign.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath+"/c/GlobalJsTest/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath+"/c/GlobalJsTest/PcCommon.js", resourcePath+"/c/pTest/js/dan.js"];
+            }else{
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js",resourcePath + "/c/CommonJs/clipboard.min.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath+"/c/GlobalJs/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js", resourcePath+"/c/GlobalJs/PcCommon.js", resourcePath+"/c/p/js/dan.js"];
+            }
+            for(var i=0 ;i<jsArr.length;i++){
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async=false;
+                newScript.src=jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+
+</html>
