@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<title>0元狂欢抢购</title>
+		<link rel="stylesheet" type="text/css" href="js/lib/dialog/dialog.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index/index.css" />
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+		<style type="text/css">
+			.dialogView-m-buttons [data-btn=button][data-skin=yes] {
+			      background: linear-gradient(90deg, #cd02c1, #fc4646);
+			}
+		</style>
+		<!--<script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+	    <script>
+	        var vConsole = new VConsole();
+	        console.log('VConsole is cool');
+	    </script> -->
+	</head>
+	<body>
+		<!--head-->
+        <div class="head2"></div>
+        <div class="head clearfix">
+            <div class="backBtn" style="display:block;">
+                <span class="back"></span>
+            </div>
+            <span class="tit">0元狂欢抢购</span>
+            <!-- <a href="javascript:;" class="tools" style="display:block;color: #2a2f32;">分享</a> -->
+        </div>
+        <!--topBg-->
+        <div class="topBg">
+					<!--滚动数据区域-->
+				<div class="getAwdInfoBox">
+						<div class="swiper-container container">
+								<div class="swiper-wrapper warap">
+									<!--滚动数据-->
+								</div>
+						</div>
+				</div>
+        	<a class="hdgzBtn" href="javascript:;"></a>
+					<!-- <a class="videoBtn" href="javascript:;"></a> -->
+        </div>
+        <!--全名福利-->
+        <div class="beforeGoodsBox borderRadius">
+        	<ul class="beforeList" id="goodsList">
+
+        	</ul>
+        </div>
+				<!--已抢完-->
+				<div class="qg-ended beforeGoodsBox">
+					<div class="qg-end-title"></div>
+					<div class="qg-end-content ">
+						<ul class="beforeList" id="beforeList">
+
+						</ul>
+					</div>
+				</div>
+				<div class="btn-share"></div>
+				<!--外链按钮-->
+				<div class="outer-link-btn">
+					<div class="invite-btn">
+						<span class="invite-code"></span>
+						<p>复制专属邀请码</p>
+					</div>
+					<div class="download-btn"></div>
+				</div>
+        <!--活动规则弹窗-->
+
+        <div class="GzPop">
+        	<div class="layer_content">
+        		<h2>活动规则</h2>
+						<div class="content-text">
+							<p>1.新人注册后（注册7天内都为新人），仅可购买一次新人专享商品</p>
+							<p>2.美逛全体用户，均可参与抢购全民福利商品</p>
+							<p>3.每个商品红包只能领一次，如该商品被抢完仍未使用红包，则该红包会失效</p>
+							<p>4.红包只能用于指定商品，使用红包下单直减，美逛APP上无订单记录</p>
+							<p>5.领取的红包可以在【手机淘宝】-我的淘宝-红包卡券里面查看</p>
+						</div>
+						<div class="confirm_btn">我知道了</div>
+						<div class="close_btn"></div>
+        	</div>
+        </div>
+
+				<!--视频教程弹窗-->
+				<!-- <div class="video-layer" style="display:none;">
+					<div class="video-container">
+						<video src="" controls id="video"></video>
+					</div>
+					<div class="close-video" id="closeVideo"></div>
+				</div> -->
+
+				<!--福利购数据-->
+				<script type="text/html" id="flg_tmpl">
+					{{each list as item}}
+					<li class="flglist" data-qiangTime="{{item.CashGiftStartTime}}" data-Id="{{item.Id}}" data-ItemStatus="{{item.ItemStatus}}" data-itemId="{{item.ItemId}}" data-mgItemId="{{item.MGItemId}}" data-itemType="{{item.ItemType}}">
+							<div class="leftImg">
+								<i class="{{item.ItemType==1 ? 'newMark' : 'allMark'}}"></i>
+								<img class="lazy" data-original="{{item.PictUrl}}" src="images/lazyPic.png">
+							</div>
+							<div class="rightMsg">
+								<div class="spTit clearfix">
+									<p>{{item.ItemTitle}}</p>
+								</div>
+								<div class="spInfo clearfix">
+										<div class="tlj">
+											 <span>红包{{item.CashGiftAmount/100}}元</span>
+										</div>
+										{{if item.CouponAmount >0}}
+										<div class="yhq">
+											<div class="yhq-inner">
+												<span>优惠券{{item.CouponAmount/100}}元</span>
+											</div>
+										</div>
+										{{/if}}
+								</div>
+								<div class="progress-box clearfix">
+									<div class="progress">
+										<span class="progress-bar1"></span>
+										{{if item.ItemStatus==0}}
+										<span style="width:{{item.Percentage}}%" class="progress-bar2 going" ></span>
+										{{else if item.ItemStatus==999}}
+										<span style="width:{{item.Percentage}}%" class="progress-bar2 will"></span>
+										{{/if}}
+										<span class="progress-bar3"></span>
+									</div>
+									{{if item.ItemStatus==999}}
+									<span class="text">剩余{{(item.Percentage) +'%'}}</span>
+									{{else}}
+									<span class="text">剩余{{(item.Percentage) +'%'}}</span>
+									{{/if}}
+								</div>
+								<div class="saleBox clearfix">
+									<div class="r_quan">
+											<p>原价: ￥{{item.DiscountPrice / 100}}</p>
+											<div>福利价¥<span>{{((item.DiscountPrice - item.CouponAmount - item.CashGiftAmount) / 100) > 0 ? ((item.DiscountPrice - item.CouponAmount - item.CashGiftAmount) / 100) : 0}}</span></div>
+									</div>
+									{{if item.ItemStatus==0}}
+									<div class="right-btn immediate"></div>
+									{{else if item.ItemStatus==999}}
+									<div class="will-time">{{item.CashGiftStartTime | calcCountDown}}</div>
+									{{else if item.ItemStatus==1}}
+									<div class="right-btn ended">
+										<span>已售罄</span>
+									</div>
+									{{/if}}
+
+								</div>
+							</div>
+					</li>
+					{{/each}}
+				</script>
+
+
+				<!--已结束模板-->
+				<script type="text/html" id="beforeFlg_tmpl">
+
+					{{each list as item}}
+					<li data-qiangTime="{{item.CashGiftStartTime}}" data-Id="{{item.Id}}" data-ItemStatus="{{item.ItemStatus}}" data-itemId="{{item.ItemId}}" data-mgItemId="{{item.MGItemId}}" data-itemType="{{item.ItemType}}">
+							<div class="leftImg">
+								<i class="{{item.ItemType==1 ? 'newMark' : 'allMark'}}"></i>
+								<img class="lazy" data-original="{{item.PictUrl}}" src="images/lazyPic.png">
+							</div>
+							<div class="rightMsg">
+								<div class="spTit clearfix">
+									<p>{{item.ItemTitle}}</p>
+								</div>
+								<div class="spInfo clearfix">
+										<div class="tlj">
+											 <span>红包{{item.CashGiftAmount/100}}元</span>
+										</div>
+
+										{{if item.CouponAmount > 0}}
+										<div class="yhq">
+											<div class="yhq-inner">
+												<span>优惠券{{item.CouponAmount/100}}元</span>
+											</div>
+										</div>
+										{{/if}}
+								</div>
+								<div class="saleBox clearfix">
+									<div class="r_quan">
+											<p>原价: ￥{{item.DiscountPrice / 100}}</p>
+											<div>福利价¥<span>{{((item.DiscountPrice - item.CouponAmount - item.CashGiftAmount) / 100) > 0 ? ((item.DiscountPrice - item.CouponAmount - item.CashGiftAmount) / 100) : 0}}</span></div>
+									</div>
+									<div class="right-btn ended">
+										<span>已抢完</span>
+									</div>
+								</div>
+							</div>
+					</li>
+					{{/each}}
+
+				</script>
+				<!--滚动数据模板-->
+				<script type="text/html" id="scrollDataTmpl">
+					{{each data as item}}
+						<div class="swiper-slide getAwdInfo">
+								 <!-- <p>{{item.mobile}}&nbsp;{{item.title}}</p> -->
+								 <p>{{item}}</p>
+						 </div>
+					{{/each}}
+				</script>
+				<!-- <script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+		    <script>
+		        var vConsole = new VConsole();
+		        console.log('VConsole is cool');
+		    </script> -->
+      <script src="//cdnsource.sitezt.cn/active/egg/js/jquery-2.1.3.min.js"></script>
+      <script src="js/lib/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="//cdnsource.sitezt.cn/active/egg/js/jquery.cookie.js"></script>
+	    <script src="//cdnsource.sitezt.cn/active/egg/js/md5.min.js"></script>
+			<script src="//rescdn.sitezt.cn/A/c/CommonJs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="//cdnsource.sitezt.cn/active/egg/js/template.js"></script>
+	    <script src="js/lib/common.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="js/lib/dialog/dialog.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
