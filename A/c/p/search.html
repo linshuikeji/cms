@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="//rescdn.sitezt.cn/A/c/p/css/common.css" rel="stylesheet">
+    <style>
+        .m-dan-block {
+            padding-top: 20px;
+            width: 1200px;
+            overflow: hidden;
+        }
+
+        .m-filter_sort_bottom {
+            border-top: 1px solid #eee;
+        }
+
+        .g-sub-nav .m-filter_sort_bottom .search-tips {
+            position: relative;
+            float: left;
+            padding-left: 20px;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
+            font-size: 13px;
+            color: #282828;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            width: 80%;
+        }
+
+        .g-sub-nav .m-filter_sort_bottom .search-tips i {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -7px;
+            width: 14px;
+            height: 14px;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/search.png) 0 0 no-repeat;
+        }
+
+        .search-no-pro {
+            padding-top: 70px;
+            width: 100%;
+            height: 500px;
+        }
+
+        .search-no-pro img {
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+        }
+
+        .search-no-pro p {
+            padding-top: 20px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            color: #000;
+        }
+
+        .search-no-pro i {
+            display: block;
+            line-height: 30px;
+            font-size: 16px;
+            text-align: center;
+            margin: 0 auto;
+            color: #8a8a8a;
+        }
+    </style>
+</head>
+
+<body id="dom">
+    <div class="dan">
+        <div class="g-m-top_line">
+            <div class="clearFix">
+                <a class="u-qq have_u_qq" target="_blank" href="javascript:void(0);">欢迎光临，我们竭诚为您推荐高质量的商品</a>
+                <div class="u-nav">
+                    <a onclick="SetHome(this)" href="javascript:void(0)" class="home">
+                        <i></i>设为首页</a>
+                    <a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)" class="collect">
+                        <i></i>加入收藏</a>
+                    <a target="_blank" class="question" href="javascript:void(0);">遇到购物问题</a>
+                    <a target="_blank" class="call" href="javascript:void(0);">
+                        <i></i>联系我&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="g-head">
+            <div class="clearFix">
+                <a href="javascript:void(0);" class="u-logo">
+                    <img src="" alt="">
+                </a>
+                <ul class="u-show">
+                    <li class="li1">
+                        <i></i>全场包邮</li>
+                    <li class="li2">
+                        <i></i>人工筛选</li>
+                    <li class="li3">
+                        <i></i>专业砍价</li>
+                </ul>
+                <div class="u-search">
+                    <input class="text" type="text" name="Key" placeholder="搜索站内优惠商品">
+                    <span class="submit">搜站内</span>
+                    <span class="submitall">搜全网</span>
+                </div>
+            </div>
+        </div>
+        <div class="g-nav">
+            <div class="clearFix">
+                <a class="jrsx" data-ui="home" data-parm="" href="javascript:void(0)">今日上新</a>
+                <a data-ui="ssbd" data-parm="" href="javascript:void(0)">实时榜单</a>
+                <a data-ui="qtbd" data-parm="" href="javascript:void(0)">全天榜单</a>
+                <a data-ui="9k9" data-parm="" href="javascript:void(0)">9.9包邮</a>
+                <a data-ui="ppjx" data-parm="" href="javascript:void(0)">品牌精选</a>
+                <a data-ui="xsqg" data-parm="" href="javascript:void(0)">限时抢购</a>
+            </div>
+        </div>
+        <div class="g-sub-nav">
+            <div class="clearFix">
+                <div class="m-filter_sort_bottom" id="SollHeight">
+                    <div class="search-tips">
+                        <i></i>搜索结果：所有与“
+                        <em></em>”相关的宝贝
+                    </div>
+                    <div class="f-sort">
+                        <i>排序</i>
+                        <a data-type='0' class="cur_a" href="javascript:void(0);">
+                            综合排序
+                        </a>
+                        <a data-type='1' href="javascript:void(0);">
+                            销量
+                        </a>
+                        <a class="price" href="javascript:void(0);">
+                            价格
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-dan-pro">
+            <div class="clearFix">
+                <div class="m-dan-block">
+                    <div class="m-common-pro" id="pro-list">
+                    </div>
+                    <div class="search-no-pro" style="display:none;">
+                        <img src="//rescdn.sitezt.cn/A/c/p/images/search-no.png" width="100%" height="100%">
+                        <p>非常抱歉，没有找到相关结果</p>
+                        <i>您可以尝试换一个关键字搜索</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-page" style="display:block;">
+            <div class="clearFix">
+                <ul class="u-commodity_page">
+                    <li class="cur_li">
+                        <a data-page="1" href="javascript:void(0);">1</a>
+                    </li>
+                    <li>
+                        <a data-page="2" href="javascript:void(0);">2</a>
+                    </li>
+                    <li>
+                        <a data-page="3" href="javascript:void(0);">3</a>
+                    </li>
+                    <li>
+                        <a data-page="4" href="javascript:void(0);">4</a>
+                    </li>
+                    <li>
+                        <a data-page="5" href="javascript:void(0);">5</a>
+                    </li>
+                    <li class="text">
+                        <a data-page="2" href="javascript:void(0);">下一页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wx_fixed"></div>
+    <div class="wx-lary">
+        <div class="wx_fixe_block">
+            <div class="line"><span class="title">微信：</span><span class="val"></span><div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div></div>
+            <div class="line"><span class="title">QQ：</span><span class="val"></span><div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div></div>
+            <div class="close">关闭</div>
+        </div>
+    </div>
+    <script id="prolistTem" type="text/html">
+        {{each data as item i}}
+            <div class="u-single">
+                <div class="img_a">
+                    <div class="u-tag">
+                        <!-- <span class="tag">品牌精选</span>
+                        <span class="tag1">今日上新</span> -->
+                    </div>
+                    {{if i>8}}
+                    <img class="lazy" src="//rescdn.sitezt.cn/A/c/p/images/loading.png" data-original="{{item.ItemImage}}" width="100%" height="100%">
+                    {{else}}
+                    <img src="{{item.ItemImage}}" width="100%" height="100%">
+                    {{/if}}
+                    <div class="hover-buy">
+                        <a class="go-buy"  data-ui="detail" data-parm="&i={{item.ItemId}}"  target="_blank"  href="javascript:void(0);"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="title">
+                        {{item.ItemTitle}}
+                    </div>
+                    <div class="price-line">
+                        <div class="price">
+                            {{if item.QuanAmount}}
+                                券后：<em>¥</em><i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}</i>元
+                            {{else}}
+                                折扣价:<em>¥</em><i>{{(item.DiscountPrice*item.ItemNum-item.ShopJian)/100}}</i>元
+                            {{/if}}
+                        </div>
+                        {{if item.IsTmall==1}}
+                            <span class="tian">{{item.ShopName||''}}</span>
+                        {{else}}
+                            <span class="tao">{{item.ShopName||''}}</span>
+                        {{/if}}
+                    </div>
+                    <div class="quan-line">
+                        <div class="quan">
+                            <i>¥
+                                <em>{{item.QuanAmount/100}}</em>
+                            </i>
+                            <span></span>
+                        </div>
+                        <div class="sale">
+                            销量：
+                            <i>{{item.SaleCount}}</i>件
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+    <script id="prolistTemAll" type="text/html">
+        {{each data as item i}}
+        <div class="u-single">
+            <div class="img_a">
+                <div class="u-tag">
+                    <!-- <span class="tag">品牌精选</span>
+                    <span class="tag1">今日上新</span> -->
+                </div>
+                {{if i>8}}
+                <img class="lazy" src="//rescdn.sitezt.cn/A/c/p/images/loading.png" data-original="{{item.pict_url}}" width="100%" height="100%">
+                {{else}}
+                <img src="{{item.pict_url}}" width="100%" height="100%">
+                {{/if}}
+                <div class="hover-buy">
+                    <a class="go-buy"  data-ui="detail" data-parm="&i={{item.num_iid}}"  target="_blank"  href="javascript:void(0);"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="title">
+                    {{item.title}}
+                </div>
+                <div class="price-line">
+                    <div class="price">
+                        券后：<em>¥</em><i>{{item.lastprice}}</i>元
+                    </div>
+                </div>
+                <div class="quan-line">
+                    <div class="quan">
+                        <i>¥
+                            <em>{{item.quanamount}}</em>
+                        </i>
+                        <span></span>
+                    </div>
+                    <div class="sale">
+                        销量：
+                        <i>{{item.volume}}</i>件
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script>
+        (function () {
+          
+            var dom = document.getElementById('dom');
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var url = window.location.search.substr(1);
+                var r = url.match(reg);
+                return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType = GetQueryString("test");
+            if (testType) {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/c/GlobalJsTest/sign.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJsTest/jump.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJsTest/PcCommon.js", resourcePath + "/c/pTest/js/search.js"];
+            } else {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js",resourcePath + "/c/CommonJs/clipboard.min.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath + "/c/GlobalJs/jump.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js", resourcePath + "/c/GlobalJs/PcCommon.js", resourcePath + "/c/p/js/search.js"];
+            }
+            for (var i = 0; i < jsArr.length; i++) {
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async = false;
+                newScript.src = jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+
+</html>

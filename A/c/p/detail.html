@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>商品详情页</title>
+    <link href="//rescdn.sitezt.cn/A/c/m/css/common.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #f5f5f5;
+        }
+       .detail{
+            overflow: hidden;
+            padding-bottom: 2rem;
+       }
+        .detail .img_a{
+            position: relative;
+            display: block;
+            width: 15rem;
+            height: 15rem;
+       }
+       .detail .img_a .cantbuy{
+            display: none;
+            position: absolute;
+            left: 50%;
+            margin-left: -4.5rem;
+            top: 50%;
+            margin-top:-4.5rem; 
+            width:9rem;
+            padding-top:3rem;
+            height: 6rem;
+            border: 0 none;
+            border-radius: 50%;
+            background-color:rgba(0,0,0,0.7);
+            text-align: center;
+       }
+       .detail .img_a .cantbuy p{
+            line-height: 1.5rem;
+            color: #fff;
+            font-size: 0.7rem;
+       }
+       .detail .img_a .back{
+            position: absolute;
+            top:1rem;
+            left: 0.5rem;
+            width: 1.08rem;
+            height: 1.08rem;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/back.png) center center no-repeat;
+            background-size: 100% 100%;
+       }
+       .detail .content{
+            padding: 0 0.6rem;
+            overflow: hidden;
+            background-color: #fff;
+       }
+       .detail .content .title{
+            height: 1.4rem;
+            line-height: 1.4rem;
+            font-size: 0.6rem;
+            color: #1a1a1a;
+            text-align: left;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+       }
+       .detail .content .price-line{
+            height: 1.02rem;
+            overflow: hidden;
+       }
+       .detail .content .price-line .qh-coin{
+            margin-top: 0.36rem;
+            float: left;
+            width: 1rem;
+            height: 0.56rem;
+            background:url(//rescdn.sitezt.cn/A/c/m/images/qh-coin.jpg) center center no-repeat;
+            background-size: 100% 100%;
+            margin-right : 0.3rem;
+       }
+       .detail .content .price-line .price{
+            float: left;
+            height: 1.02rem;
+            line-height: 1.02rem;
+            font-size: 0.56rem;
+            color: #000000;
+       }
+       .detail .content .price-line .price i{
+            font-size: 0.96rem;
+            margin-left: 0.1rem;
+       }
+       .detail .content .price-line .quan{
+            float: right;
+            padding-top: 0.38rem;
+            height: 0.64rem;
+       }
+       .detail .content .price-line .quan em{
+            float: left;
+            padding:0 0.2rem;
+            height: 0.64rem;
+            background-color: #f4436d;
+            text-align: center;
+            line-height: 0.64rem;
+            font-size: 0.4rem;
+            color: #fff;
+            border-right : 1px dashed #fff;
+       }
+       .detail .content .price-line .quan i{
+            float: left;
+            padding:0 0.4rem;
+            height: 0.64rem;
+            background-color: #faa5bc;
+            text-align: center;
+            line-height: 0.64rem;
+            font-size: 0.4rem;
+            color: #fff;
+            border-left : 1px dashed #fff;
+        }
+        .detail .content .sale-line{
+            padding-top:0.3rem;
+            height: 1.26rem;
+            overflow: hidden;
+        }
+        .detail .content .sale-line .old_price{
+            float: left;
+            height: 1.26rem;
+            line-height: 1.26rem;
+            font-size: 0.48rem;
+            color: #999999;
+        }
+        .detail .content .sale-line .old_price i{
+            padding-left: 0.1rem;
+            text-decoration: line-through;
+        }
+        .detail .content .sale-line .sale-num{
+            float: right;
+            height: 1.26rem;
+            line-height: 1.26rem;
+            font-size: 0.5rem;
+            color: #999999;
+        }
+        .detail .content .sale-line .sale-num i{
+            color: #fc3c41;
+        }
+        .detail .tuijian{
+            border-top: 0.08rem solid #f5f5f5;
+            padding: 0.48rem 0.6rem;
+            line-height:0.88rem; 
+            font-size: 0.48rem;
+            color: #666666;
+            border: 1px solid #f5f5f5;
+            background-color: #fff;
+        }
+        .detail .tuijian i{
+            font-size: 0.56rem;
+            color: #1a1a1a;
+        }
+        .detail .xiangqing{
+            position: relative;
+            height: 1.96rem;
+            line-height: 1.96rem;
+            padding-left: 0.6rem;
+            font-size: 0.48rem;
+            color: #999999;
+            background-color: #fff;
+            
+        }
+        .detail .xiangqing i{
+            font-size: 0.56rem;
+            color: #292929;
+        }
+        .detail .xiangqing em{
+            position: absolute;
+            top:50%;
+            margin-top: -0.28rem;
+            right: 0.6rem;
+            width: 0.28rem;
+            height: 0.56rem;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/c.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .detail .fixed-buy{
+            position: fixed;
+            height: 1.96rem;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+        }
+        .detail .fixed-buy a{
+            float: left;
+            width: 50%;
+            line-height: 1.96rem;
+            text-align: center;
+            font-size: 0.56rem;
+            color: #fff;
+        }
+        .detail .fixed-buy .tkl{
+            background-color: #e91a4f;
+        }
+        .detail .fixed-buy .lq{
+            background-color: #ff487d;
+        }
+        .img-detail{
+            overflow: hidden;
+        }
+        .img-detail img{
+            display: block;
+        }
+        .kt_lary {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+        
+        .kt_lary .win_kt {
+            position: absolute;
+            left: 50%;
+            top: 35%;
+            margin-left: -6rem;
+            margin-top: -3.5rem;
+            width: 12rem;
+            min-height: 7rem;
+            background-color: #f0f0f0;
+            border: 0 none;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .kt_lary .win_kt .title {
+            position: relative;
+            height: 1.4rem;
+            line-height: 1.4rem;
+            background-color: #cc0244;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .kt_lary .win_kt .title span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 1.4rem;
+            width: 1.4rem;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 1.2rem;
+        }
+        
+        .kt_lary .win_kt .show_t_trick {
+            display: block;
+            box-sizing: border-box;
+            border: 1px dashed #cc0244;
+            min-height: 1.8rem;
+            width: 8rem;
+            margin: 0.4rem auto 0;
+            border-radius: 6px;
+            font-family: Arial;
+        }
+        
+        .kt_lary .win_kt .show_t_trick span {
+            display: block;
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            line-height: 1.8rem;
+            color: #cc0244;
+            text-align: center;
+        }
+        .kt_lary .win_kt .show_t_trick textarea {
+            resize: none;
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            line-height: 1.0rem;
+            height: 1.0rem;
+            color: #cc0244;
+            margin-top: 0.4rem;
+            text-align: center;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+        }
+        .kt_lary .win_kt .show_tip {
+            display: none;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            font-size: 0.6rem;
+            text-align: center;
+            color: #cc0244;
+        }
+        
+        .kt_lary .win_kt .show_tip_btn {
+            height: 1.3rem;
+            line-height: 1.3rem;
+            padding-top: 0.2rem;
+        }
+        
+        .kt_lary .win_kt .show_tip .copy_btn {
+            margin: 0 auto;
+            display: block;
+            width: 6rem;
+            height: 1.3rem;
+            background-color: #cc0244;
+            border: 0 none;
+            border-radius: 6px;
+            font-size: 0.6rem;
+            line-height: 1.3rem;
+            color: #fff;
+        }
+        
+        .kt_lary .win_kt .all_tip {
+            line-height: 0.8rem;
+            font-size: 0.6rem;
+            width: 80%;
+            margin: 0 auto;
+            color: #949494;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+
+<body id="dom">
+    <div class="detail" data-id="">
+        <div class="img_a">
+            <div class="cantbuy">
+                <p>无法购买</p>
+                <p class="tips"></p>
+            </div>
+            <!-- <a class="back"  href="javascript:history.back(-1);" ></a> -->
+            <img width="100%" height="100%">
+        </div>
+        <div class="content">
+            <div class="title">
+            </div>
+            <div class="price-line">
+                <em class="qh-coin"></em>
+                <div class="price">
+                    ¥<i></i>
+                </div>
+                <div class="quan">
+                    <em>领券</em>
+                    <i>减</i>
+                </div>
+            </div>
+            <div class="sale-line">
+                <span class="old_price">
+                    价格<i>¥</i>
+                </span>
+                <span class="sale-num">
+                    销量：<i></i>
+                </span>
+            </div>
+        </div>
+        <div class="tuijian">
+            <i>推荐理由：</i>
+        </div>
+        <div class="xiangqing">
+            <i>商品图文详情</i>（点击展开详情）
+            <em></em>
+        </div>
+        <div class="img-detail"></div>
+        <div class="fixed-buy">
+            <a href="javascript:void(0);" class="lq" data-flag="1">领券购买</a>
+            <a href="javascript:void(0);" class="tkl" data-flag="1">淘口令购买</a>
+        </div>
+        <div class="kt_lary" style="display: none;">
+            <div class="win_kt">
+                <div class="title">
+                    淘口令购买<span>×</span>
+                </div>
+                <div class="show_t_trick">
+                    <span id="copytext" style="display:none"></span>
+                    <textarea id="copy_key_android" onfocus="return false" maxlength="0" onkeydown="return false;" style="ime-mode:disabled" onkeyup="return false;"></textarea>
+                    <div class="copys-input" id="copys-input" style="width:1px; height:1px; overflow:hidden;"></div>
+                </div>
+                <div class="show_tip show_tip_text" style="display:none;">长按框内 &gt; 拷贝</div>
+                <div class="show_tip show_tip_btn" style="display: block;">
+                    <button type="button" class="copy_btn copy_btn_android" data-clipboard-action="copy" data-clipboard-target="#copy_key_android" style="background: rgb(204, 2, 68);">一键复制</button>
+                    <button type="button" class="copy_btn copy_btn_ios" style="display: none; background: rgb(204, 2, 68);" data-clipboard-action="copy" data-clipboard-target="#copys-input">一键复制</button>
+                </div>
+                <div class="all_tip">
+                    使用说明：复制淘口令后打开【手机淘宝】即可领取优惠券购买！
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function(){
+            var dom = document.getElementById('dom');
+           
+            function GetQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var url=window.location.search.substr(1);
+                 var r = url.match(reg);
+                 return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType=GetQueryString("test");
+            if(testType){
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js",resourcePath+"/c/CommonJs/clipboard.min.js", resourcePath+"/c/GlobalJsTest/sign.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/GlobalJsTest/jump.js", resourcePath+"/c/CommonJs/jssdk.js", resourcePath+"/c/mTest/js/detail.js"];
+            }else{
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js",resourcePath+"/c/CommonJs/clipboard.min.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath+"/c/GlobalJs/jump.js", resourcePath + "/c/GlobalJs/init.js", resourcePath+"/c/CommonJs/jssdk.js", resourcePath+"/c/m/js/detail.js"];
+            }
+            for(var i=0 ;i<jsArr.length;i++){
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async=false;
+                newScript.src=jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+</html>

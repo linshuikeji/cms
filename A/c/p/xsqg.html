@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>限时抢购</title>
+    <link href="//rescdn.sitezt.cn/A/c/p/css/common.css" rel="stylesheet">
+    <style>
+        .xsqg .m-banner-bg {
+            width: 100%;
+            height: 220px;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/xsqg_bg.jpg) center center no-repeat;
+        }
+
+        .xsqg .m-banner {
+            display: block;
+            width: 1200px;
+            margin: 0 auto;
+            height: 220px;
+        }
+
+        .m-xsqg-nav-line {
+            background-color: #282832;
+            width: 100%;
+            height: 52px;
+            overflow: hidden;
+        }
+
+        .m-xsqg-nav {
+            position: relative;
+            height: 52px;
+            width: 1160px;
+            padding-left: 40px;
+            overflow: hidden;
+            padding-bottom: 9px;
+        }
+
+        .m-xsqg-nav .left,
+        .m-xsqg-nav .right {
+            width: 40px;
+            height: 52px;
+            cursor: pointer;
+        }
+
+        .m-xsqg-nav .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/xsqg.png) 0 0 no-repeat;
+            z-index: 99;
+        }
+
+        .m-xsqg-nav .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/xsqg.png) -40px 0 no-repeat;
+            z-index: 99;
+        }
+
+        .m-xsqg-nav .nav_ul {
+            background-color: #282832;
+            height: 52px;
+            width: 100%;
+        }
+
+        .m-xsqg-nav ul {
+            width: 4000px;
+            height: 52px;
+        }
+
+        .m-xsqg-nav ul li {
+            float: left;
+            width: 224px;
+            padding-top: 6px;
+            height: 46px;
+            background-color: #282832;
+            cursor: pointer;
+        }
+
+        .m-xsqg-nav ul .cur_li {
+            background-color: #f22668;
+        }
+
+        .m-xsqg-nav ul li em {
+            display: block;
+            line-height: 23px;
+            font-size: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .m-xsqg-nav ul li i {
+            display: block;
+            line-height: 18px;
+            font-size: 14px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .m-xsqg-content {
+            width: 1200px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .m-xsqg-content .m-xsqg-list {
+            width: 1234px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            padding-top: 12px;
+        }
+
+        .xsqg-single {
+            float: left;
+            width: 584px;
+            height: 240px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            padding-left: 12px;
+            padding-top: 20px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .xsqg-single .img_a {
+            position: relative;
+            float: left;
+            width: 220px;
+            height: 220px;
+        }
+
+        .xsqg-single .img_a .u-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 40px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .xsqg-single .img_a .u-tag .tag {
+            float: right;
+            width: 39px;
+            height: 40px;
+            line-height: 36px;
+            text-align: center;
+            font-size: 18px;
+            color: #ffffff;
+            text-align: center;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/common.png) 0 -80px no-repeat;
+        }
+
+        .xsqg-single .img_a .u-tag .tag1 {
+            float: right;
+            width: 33px;
+            padding: 2px 3px 0;
+            height: 38px;
+            line-height: 15px;
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/common.png) -45px -80px no-repeat;
+        }
+
+        .xsqg-single .img_a .tag-come,
+        .xsqg-single .img_a .tag-end {
+            display: none;
+        }
+
+        .xsqg-single.single-come .img_a .tag-come {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -75px;
+            margin-left: -75px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(222, 18, 74, .6);
+            line-height: 150px;
+            text-align: center;
+            color: #fff;
+            border: 0 none;
+            border-radius: 50%;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .xsqg-single.single-over .img_a .tag-end {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -75px;
+            margin-left: -75px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(30, 30, 30, .6);
+            line-height: 150px;
+            text-align: center;
+            color: #fff;
+            border: 0 none;
+            border-radius: 50%;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .xsqg-single .content {
+            float: left;
+            width: 326px;
+            padding-left: 28px;
+            height: 240px;
+        }
+
+        .xsqg-single .content .title {
+            padding-top: 16px;
+            height: 25px;
+            line-height: 25px;
+            font-size: 16px;
+            text-align: left;
+            color: #333333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .xsqg-single .content .recommend {
+            height: 44px;
+            line-height: 22px;
+            font-size: 14px;
+            color: #f6523c;
+            text-align: left;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .xsqg-single .content .price-line {
+            padding-top: 8px;
+            height: 77px;
+        }
+
+        .xsqg-single .content .price-line .price {
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+            color: #e61d5e;
+            margin-right: 4px;
+        }
+
+        .xsqg-single .content .price-line .price i {
+            font-size: 24px;
+            color: #e61d5e;
+            font-weight: bold;
+        }
+
+        .xsqg-single .content .price-line .qhj,
+        .xsqg-single .content .price-line .old_price {
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            color: #808080;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .xsqg-single .content .price-line .old_price {
+            text-decoration: line-through;
+        }
+
+        .xsqg-single .content .price-line .quan {
+            margin-top: 12px;
+            margin-right: 15px;
+            float: right;
+            overflow: hidden;
+        }
+
+        .xsqg-single .content .price-line .quan i {
+            float: left;
+            height: 22px;
+            line-height: 22px;
+            border: 1px dashed #f22668;
+            border-right: 0 none;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            padding: 0 7px;
+            color: #f22668;
+            font-size: 12px;
+        }
+
+        .xsqg-single .content .price-line .quan i em {
+            font-size: 16px;
+            padding: 0 3px;
+        }
+
+        .xsqg-single .content .price-line .quan span {
+            float: left;
+            width: 32px;
+            height: 24px;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/common.png) -92px -80px no-repeat;
+        }
+
+        .xsqg-single .content .buy-line {
+            height: 70px;
+        }
+
+        .xsqg-single .content .buy-line .buy-block {
+            width: 324px;
+            height: 38px;
+            border: 1px solid #f22668;
+        }
+
+        .xsqg-single .content .buy-line .buy-block .sale {
+            position: relative;
+            float: left;
+            height: 38px;
+            padding-left: 35px;
+            line-height: 38px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .xsqg-single .content .buy-line .buy-block .sale i {
+            position: absolute;
+            top: 50%;
+            margin-top: -11px;
+            left: 7px;
+            width: 18px;
+            height: 22px;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/xsqg.png) -90px 0 no-repeat;
+        }
+
+        .xsqg-single .content .buy-line .buy-block .buy {
+            float: right;
+            width: 96px;
+            height: 38px;
+            background-color: #f22668;
+            line-height: 38px;
+            font-size: 18px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 38px;
+        }
+
+        .xsqg-no-list {
+            display: none;
+            height: 500px;
+            padding-top: 100px;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .xsqg-no-list span {
+            display: block;
+            width: 187px;
+            height: 266px;
+            margin: 0 auto 20px;
+            background: url(//rescdn.sitezt.cn/A/c/p/images/xsqg.png) 0 -56px no-repeat;
+        }
+
+        .xsqg-no-list i {
+            display: block;
+            line-height: 30px;
+            color: gray;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="dom">
+    <div class="xsqg">
+        <div class="g-m-top_line">
+            <div class="clearFix">
+                <a class="u-qq have_u_qq" target="_blank" href="javascript:void(0);">欢迎光临，我们竭诚为您推荐高质量的商品</a>
+                <div class="u-nav">
+                    <a onclick="SetHome(this)" href="javascript:void(0)" class="home">
+                        <i></i>设为首页</a>
+                    <a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)" class="collect">
+                        <i></i>加入收藏</a>
+                    <a target="_blank" class="question" href="javascript:void(0);">遇到购物问题</a>
+                    <a target="_blank" class="call" href="javascript:void(0);">
+                        <i></i>联系我&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="g-head">
+            <div class="clearFix">
+                <a href="javascript:void(0);" class="u-logo">
+                    <img src="" alt="">
+                </a>
+                <ul class="u-show">
+                    <li class="li1">
+                        <i></i>全场包邮</li>
+                    <li class="li2">
+                        <i></i>人工筛选</li>
+                    <li class="li3">
+                        <i></i>专业砍价</li>
+                </ul>
+                <div class="u-search">
+                    <input class="text" type="text" name="Key" data-bind="value:searchKey" placeholder="搜索站内优惠商品">
+                    <span class="submit">搜站内</span>
+                    <span class="submitall">搜全网</span>
+                </div>
+            </div>
+        </div>
+        <div class="g-nav">
+            <div class="clearFix">
+                <a class="jrsx" data-ui="home" data-parm="" href="javascript:void(0)">今日上新</a>
+                <a data-ui="ssbd" data-parm="" href="javascript:void(0)">实时榜单</a>
+                <a data-ui="qtbd" data-parm="" href="javascript:void(0)">全天榜单</a>
+                <a data-ui="9k9" data-parm="" href="javascript:void(0)">9.9包邮</a>
+                <a data-ui="ppjx" data-parm="" href="javascript:void(0)">品牌精选</a>
+                <a class="cur_a" data-ui="xsqg" data-parm="" href="javascript:void(0)">限时抢购</a>
+            </div>
+        </div>
+        <div class="m-banner-bg">
+            <img class="m-banner" src="//rescdn.sitezt.cn/A/c/p/images/xsqg_banner.jpg" width="100%" height="100%">
+        </div>
+        <div class="m-xsqg-nav-line">
+            <div class="clearFix">
+                <div class="m-xsqg-nav">
+                    <span class="left"></span>
+                    <div class="nav_ul">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <span class="right"></span>
+                </div>
+            </div>
+        </div>
+        <div class="m-xsqg-content">
+            <div class="m-xsqg-list" id="pro-1">
+
+            </div>
+            <div class="xsqg-no-list" style="display: none;">
+                <span></span>
+                <i>
+                    该场次商品还未上架，
+                    <br> 请看官稍后再来
+                </i>
+            </div>
+        </div>
+    </div>
+    <div class="wx_fixed"></div>
+    <div class="wx-lary">
+        <div class="wx_fixe_block">
+            <div class="line"><span class="title">微信：</span><span class="val"></span><div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div></div>
+            <div class="line"><span class="title">QQ：</span><span class="val"></span><div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div></div>
+            <div class="close">关闭</div>
+        </div>
+    </div>
+    <script id="prolistTem" type="text/html">
+        {{each data as item i}}
+        <!-- {{item.addClass}} -->
+            <a class="xsqg-single ui_jump {{item.addClass}}" data-ui="detail" data-parm="&i={{item.ItemId}}"  target="_blank" href="javascript:void(0);" data-flag="{{item.ShowFlag}}">
+                <div class="img_a">
+                    <div class="tag-come">即将开始</div>
+                    <div class="tag-end">已抢完</div>
+                    <img class="lazy" src="{{item.ItemImage}}" width="100%" height="100%"> 
+                </div>
+                <div class="content">
+                    <div class="title">{{item.ItemTitle}}</div>
+                    <div class="recommend">{{item.Recommend}}</div>
+                    <div class="price-line">
+                        <div class="price">
+                            ¥
+                            <i>{{((item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ManJianAmount)/100).toFixed(2)}}</i>
+                        </div>
+                        <div class="qhj">券后价</div>
+                        <div class="old_price">¥{{(item.DiscountPrice/100).toFixed(0)}}</div>
+                        <div class="quan">
+                            <i>¥
+                                <em>{{(item.QuanAmount/100).toFixed(0)}}</em>
+                            </i>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="buy-line">
+                        <div class="buy-block">
+                            <span class="sale">
+                                <i></i>
+                                {{item.SaleCount}}人已买
+                            </span>
+                            <span class="buy">马上抢</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {{/each}}
+    </script>
+    <script>
+        (function () {
+            var dom = document.getElementById('dom');
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var url = window.location.search.substr(1);
+                var r = url.match(reg);
+                return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType = GetQueryString("test");
+            if (testType) {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/c/GlobalJsTest/sign.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJsTest/jump.js", resourcePath + "/c/GlobalJsTest/PcCommon.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/pTest/js/xsqg.js"];
+            } else {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js",resourcePath + "/c/CommonJs/clipboard.min.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath + "/c/GlobalJs/init.js", resourcePath + "/c/GlobalJs/jump.js", resourcePath + "/c/GlobalJs/PcCommon.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/p/js/xsqg.js"];
+            }
+            for (var i = 0; i < jsArr.length; i++) {
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async = false;
+                newScript.src = jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+
+</html>
