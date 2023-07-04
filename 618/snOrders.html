@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" href="//rescdn.sitezt.cn/static/js/dialog/dialog.min.css" />
+    <style type="text/css">
+        html,
+        body,
+        div,
+        p,
+        a,
+        span,
+        ul,
+        li,
+        ol,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        i,
+        table,
+        tr,
+        td,
+        textarea,
+        input,
+        em {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        button {
+            border: 0 none;
+            outline: none;
+        }
+        
+        html {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+        
+        body {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+            font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background-color: #5c22c5;
+            font-size: 0.52rem;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        a {
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-user-select: none;
+            -moz-user-focus: none;
+            -moz-user-select: none;
+        }
+        
+        i,
+        em {
+            font-style: normal;
+        }
+        
+        .clearfix:after {
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .clearfix {
+            zoom: 1;
+        }
+        
+        .mobile-dialogView {
+            z-index: 1010;
+        }
+        
+        .dialogView-m-buttons [data-btn=button][data-skin=yes] {
+            background-color: #fc4134;
+        }
+        
+        .head2 {
+            height: 1.8rem;
+            box-shadow: 0rem 0.02rem 0.05rem #ccc;
+        }
+        
+        .head {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1.8rem;
+            background-color: #fff;
+            align-items: center;
+            line-height: 1.8rem;
+            text-align: center;
+            z-index: 999;
+            box-shadow: 0rem 0.02rem 0.05rem #ccc;
+        }
+        
+        .head span {
+            display: block;
+        }
+        
+        .head .backBtn {
+            padding: 0.9rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+        
+        .head .back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.4rem;
+            margin-left: -0.22rem;
+            width: 0.44rem;
+            height: 0.8rem;
+            background: url('http://rescdn.sitezt.cn/618/images/back.png') left center no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .head .tit {
+            font-size: 0.72rem;
+            color: #000;
+        }
+        
+        .head .share {
+            position: absolute;
+            top: 0;
+            right: 0rem;
+            height: 1.8rem;
+            line-height: 1.8rem;
+            padding: 0 0.56rem;
+            font-size: 0.68rem;
+        }
+        /*遮罩*/
+        
+        #shade {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            opacity: 0.5;
+            z-index: 100;
+            display: none;
+        }
+        /*ajax加载loading*/
+        
+        #loading {
+            display: none;
+            display: inline-block;
+            width: 3.2rem;
+            height: 3.2rem;
+            background: url('http://rescdn.sitezt.cn/618/617_img/loading.gif') center center no-repeat;
+            background-size: 100% 100%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -1.6rem;
+            margin-left: -1.6rem;
+            z-index: 999;
+        }
+        /*main*/
+        
+        .myOrders {
+            width: 14.04rem;
+            height: auto;
+            padding-bottom: 0.9rem;
+            background-color: #fff;
+            border-radius: 0.12rem;
+            margin: 0 auto;
+            position: relative;
+            padding-top: 1rem;
+        }
+        
+        .myOrders .tit {
+            width: 7.54rem;
+            height: 1.78rem;
+            background: url('http://cdnsource.sitezt.cn/active/Jdonebuy/images/ddTit.png') top center no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            position: absolute;
+            top: -0.78rem;
+            left: 50%;
+            margin-left: -3.77rem;
+        }
+        
+        .myOrders .oredrTips {
+            height: 0.7rem;
+            line-height: 0.7rem;
+            font-size: 0.5rem;
+            color: #5e75c7;
+            text-align: center;
+        }
+        
+        .myOrders .canTakeMoney {
+            height: 1.22rem;
+            line-height: 1.22rem;
+            font-size: 1.22rem;
+            color: #000;
+            text-align: center;
+            margin-top: 0.65rem;
+        }
+        
+        .myOrders .txTips {
+            height: 0.7rem;
+            line-height: 0.7rem;
+            font-size: 0.5rem;
+            color: #8b8b8b;
+            text-align: center;
+            margin-top: 0.24rem;
+        }
+        
+        .OrdersBox {
+            width: 14.04rem;
+            height: 2.36rem;
+            background-color: #fff;
+            border-radius: 0.12rem;
+            margin: 0.96rem auto;
+            padding: 0.64rem 0;
+        }
+        
+        .OrdersBox .item {
+            width: 33.3%;
+            border-left: 1px dashed #d5b6e8;
+            float: left;
+            height: 2.36rem;
+            box-sizing: border-box;
+        }
+        
+        .OrdersBox .item .num {
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 0.8rem;
+            color: #253742;
+            text-align: center;
+            margin-top: 0.34rem;
+            margin: 0.34rem 0;
+        }
+        
+        .OrdersBox .item .numTit {
+            font-size: 0.44rem;
+            height: 0.46rem;
+            line-height: 0.46rem;
+            color: #8b8b8b;
+            text-align: center;
+        }
+        
+        .OrdersBox .item:first-child {
+            border-left: 0 none;
+        }
+        
+        .myOrders .takeBox {
+            width: 11.68rem;
+            height: auto;
+            margin: 0.88rem auto 0;
+        }
+        
+        .myOrders .takeBox .itemBtn {
+            display: block;
+            float: left;
+            width: 5.52rem;
+            height: 1.88rem;
+        }
+        
+        .myOrders .takeBox .txRecomond {
+            background: url('http://rescdn.sitezt.cn/618/617_img/txJl.png') left center no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+        }
+        
+        .myOrders .takeBox .takeMoney {
+            float: right;
+            background: url('http://rescdn.sitezt.cn/618/617_img/txBtn.png') left center no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+        }
+        
+        .declire {
+            width: 13.84rem;
+            height: auto;
+            padding-left: 0.2rem;
+            margin: 0.56rem auto 0;
+        }
+        
+        .declire P {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 0.8rem;
+            font-size: 0.48rem;
+        }
+        
+        .declire .decTit {
+            color: #fff;
+            height: 0.56rem;
+            margin-bottom: 0.36rem;
+        }
+        
+        .orderListBox {
+            width: 14.04rem;
+            height: auto;
+            background-color: #fff;
+            padding-top: 4.24rem;
+            margin: 1.7rem auto 1.64rem;
+            border-radius: 0.16rem;
+            position: relative;
+        }
+        
+        .orderListBox .orderTab {
+            width: 14.04rem;
+            height: 1.92rem;
+            border-radius: 0.16rem 0.16rem 0 0;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+        
+        .orderListBox .orderTab a {
+            display: block;
+            width: 7.02rem;
+            height: 0.72rem;
+            line-height: 0.78rem;
+            float: left;
+            background-color: #e1a69b;
+            border-radius: 0.12rem 0 0 0;
+            text-align: center;
+            padding: 0.6rem 0;
+            font-size: 0.72rem;
+            color: #f5ede0;
+            border-top-left-radius: 0.16rem;
+            box-shadow: 0.3rem 0rem 0.3rem -0.2rem #e0998c inset;
+        }
+        
+        .orderListBox .orderTab a:last-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0.16rem;
+        }
+        
+        .orderListBox .orderTab .active {
+            background-color: #f6e7cd;
+            color: #B53921;
+            position: relative;
+            box-shadow: none;
+        }
+        
+        .orderListBox .orderTab .active:after {
+            display: block;
+            content: '';
+            width: 0;
+            height: 0;
+            border: 0.4rem solid transparent;
+            border-bottom: 0.4rem solid #fff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -0.4rem;
+            z-index: 20;
+        }
+        
+        .orderListBox .ordersType {
+            width: 14.04rem;
+            height: 1.32rem;
+            background-color: #fff;
+            margin: 0 auto;
+            position: absolute;
+            top: 1.92rem;
+            left: 0;
+            z-index: 20;
+            padding-top: 1rem;
+            overflow-y: hidden;
+            overflow-x: auto;
+        }
+        
+        .orderListBox .ordersType .orderTypeItem {
+            display: block;
+            float: left;
+            text-align: center;
+            color: #242424;
+            font-size: 0.52rem;
+            padding-bottom: 0.22rem;
+            box-sizing: border-box;
+            margin: 0 0.68rem;
+            font-weight: bold;
+        }
+        
+        .orderListBox .ordersType .selfOrder,
+        .allOrder,
+        .directOrder,
+        .indirectOrder {
+            display: none;
+        }
+        
+        .orderListBox .ordersType .actItem {
+            color: #e95241;
+            border-bottom: 0.08rem solid #e95241;
+        }
+        
+        .orderListBox .orderList {
+            width: 13.24rem;
+            height: auto;
+            background-color: #fff;
+            padding: 0 0.4rem 0.2rem;
+            border-radius: 0 0 0.16rem 0.16rem;
+        }
+        
+        .orderListBox .orderList .orderOne {
+            width: 13.24rem;
+            height: auto;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .orderListBox .orderList .orderOne .shopTit {
+            width: 12rem;
+            height: 0.7rem;
+            line-height: 0.7rem;
+            color: #888888;
+            font-size: 0.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: bold;
+        }
+        
+        .orderListBox .orderList .orderOne .orderBh,
+        .orderListBox .orderList .orderOne .xdTime,
+        .orderListBox .orderList .orderOne .shouHuoTime {
+            font-size: 0.52rem;
+            color: #909090;
+            height: 0.64rem;
+            line-height: 0.64rem;
+            margin-top: 0.24rem;
+        }
+        
+        .orderListBox .orderList .orderOne .orderStaus {
+            font-size: 0.52rem;
+            color: #242424;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        
+        .orderListBox .orderList .orderOne .orderStaus .orderString {
+            float: left;
+            margin-left: 2rem;
+            width: 5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            empty-cells: hide;
+            text-overflow: ellipsis;
+            font-weight: normal;
+            color: #7F7F7F;
+        }
+        
+        .orderListBox .orderList .orderOne .orderStaus .price {
+            float: left;
+            color: #666;
+        }
+        
+        .orderListBox .orderList .orderOne .btPrice {
+            font-weight: bold;
+            color: #e95241;
+        }
+        
+        .orderListBox .orderList .orderOne .orderStaus .status {
+            float: right;
+            color: #bfbfbf;
+        }
+        
+        .orderListBox .orderList .noData {
+            display: none;
+            height: 8.08rem;
+            border: 0 none;
+        }
+        
+        .orderListBox .orderList .noData .img {
+            width: 5.76rem;
+            height: 3.92rem;
+            background: url('http://rescdn.sitezt.cn/618/617_img/noData.png') center center no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            margin: 1.06rem auto 1rem;
+        }
+        
+        .orderListBox .orderList .noData p {
+            height: 0.6rem;
+            font-size: 0.48rem;
+            color: #757575;
+            line-height: 0.6rem;
+            text-align: center;
+        }
+        
+        .orderListBox .orderList .orderOne:last-child {
+            border: 0 none;
+        }
+        
+        .gzBox {
+            width: 15rem;
+            height: 1.6rem;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gzBox .gzBtn {
+            display: none;
+            width: 2.02rem;
+            height: 1.04rem;
+            background: url('http://rescdn.sitezt.cn/618/617_img/gzBtn.png') right top no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -0.5rem;
+            right: 0;
+            z-index: 20;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        (function() {
+            function o() {
+                document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+            }
+            var e = null;
+            window.addEventListener("resize", function() {
+                clearTimeout(e), e = setTimeout(o, 300)
+            }, !1), o()
+        })(window);
+    </script>
+
+    <!--<script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+	    <script>
+	        var vConsole = new VConsole();
+	        console.log('VConsole is cool');
+	    </script> -->
+</head>
+
+<body id="dom">
+    <!--header-->
+    <div class="head2"></div>
+    <div class="head clearfix">
+        <div class="backBtn" style="display:block;">
+            <span class="back"></span>
+        </div>
+        <span class="tit">我的订单</span>
+        <span class="share" style="display:none;">分享</span>
+    </div>
+    <!--活动规则按钮-->
+    <div class="gzBox">
+        <a href="javascript:;" class="gzBtn"></a>
+    </div>
+    <!--content-->
+    <div class="myOrders">
+        <div class="tit"></div>
+        <p class="oredrTips">订单获取会有1-2天左右的延迟</p>
+        <p class="oredrTips">查询不到订单的用户请耐心等待</p>
+        <p class="canTakeMoney">¥0</p>
+        <p class="txTips">活动可提现金额 ></p>
+        <!--提现区-->
+        <div class="takeBox clearfix" style="display: block;">
+            <a href="javascript:;" class="itemBtn txRecomond"></a>
+            <a href="javascript:;" class="itemBtn takeMoney"></a>
+        </div>
+    </div>
+    <!--订单详情-->
+    <div class="OrdersBox clearfix">
+        <div class="item yx_orders">
+            <p class="num">0</p>
+            <p class="numTit">预估有效订单个数</p>
+        </div>
+        <div class="item wx_orders">
+            <p class="num">0</p>
+            <p class="numTit">无效订单个数</p>
+        </div>
+        <div class="item yg_money">
+            <p class="num money">0</p>
+            <p class="numTit">预估补贴金额</p>
+        </div>
+    </div>
+    <!--说明-->
+    <div class="declire">
+        <p class="decTit">温馨提示：</p>
+        <p>确认收货3天后，活动预估补贴金额自动转入活动可提现金额</p>
+    </div>
+
+    <!--订单列表-->
+    <div class="orderListBox">
+        <div class="orderTab clearfix">
+            <a href="javascript:;" class="itemOrder yx_order active" data-status="1">预估有效订单</a>
+            <a href="javascript:;" class="itemOrder wx_order" data-status="0">无效订单</a>
+        </div>
+        <div class="ordersType">
+            <a href="javascript:;" class="orderTypeItem allOrder actItem" data-type="10">全部订单</a>
+            <a href="javascript:;" class="orderTypeItem selfOrder" data-type="1">自购订单</a>
+            <a href="javascript:;" class="orderTypeItem directOrder" data-type="2">直属订单</a>
+            <a href="javascript:;" class="orderTypeItem indirectOrder" data-type="3">间接订单</a>
+        </div>
+        <ul class="orderList">
+            <!--订单列表数据-->
+        </ul>
+    </div>
+    <!--数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板数据模板-->
+    <script type="text/html" id="ordersTmpl">
+        {{each orders as item}}
+        <li class="orderOne">
+            <p class="shopTit">{{item.ProductName}}</p>
+            <p class="orderBh">
+                <span>订单编号:</span>
+                <span>{{item.OrderNo}}</span>
+            </p>
+            <p class="xdTime">
+                <span>下单时间:</span>
+                <span>{{item.OrderSubmitTime}}</span>
+            </p>
+            <!--确认收货时间-->
+            {{if item.OrderFinishTime}}
+            <p class="shouHuoTime">
+                <span>确认收货时间:</span>
+                <span>{{item.OrderSubmitTime}}</span>
+            </p>
+            {{/if}}
+            <div class="orderStaus clearfix">
+                <p class="price">
+                    <span>付款金额:</span>
+                    <span>¥{{item.PayAmount/100}}</span>
+                </p>
+                <!--订单状态-->
+                {{if item.Youxiao>0}}
+                <p class="orderString" style="float: left;">{{item.OrderstatusString}}</p>
+                {{else}}
+                <p class="orderString" style="float: right;text-align: right;">{{item.OrderstatusString }}</p>
+                {{/if}} {{if item.Youxiao>0}} {{if item.Status==1}}
+                <p class="status" style="color:#b53921;">未提现</p>
+                {{else if item.Status==2}}
+                <p class="status" style="color:#;">提现中</p><br /> {{else}}
+                <p class="status" style="color:#000;">已提现</p>
+                {{/if}} {{/if}}
+            </div>
+            {{if item.Youxiao>0}}
+            <p class="btPrice" style="float: none;">
+                <span>补贴金额:</span>
+                <span>¥{{item.TixianMoney/100}}</span>
+            </p>
+            {{/if}}
+        </li>
+        {{/each}}
+    </script>
+
+    <script type="text/javascript">
+        var dom = document.getElementById('dom');
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        var UiUrl = GetQueryString("ui");
+        var resourcePath = '//rescdn.sitezt.cn';
+        var jsArr = [resourcePath + "/A/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/A/c/CommonJs/md5.min.js", resourcePath + "/static/js/lib/jquery.cookie.js", resourcePath + "/A/c/CommonJs/template.js", resourcePath + "/A/c/CommonJs/clipboard.min.js", resourcePath + '/618/src/lib/common.js', resourcePath + "/static/js/dialog/dialog.min.js", resourcePath + "/618/sn_src/snOrders.js"];
+        for (var i = 0; i < jsArr.length; i++) {
+            var newScript = document.createElement('script');
+            newScript.type = 'text/javascript';
+            newScript.async = false;
+            newScript.src = jsArr[i];
+            dom.appendChild(newScript);
+        }
+    </script>
+</body>
+
+</html>

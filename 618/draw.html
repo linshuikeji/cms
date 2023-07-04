@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<title>美逛狂欢抽大奖</title>
+		<link rel="stylesheet" type="text/css" href="//rescdn.sitezt.cn/static/js/dialog/dialog.min.css" />
+		<style type="text/css">
+			html,body,div,p,a,span,ul,li,ol,h1,h2,h3,h4,h5,h6,i,table,tr,td,textarea,input,em 
+			{
+			    padding: 0;
+			    margin: 0;
+			    list-style: none;
+			}
+			button {
+			  border: 0 none;
+			  outline: none;
+			}
+			html {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			}
+			body {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			  font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+			  background-color: #7400b9;
+			  font-size: 0.52rem;
+			  position: relative;
+			  -webkit-tap-highlight-color: transparent;
+			}
+			a {
+			  text-decoration: none;
+			  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			  -webkit-user-select: none;
+			  -moz-user-focus: none;
+			  -moz-user-select: none;
+			}
+			i,
+			em {
+			  font-style: normal;
+			}
+			.clearfix:after {
+			  content: "";
+			  height: 0;
+			  line-height: 0;
+			  display: block;
+			  clear: both;
+			  visibility: hidden;
+			}
+			.clearfix {
+			  zoom: 1;
+			}
+			.mobile-dialogView {
+			  z-index: 1010;
+			}
+			.dialogView-m-buttons [data-btn=button][data-skin=yes] {
+			  background-color: #eca53a;
+			}
+			.head2 {
+			  height: 1.8rem;
+			  box-shadow: 0rem 0.02rem 0.05rem #ccc;
+			}
+			.head {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 1.8rem;
+			  background-color: #fff;
+			  align-items: center;
+			  line-height: 1.8rem;
+			  text-align: center;
+			  z-index: 999;
+			  box-shadow: 0rem 0.02rem 0.05rem #ccc;
+			}
+			.head span {
+			  display: block;
+			}
+			.head .backBtn {
+			  padding: 0.9rem;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  cursor: pointer;
+			}
+			.head .back {
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -0.4rem;
+			  margin-left: -0.22rem;
+			  width: 0.44rem;
+			  height: 0.8rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/back.png') left center no-repeat;
+			  background-size: 100% 100%;
+			}
+			.head .tit {
+			  font-size: 0.72rem;
+			  color: #000;
+			}
+			.head .share {
+			  position: absolute;
+			  top: 0;
+			  right: 0rem;
+			  height: 1.8rem;
+			  line-height: 1.8rem;
+			  padding: 0 0.56rem;
+			  font-size: 0.68rem;
+			}
+			/*遮罩*/
+			#shade {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  background-color: #000000;
+			  opacity: 0.5;
+			  z-index: 100;
+			  display: none;
+			}
+			/*ajax加载loading*/
+			#loading {
+			  display: none;
+			  display: inline-block;
+			  width: 1.6rem;
+			  height: 1.6rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/loading.gif') center center no-repeat;
+			  background-size: 100% 100%;
+			  position: fixed;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -0.8rem;
+			  margin-left: -0.8rem;
+			  z-index: 999;
+			}
+			.overscroll {
+			  position: fixed;
+			  width: 100%;
+			}
+			.topPic {
+			  width: 15rem;
+			  height: 10.2rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/topBg_02.jpg') center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.zsPic {
+			  width: 15rem;
+			  height: 0.52rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/topBg_03.jpg') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.drawBg {
+			  width: 13.56rem;
+			  height: 13.68rem;
+			  background-color: #b21cd1;
+			  border-radius: 0.68rem;
+			  margin: 0 auto;
+			  padding: 0.24rem 0.24rem 0.44rem;
+			  overflow: hidden;
+			}
+			.drawBg .tableBox {
+			  width: 13.54rem;
+			  height: 13.66rem;
+			  background-color: #fff;
+			  border-radius: 0.6rem;
+			}
+			.drawBg .tableBox table {
+			  width: 100%;
+			  height: 100%;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			}
+			.drawBg .tableBox table tr {
+			  height: 4rem;
+			  background-color: #f9be4d;
+			}
+			.drawBg .tableBox table tr td {
+			  width: 4rem;
+			  height: 3.74rem;
+			  border-radius: 0.16rem;
+			  padding: 0;
+			  position: relative;
+			}
+			.drawBg .tableBox table tr td .mask {
+			  width: 100%;
+			  height: 100%;
+			  position: absolute;
+			  left: 0;
+			  top: 0.15rem;
+			  background-color: rgba(88, 13, 163, 0.8);
+			  border-radius: 0.16rem;
+			  display: none;
+			}
+			.drawBg .tableBox table tr td div {
+			  width: 100%;
+			  height: 3.76rem;
+			  background-color: #feedce;
+			  border-radius: 0.16rem;
+			  margin-top: -0.2rem;
+			  text-align: center;
+			  overflow: hidden;
+			}
+			.drawBg .tableBox table tr td div span {
+			  display: block;
+			}
+			.drawBg .tableBox table tr td div p {
+			  font-size: 0.56rem;
+			  color: #ff6c0c;
+			  font-weight: bold;
+			}
+			.drawBg .tableBox table tr td div .IphoneXRImg {
+			  width: 1.28rem;
+			  height: 2.32rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/iphone.png') center center no-repeat;
+			  background-size: 100% 100%;
+			  margin: 0.36rem auto 0;
+			}
+			.drawBg .tableBox table tr td div .bagImg618 {
+			  width: 1.88rem;
+			  height: 2.54rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/618.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0.2rem auto 0;
+			}
+			.drawBg .tableBox table tr td div .randomBag {
+			  width: 1.88rem;
+			  height: 2.54rem;
+			  margin: 0.46rem auto 0;
+			  background: url('http://rescdn.sitezt.cn/618/images/random.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0.2rem auto 0;
+			}
+			.drawBg .tableBox table tr td div .tanks {
+			  width: 1.56rem;
+			  height: 1.74rem;
+			  margin: 0.92rem auto 0;
+			  font-size: 0.65rem;
+			  color: #ff6c0c;
+			}
+			.drawBg .tableBox table tr td div .jqrImg {
+			  width: 2.26rem;
+			  height: 2.28rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/jqr.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0.35rem auto 0;
+			}
+			.drawBg .tableBox table tr td div .lkhfImg {
+			  width: 2.16rem;
+			  height: 2.32rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/hzp.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0.35rem auto 0;
+			}
+			.drawBg .tableBox table tr td .drawBtn {
+			  background-image: -webkit-linear-gradient(top, #ee8523, #ee7b22, #ed6221, #ed5b20);
+			  background-image: -moz-linear-gradient(top, #ee8523, #ee7b22, #ed6221, #ed5b20);
+			  background-image: -ms-linear-gradient(top, #ee8523, #ee7b22, #ed6221, #ed5b20);
+			  background-image: -o-linear-gradient(top, #ee8523, #ee7b22, #ed6221, #ed5b20);
+			}
+			.drawBg .tableBox table tr td .drawBtn p {
+			  font-size: 0.72rem;
+			  color: #fff;
+			  position: relative;
+			}
+			.drawBg .tableBox table tr td .drawBtn p span {
+			  font-size: 0.6rem;
+			  color: #eff864;
+			}
+			.drawBg .tableBox table tr td .drawBtn .drawMsg {
+			  margin-top: 0.72rem;
+			  height: 1.04rem;
+			  line-height: 1.04rem;
+			  font-size: 0.72rem;
+			  color: #ffef02;
+			}
+			.drawBg .tableBox table tr td .drawBtn .syjh {
+			  margin-top: 0.52rem;
+			  height: 0.56rem;
+			  line-height: 0.56rem;
+			}
+			.drawBg .tableBox table tr .active .mask {
+			  background-color: rgba(255, 146, 38, 0.5);
+			  display: block;
+			  border-radius: 0.16rem;
+			}
+			.drawBg .tableBox table tr .btnBg {
+			  width: 3.96rem;
+			  height: 3.96rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/cjbtnBg.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  background-color: #cb4314;
+			  cursor: pointer;
+			}
+			/*活动规则*/
+			.gzTit {
+			  width: 7.06rem;
+			  height: 0.68rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/actgzTit.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0.68rem auto 0.56rem;
+			}
+			.gzBox {
+			  width: 14.04rem;
+			  height: auto;
+			  margin: 0 auto 3.06rem;
+			}
+			.gzBox P {
+			  font-size: 0.48rem;
+			  color: #fff;
+			  line-height: 0.86rem;
+			}
+			.btnBox_bot {
+			  width: 14.2rem;
+			  padding: 0.26rem 0.4rem;
+			  position: fixed;
+			  bottom: 0;
+			  background-color: #9f29cb;
+			  box-shadow: 0rem 0rem 0.2rem 0rem rgba(0, 0, 0, 0.2);
+			  z-index: 50;
+			}
+			.btnBox_bot a {
+			  display: block;
+			  height: 1.88rem;
+			}
+			.btnBox_bot .shareBtn {
+			  width: 9.06rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/shareBtn.png') left center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  float: left;
+			  cursor: pointer;
+			}
+			.btnBox_bot .awdBtn {
+			  width: 5.12rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/awdBtn.png') left center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  float: right;
+			  cursor: pointer;
+			}
+			/*遮罩层*/
+			#shade {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  background-color: #000000;
+			  opacity: 0.6;
+			  z-index: 90;
+			  display: none;
+			}
+			.setAlipayPop {
+			  	display: none;
+		      	width: 11.58rem;
+			    height: 2.5rem;
+			    background-color: #fff;
+			    padding: 0.54rem 0.7rem 0.8rem 1.18rem;
+			    position: fixed;
+			    top: 50%;
+			    left: 50%;
+			    margin-top: -4rem;
+			    margin-left: -6.73rem;
+			    z-index: 1000;
+			    border-radius: 0.4rem;
+			    text-align: center;
+			    font-size: 0.6rem;
+			    color: #333;
+			}
+			.setAlipayPop .Setting {
+			  width: 5rem;
+			  height: 1.3rem;
+			  text-align: center;
+			  line-height: 1.3rem;
+			  color: #fff;
+			  background-color: #ec763a;
+			  border-radius: 0.3rem;
+			  margin: 0.68rem auto 0;
+			}
+			/*分享弹窗*/
+			.sharePop {
+			  display: none;
+			  width: 14.08rem;
+			  height: 14.48rem;
+			  background-color: #fff;
+			  border-radius: 0.12rem;
+			  position: fixed;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -7.64rem;
+			  margin-left: -7.04rem;
+			  z-index: 120;
+			  padding-top: 0.8rem;
+			}
+			.sharePop .closeBtn {
+			  width: 0.8rem;
+			  height: 0.8rem;
+			  display: block;
+			  position: absolute;
+			  top: 0.25rem;
+			  right: 0.25rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/close.png') top right no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			}
+			.sharePop h2 {
+			  font-size: 0.72rem;
+			  color: #2e2e2e;
+			  height: 0.84rem;
+			  line-height: 0.84rem;
+			  margin: 0 auto 0.68rem;
+			  text-align: center;
+			}
+			.sharePop .shareBox {
+			  width: 13.2rem;
+			  height: 11.6rem;
+			  margin: 0 auto;
+			  background-color: #fff;
+			  border-radius: 0.1rem;
+			}
+			.sharePop .shareBox .hbPic {
+			  display: block;
+			  width: 6.5rem;
+			  height: 11.6rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/hbPic_03.jpg') left top no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  float: left;
+			}
+			.sharePop .shareBox .topMsg,
+			.sharePop .shareBox .botCard {
+			  width: 5.48rem;
+			  height: 4.04rem;
+			  display: block;
+			  border: 1px solid #000;
+			  margin-bottom: 0.17rem;
+			  border-radius: 0.12rem;
+			  padding: 0.8rem 0.48rem;
+			  float: right;
+			}
+			.sharePop .shareBox .topMsg p,
+			.sharePop .shareBox .botCard p {
+			  line-height: 0.56rem;
+			}
+			.sharePop .shareBox .topMsg {
+			  display: block;
+			}
+			.sharePop .shareBox .topMsg .yhIcon {
+			  display: block;
+			  width: 0.5rem;
+			  height: 0.46rem;
+			}
+			.sharePop .shareBox .topMsg .yh_top {
+			  background: url('http://rescdn.sitezt.cn/618/images/topYh.png') top center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0 auto 0.4rem;
+			}
+			.sharePop .shareBox .topMsg .yh_bot {
+			  background: url('http://rescdn.sitezt.cn/618/images/botYh.png') top center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0.4rem auto 0;
+			}
+			.sharePop .shareBox .topMsg p {
+			  color: #2d2d2d;
+			  font-size: 0.44rem;
+			}
+			.sharePop .shareBox .botCard {
+			  width: 6.44rem;
+			  height: 4.28rem;
+			  padding-bottom: 0;
+			  margin-bottom: 0;
+			  background-color: #f8f8f8;
+			  padding: 1.36rem 0 0 0;
+			}
+			.sharePop .shareBox .botCard .pic {
+			  display: block;
+			  width: 6.18rem;
+			  height: 3.2rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/cardDemo_03.jpg') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.sharePop .shareBox .itemShare {
+			  position: relative;
+			}
+			.sharePop .shareBox .itemShare .no-check {
+			  position: absolute;
+			  top: 0.14rem;
+			  right: 0.14rem;
+			  display: block;
+			  width: 0.8rem;
+			  height: 0.8rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/no-check.png') top right no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			}
+			.sharePop .shareBox .itemShare .check {
+			  position: absolute;
+			  top: 0.14rem;
+			  right: 0.14rem;
+			  display: block;
+			  width: 0.8rem;
+			  height: 0.8rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/check.png') top right no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			}
+			/*复制按钮区*/
+			.copyBox {
+			  display: none;
+			  width: 14rem;
+			  height: 1.68rem;
+			  background-color: #ffffff;
+			  padding: 0.94rem 0.5rem;
+			  position: fixed;
+			  left: 0;
+			  bottom: 0;
+			  z-index: 150;
+			}
+			.copyBox .copyBtn {
+			  display: block;
+			  width: 6.92rem;
+			  height: 1.68rem;
+			}
+			.copyBox .copyMsg {
+			  background: url('http://rescdn.sitezt.cn/618/images/copyMsg_03.png') left center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  float: left;
+			}
+			.copyBox .copyTkl {
+			  background: url('http://rescdn.sitezt.cn/618/images/copyTkl_03.png') left center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  float: right;
+			}
+			.copyBox .closeBtn {
+			  width: 0.76rem;
+			  height: 0.76rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/close.png') right top no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  position: absolute;
+			  top: 0.2rem;
+			  right: 0.2rem;
+			}
+			/*中奖弹窗*/
+			.zjPop {
+			  display: none;
+			  width: 12.38rem;
+			  height: 13.06rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/zjPop_03.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  position: fixed;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -9.53rem;
+			  margin-left: -6.19rem;
+			  padding-top: 6rem;
+			  z-index: 100;
+			}
+			.zjPop .zjTit {
+			  text-align: center;
+			  color: #fff;
+			  font-size: 0.96rem;
+			  height: 1.08rem;
+			  line-height: 1.08rem;
+			}
+			.zjPop .awdTit {
+			  text-align: center;
+			  font-size: 0.96rem;
+			  color: #ffda6e;
+			  height: 1rem;
+			  line-height: 1rem;
+			  margin-top: 0.92rem;
+			}
+			.zjPop .money {
+			  width: 6.72rem;
+			  margin-top: 1.48rem;
+			  font-size: 1.24rem;
+			  color: #ffda6e;
+			  padding-left: 5.66rem;
+			}
+			.zjPop .closeZjPop {
+			  display: block;
+			  width: 1.8rem;
+			  height: 1.8rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/closeZjPop.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  position: absolute;
+			  bottom: 0;
+			  left: 50%;
+			  margin-left: -1rem;
+			}
+
+		</style>
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+		
+		<!--<script src="src/lib/vconsole.min.js"></script>
+	    <script>
+	        var vConsole = new VConsole();
+	        console.log('VConsole is cool');
+	    </script>-->
+	</head>
+
+	<body id="dom">
+		<div class="head2"></div>
+		<div class="head clearfix">
+			<div class="backBtn" style="display:block;">
+				<span class="back"></span>
+			</div>
+			<span class="tit">美逛狂欢抽大奖</span>
+			<span class="share" style="display:none;">分享</span>
+		</div>
+		<div class="topPic"></div>
+		<div class="zsPic"></div>
+		<!--九宫格抽奖-->
+		<div class="drawBg" id="lottery">
+			<div class="tableBox">
+				<table border="0" cellpadding="0" cellspacing="6">
+					<tr>
+						<td class="orange lottery-unit lottery-unit-0">
+							<div class="peoples">
+								<span class="IphoneXRImg"></span>
+								<p class="awd" data-msg="IphoneXR" style="margin-top: 0.2rem;">IphoneXR</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+						<td class="orange lottery-unit lottery-unit-1">
+							<div class="rmb_618 ">
+								<span class="randomBag"></span>
+								<p class="awd" data-msg="随机现金红包"  style="margin-top: 0.1rem;">随机现金红包</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+						<td class="orange lottery-unit lottery-unit-2">
+							<div class="DW_watch xj_618">
+								<span class="bagImg618"></span>
+								<p class="awd" data-msg="现金88元" style="margin-top: 0.1rem;">现金88元</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="orange lottery-unit lottery-unit-7">
+							<div class="sjxj_bag">
+								<span class="randomBag"></span>
+								<p class="awd" data-msg="随机现金红包" style="margin-top: 0.1rem;">随机现金红包</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+						<td class="btn btnBg">
+							<div class="drawBtn">
+								<p class="drawMsg">开始抽奖</p>
+								<p class="syjh">
+									<span>机会：<i id="count">0</i>次</span>
+								</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+						<td class="orange lottery-unit lottery-unit-3">
+							<div class="rmb_88 thanks">
+								<span class="tanks awd" data-msg="谢谢参与">谢谢<br />参与</span>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="orange lottery-unit lottery-unit-6">
+							<div class="iponeXs">
+								<span class="lkhfImg"></span>
+								<p class="awd" data-msg="兰蔻护肤套装" style="margin-top: 0.18rem;">兰蔻护肤套装</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+						<td class="orange lottery-unit lottery-unit-5">
+							<div class="zerobuyImg">
+								<span class="randomBag"></span>
+								<p class="awd" data-msg="随机现金红包" style="margin-top: 0.1rem;">随机现金红包</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+						<td class="orange lottery-unit lottery-unit-4">
+							<div class="ipiad">
+								<span class="jqrImg"></span>
+								<p class="awd" data-msg="扫地机器人" style="margin-top: 0.2rem;">扫地机器人</p>
+							</div>
+							<div class="mask"><i></i></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!--活动规则-->
+		<div class="gzTit"></div>
+		<div class="gzBox">
+			<p>1.活动时间：2019.06.03-2019.06.18；</p>
+			<p>2.活动对象：全体美逛用户；</p>
+			<p>3.凡2019.06.03-2019.06.18期间，凡活动时间登陆APP的用户，分享好友领无门槛超级大红包，每日可获得一次抽奖机会</p>
+			<p>4.2019.06.19开始中奖礼品将会由平台进行发放，现金奖无需提现会直接打入个人支付宝账户</p>
+			<p>5.请在奖品发放前，请确保提现支付宝账号已填写</p>
+			<p>6.活动结束，未使用完的抽奖机会将会失效</p>
+		</div>
+		<!--底部悬浮按钮区-->
+		<div class="btnBox_bot clearfix">
+			<a href="javascript:;" class="shareBtn"></a>
+			<a href="javascript:;" class="awdBtn"></a>
+		</div>
+		<!--遮罩层-->
+		<div id="shade" class="shade"></div>
+		<!--设置支付宝弹窗-->
+		<div class="setAlipayPop">
+			<div class="tips">您还未设置提现支付宝账号，请前往设置</div>
+			<div class="Setting">立即设置</div>
+		</div>
+		<!--分享弹窗-->
+		<div class="sharePop">
+			<i class="closeBtn" id="sharePopHide"></i>
+			<h2>分享海报</h2>
+			<div class="shareBox clearfix">
+				<a href="javascript:;" class="itemShare hbPic" data-type="1">
+					<i class="no-check"></i>
+				</a>
+				<a href="javascript:;" class="itemShare topMsg" data-type="2">
+					<i class="no-check"></i>
+					<i class="yhIcon yh_top"></i>
+					<p>
+						<span class="writeMsg" style="line-height: 0.6rem;"></span>
+						<span class="tklInfo"></span>
+					</p>
+					<i class="yhIcon yh_bot"></i>
+				</a>
+				<a href="javascript:;" class="itemShare botCard" data-type="3">
+					<i class="no-check"></i>
+					<i class="pic"></i>
+				</a>
+			</div>
+		</div>
+		<!--底部复制按钮区-->
+		<div class="copyBox clearfix">
+			<a href="javascript:;" class="closeBtn" id="copyBoxHide"></a>
+			<!--复制文案-->
+			<div href="javascript:;" type="button" data-clipboard-text="" class="copyBtn copyMsg"></div>
+			<!--复制淘口令-->
+			<div href="javascript:;" type="button" data-clipboard-text="" class="copyBtn copyTkl"></div>
+		</div>
+		<!--中奖弹窗-->
+		<div class="zjPop">
+			<p class="zjTit">恭喜中奖</p>
+			<p class="awdTit"></p>
+			<p class="money"></p>
+			<a href="javascript:;" class="closeZjPop"></a>
+		</div>
+		
+		<script type="text/javascript">
+			var dom = document.getElementById('dom');
+		    function GetQueryString(name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		        var r = window.location.search.substr(1).match(reg);
+		        if (r != null) return unescape(r[2]); return null;
+		    }
+		    var UiUrl=GetQueryString("ui");
+		    var resourcePath ='//rescdn.sitezt.cn';
+		    var jsArr=[resourcePath+"/A/c/CommonJs/jquery-1.8.2.min.js",resourcePath+"/A/c/CommonJs/md5.min.js",resourcePath+"/static/js/lib/jquery.cookie.js",resourcePath+"/A/c/CommonJs/template.js",resourcePath+"/A/c/CommonJs/clipboard.min.js",resourcePath+"/static/js/dialog/dialog.min.js",resourcePath+"/618/src/lib/common.js",resourcePath+"/618/src/lib/data.js",resourcePath+"/618/src/draw.js"];
+		    for(var i=0 ;i<jsArr.length;i++){
+		        var newScript = document.createElement('script');
+		        newScript.type = 'text/javascript';
+		        newScript.async=false;
+		        newScript.src=jsArr[i];
+		        dom.appendChild(newScript);
+		    }
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<title>天猫理想生活狂欢季</title>
+		<link rel="stylesheet" type="text/css" href="//rescdn.sitezt.cn/static/js/dialog/dialog.min.css" />
+		<style type="text/css">
+			html,body,div,p,a,span,ul,li,ol,h1,h2,h3,h4,h5,h6,i,table,tr,td,textarea,input,em 
+			{
+			    padding: 0;
+			    margin: 0;
+			    list-style: none;
+			}
+			
+			button {
+			    border: 0 none;
+			    outline: none;
+			}
+			
+			html {
+			    max-width: 750px;
+			    min-width: 320px;
+			    margin: 0 auto;
+			}
+			
+			body {
+			    max-width: 750px;
+			    min-width: 320px;
+			    margin: 0 auto;
+			    font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+			    background-color: #7400b9;
+			    font-size: 0.52rem;
+			    position: relative;
+			}
+			
+			a {
+			    text-decoration: none;
+			    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			    -webkit-user-select: none;
+			    -moz-user-focus: none;
+			    -moz-user-select: none;
+			}
+			
+			i,
+			em {
+			    font-style: normal;
+			}
+			.clearfix:after {
+			  content: "";
+			  height: 0;
+			  line-height: 0;
+			  display: block;
+			  clear: both;
+			  visibility: hidden;
+			}
+			.clearfix {
+			  zoom: 1;
+			}
+			.mobile-dialogView {
+			    z-index: 1010;
+			}
+			
+			.dialogView-m-buttons [data-btn=button][data-skin=yes] {
+			    background-color: #580da3;
+			}
+			.head2 {
+			  height: 1.8rem;
+			}
+			.head {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 1.8rem;
+			  background-color: #fff;
+			  align-items: center;
+			  line-height: 1.8rem;
+			  text-align: center;
+			  z-index: 999;
+			}
+			.head span {
+			  display: block;
+			}
+			.head .backBtn {
+			  padding: 0.9rem;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  cursor: pointer;
+			}
+			.head .back {
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -0.4rem;
+			  margin-left: -0.22rem;
+			  width: 0.44rem;
+			  height: 0.8rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/back.png') left center no-repeat;
+			  background-size: 100% 100%;
+			}
+			.head .tit {
+			  font-size: 0.72rem;
+			  color: #000;
+			}
+			.head .share {
+			  position: absolute;
+			  top: 0;
+			  right: 0rem;
+			  height: 1.8rem;
+			  line-height: 1.8rem;
+			  padding: 0 0.56rem;
+			  font-size: 0.68rem;
+			}
+			/*遮罩*/
+			#shade {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  background-color: #000000;
+			  opacity: 0.5;
+			  z-index: 100;
+			  display: none;
+			}
+			/*ajax加载loading*/
+			#loading{
+			    display: none;
+			    display: inline-block;
+			    width: 1.6rem;
+			    height: 1.6rem;
+			    background: url('http://rescdn.sitezt.cn/618/images/loading.gif') center center no-repeat;
+			    background-size: 100% 100%;
+			    position: fixed;
+			    top: 50%;
+			    left: 50%;
+			    margin-top: -0.8rem;
+			    margin-left: -0.8rem;
+			    z-index: 999;
+			}
+			/*main*/
+			.topBg {
+			  width: 15rem;
+			  height: 9.04rem;
+			  margin: 0 auto;
+			}
+			.topBg img {
+			  width: 100%;
+			  height: 100%;
+			}
+			.topTit {
+			  width: 8.46rem;
+			  height: 2.98rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/topTit_03.png') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: -0.72rem auto 0;
+			}
+			.msgBox{
+				width: 8.16rem;
+			    height: 3.56rem;
+			    background-color: #fff;
+			    border-radius: 0.4rem;
+			    margin: 0.8rem auto 0;
+			    padding: 2rem 1.4rem 0;
+			}
+			.msgBox p{
+				font-size: 0.48rem;
+				color: #2d2d2d;
+				line-height: 0.68rem;
+			}
+			.copyBtn{
+				display: block;
+				width: 6.88rem;
+				margin: 1.12rem auto 0;
+				background-color: #f7a101;
+				color: #fff;
+				font-size: 0.64rem;
+				text-align: center;
+				padding:0.52rem 0 ;
+				border-radius: 1rem;
+			}
+		</style>
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+		
+		<!--<script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+	    <script>
+	        var vConsole = new VConsole();
+	        console.log('VConsole is cool');
+	    </script> -->
+	</head>
+	<body id="dom">
+		<div class="head2"></div>
+		<div class="head clearfix">
+			<div class="backBtn" style="display:block;">
+				<span class="back"></span>
+			</div>
+			<span class="tit">天猫理想生活狂欢季</span>
+			<span class="share" style="display:none;">分享</span>
+		</div>
+		<div class="topBg">
+			<img class="banner" src="" alt=""/>
+		</div>
+		<div class="topTit"></div>
+		<!--文案box-->
+		<div class="msgBox">
+			<p class="copyMsg"></p>
+		</div>
+		<a href="javascript:;" type="button" data-clipboard-text="" class="copyBtn">复制打开tao领红包</a>
+
+		<script type="text/javascript">
+			var dom = document.getElementById('dom');
+		    function GetQueryString(name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		        var r = window.location.search.substr(1).match(reg);
+		        if (r != null) return unescape(r[2]); return null;
+		    }
+		    var UiUrl=GetQueryString("ui");
+		    var resourcePath ='//rescdn.sitezt.cn';
+		    var jsArr=[resourcePath+"/A/c/CommonJs/jquery-1.8.2.min.js",resourcePath+"/A/c/CommonJs/md5.min.js",resourcePath+"/static/js/lib/jquery.cookie.js",resourcePath+"/A/c/CommonJs/template.js",resourcePath+"/A/c/CommonJs/clipboard.min.js",resourcePath+"/static/js/dialog/dialog.min.js",resourcePath+"/618/src/lib/common.js",resourcePath+"/618/src/lib/data.js",resourcePath+"/618/src/shareRes.js"];
+		    for(var i=0 ;i<jsArr.length;i++){
+		        var newScript = document.createElement('script');
+		        newScript.type = 'text/javascript';
+		        newScript.async=false;
+		        newScript.src=jsArr[i];
+		        dom.appendChild(newScript);
+		    }
+		</script>
+	</body>
+</html>

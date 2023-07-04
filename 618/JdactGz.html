@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>活动规则</title>
+    <style type="text/css">
+        html,
+        body,
+        div,
+        p,
+        a,
+        span,
+        ul,
+        li,
+        ol,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        i,
+        table,
+        tr,
+        td,
+        textarea,
+        input,
+        em {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        button {
+            border: 0 none;
+            outline: none;
+        }
+        
+        html {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+        
+        body {
+            max-width: 750px;
+            min-width: 320px;
+            margin: 0 auto;
+            font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background-color: #ea433c;
+            font-size: 0.52rem;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        a {
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-user-select: none;
+            -moz-user-focus: none;
+            -moz-user-select: none;
+        }
+        
+        i,
+        em {
+            font-style: normal;
+        }
+        
+        .clearfix:after {
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .clearfix {
+            zoom: 1;
+        }
+        
+        .mobile-dialogView {
+            z-index: 1010;
+        }
+        
+        .dialogView-m-buttons [data-btn=button][data-skin=yes] {
+            background-color: #580da3;
+        }
+        
+        .head2 {
+            height: 1.8rem;
+            box-shadow: 0rem 0.02rem 0.05rem #ccc;
+        }
+        
+        .head {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1.8rem;
+            background-color: #fff;
+            align-items: center;
+            line-height: 1.8rem;
+            text-align: center;
+            z-index: 999;
+            box-shadow: 0rem 0.02rem 0.05rem #ccc;
+        }
+        
+        .head span {
+            display: block;
+        }
+        
+        .head .backBtn {
+            padding: 0.9rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+        
+        .head .back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.4rem;
+            margin-left: -0.22rem;
+            width: 0.44rem;
+            height: 0.8rem;
+            background: url('http://rescdn.sitezt.cn/618/images/back.png') left center no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .head .tit {
+            font-size: 0.72rem;
+            color: #000;
+        }
+        
+        .head .share {
+            position: absolute;
+            top: 0;
+            right: 0rem;
+            height: 1.8rem;
+            line-height: 1.8rem;
+            padding: 0 0.56rem;
+            font-size: 0.68rem;
+        }
+        
+        .content {
+            width: 13.32rem;
+            height: auto;
+            margin: 1.3rem auto 0;
+        }
+        
+        .content h1 {
+            font-size: 0.72rem;
+            color: #fff;
+            height: 0.92rem;
+            line-height: 0.92rem;
+            font-weight: normal;
+            margin-bottom: 0.4rem;
+        }
+        
+        .content p {
+            line-height: 0.76rem;
+            font-size: 0.52rem;
+            color: #fff;
+        }
+        
+        .content .itemGz {
+            margin-bottom: 0.8rem;
+        }
+        
+        .content .itemGz p {
+            margin-bottom: 0.44rem;
+        }
+        
+        .content .itemGz p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .content .actContent p {
+            margin-bottom: 0.44rem;
+        }
+        
+        .content .actContent p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        (function() {
+            function o() {
+                document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+            }
+            var e = null;
+            window.addEventListener("resize", function() {
+                clearTimeout(e), e = setTimeout(o, 300)
+            }, !1), o()
+        })(window);
+    </script>
+
+    <!--<script src="//cdnsource.sitezt.cn/active/public_resource/js/vconsole.min.js"></script>
+	    <script>
+	        var vConsole = new VConsole();
+	        console.log('VConsole is cool');
+	    </script> -->
+</head>
+
+<body id="dom">
+    <!--header-->
+    <div class="head2"></div>
+    <div class="head clearfix">
+        <div class="backBtn" style="display:block;">
+            <span class="back"></span>
+        </div>
+        <span class="tit">活动规则</span>
+        <span class="share" style="display:none;">分享</span>
+    </div>
+    <div class="content">
+        <div class="itemGz actTime">
+            <h1>一、活动时间：</h1>
+            <p>2019年6月17日 0点-6月17日 24点共一天</p>
+        </div>
+        <div class="itemGz actContent">
+            <h1>二、活动内容：</h1>
+            <p>1.本次的活动形式为：先下单购买，后补贴返款。补贴后价格为0.01元</p>
+            <p>2.美逛所有用户均可购买，每个用户仅补贴5单，超过部分不进行补贴，每个有效订单返现9.89元</p>
+            <p>3.本次活动商品均为京东拼购商品，下单即自动成团，无需拉人成团</p>
+            <p>4.本次商品仅支持微信支付，如果使用其他可能会导致订单失效，无法补贴</p>
+            <p>5.活动商品全部为拼购+优惠券的模式，用户下单付款金额低于9.9元的不予返款，选择默认选项购买，不要随意更改商品的颜色、大小、型号等信息，否则无返款补贴</p>
+            <p>6.一个微信账户视为一个京东账户，每个账号限购5单</p>
+            <p>7.活动期间由于订单量暴增，可能出现订单同步延时的情况</p>
+            <p>8.此活动页将会同时显示5月24日与6月17日两次订单查看订单时请注意日期</p>
+            <p>9.通过美逛有品下单的用户，将会在APP进行提现</p>
+            <p>10.用户下单后，6月17日订单信息将会记录在预估有效订单，后续会同步相应的订单状态</p>
+            <p>11.下单时不能使用京东618京喜红包</p>
+            <p>12.拼购页面显示“看看其他商品吧”或出现拼购订单下单后被系统取消的情况，此为京东账号异常，无法参加本次活动，请使用其他京东账号购买</p>
+        </div>
+        <div class="itemGz actContent">
+            <h1>三、无效订单说明：</h1>
+            <p>1.同一个京东账户，活动期间内超过5单的，视为无效订单</p>
+            <p>2.账户类型为企业用户下单的，视为无效订单</p>
+            <p>3.账户类型为乡村推广员及其乡村推广员发展的用户，所产生的订单，视为无效订单</p>
+            <p>4.单笔金额低于9.9元的，视为无效订单</p>
+            <p>5.订单支付时，使用了：礼品卡、E卡、京豆、京东账户余额的，视为无效订单</p>
+            <p>6.未付款、退款、退货订单，视为无效订单</p>
+            <p>7.同时在其他平台购买了一分购商品，则全部会被判定为无效订单</p>
+            <p>8.下单使用了红包的，视为无效订单。如果红包是强制使用无法取消，先随便找一个商品，提交订单后不付款，把红包占用后再去正常下单就可以了</p>
+        </div>
+        <div class="itemGz actbackMoney">
+            <h1>四、返现说明：</h1>
+            <p>1.大促结束后，我们将会随时更新你的订单状态，确保订单为有效订单后，您在6月28日起可以提现。用户收货后请尽快在京东确认收货。按照京东结算的进度，用户在5月份确认收货的有效订单，将于6月28日结算。用户在6月份确认收货的有效订单，将于7月28日结算</p>
+            <p>2.提现时，请确保支付宝账号和实名，请输入您的有效支付宝账号和支付宝真实姓名，确保无误，因个人原因导致支付宝账号实名错误，则自己承担损失</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var dom = document.getElementById('dom');
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        var UiUrl = GetQueryString("ui");
+        var resourcePath = '//rescdn.sitezt.cn';
+        var jsArr = [resourcePath + "/A/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/618/617_src/actGz.js"];
+        for (var i = 0; i < jsArr.length; i++) {
+            var newScript = document.createElement('script');
+            newScript.type = 'text/javascript';
+            newScript.async = false;
+            newScript.src = jsArr[i];
+            dom.appendChild(newScript);
+        }
+    </script>
+</body>
+
+</html>

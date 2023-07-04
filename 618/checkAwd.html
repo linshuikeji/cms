@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<title>我的中奖记录</title>
+		<link rel="stylesheet" type="text/css" href="//rescdn.sitezt.cn/static/js/dialog/dialog.min.css" />
+		<style type="text/css">
+			html,body,div,p,a,span,ul,li,ol,h1,h2,h3,h4,h5,h6,i,table,tr,td,textarea,input,em {
+			  padding: 0;
+			  margin: 0;
+			  list-style: none;
+			}
+			button {
+			  border: 0 none;
+			  outline: none;
+			}
+			html {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			}
+			body {
+			  max-width: 750px;
+			  min-width: 320px;
+			  margin: 0 auto;
+			  font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+			  background-color: #9b00ce;
+			  font-size: 0.52rem;
+			  position: relative;
+			  -webkit-tap-highlight-color: transparent;
+			}
+			a {
+			  text-decoration: none;
+			  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			  -webkit-user-select: none;
+			  -moz-user-focus: none;
+			  -moz-user-select: none;
+			}
+			i,
+			em {
+			  font-style: normal;
+			}
+			.clearfix:after {
+			  content: "";
+			  height: 0;
+			  line-height: 0;
+			  display: block;
+			  clear: both;
+			  visibility: hidden;
+			}
+			.clearfix {
+			  zoom: 1;
+			}
+			.mobile-dialogView {
+			  z-index: 1010;
+			}
+			.dialogView-m-buttons [data-btn=button][data-skin=yes] {
+			  background-color: #9b00ce;
+			}
+			.head2 {
+			  height: 1.8rem;
+			  box-shadow: 0rem 0.02rem 0.05rem #ccc;
+			}
+			.head {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 1.8rem;
+			  background-color: #fff;
+			  align-items: center;
+			  line-height: 1.8rem;
+			  text-align: center;
+			  z-index: 999;
+			  box-shadow: 0rem 0.02rem 0.05rem #ccc;
+			}
+			.head span {
+			  display: block;
+			}
+			.head .backBtn {
+			  padding: 0.9rem;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  cursor: pointer;
+			}
+			.head .back {
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -0.4rem;
+			  margin-left: -0.22rem;
+			  width: 0.44rem;
+			  height: 0.8rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/back.png') left center no-repeat;
+			  background-size: 100% 100%;
+			}
+			.head .tit {
+			  font-size: 0.72rem;
+			  color: #000;
+			}
+			.head .share {
+			  position: absolute;
+			  top: 0;
+			  right: 0rem;
+			  height: 1.8rem;
+			  line-height: 1.8rem;
+			  padding: 0 0.56rem;
+			  font-size: 0.68rem;
+			}
+			/*遮罩*/
+			#shade {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  background-color: #000000;
+			  opacity: 0.5;
+			  z-index: 100;
+			  display: none;
+			}
+			/*ajax加载loading*/
+			#loading {
+			  display: none;
+			  display: inline-block;
+			  width: 1.6rem;
+			  height: 1.6rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/loading.gif') center center no-repeat;
+			  background-size: 100% 100%;
+			  position: fixed;
+			  top: 50%;
+			  left: 50%;
+			  margin-top: -0.8rem;
+			  margin-left: -0.8rem;
+			  z-index: 999;
+			}
+			/*main*/
+			.topBg {
+			  width: 15rem;
+			  height: 4.62rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/zjBg_01.jpg') top center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			  padding-top: 1.44rem;
+			}
+			.topBg p {
+			  font-size: 0.76rem;
+			  color: #ffd957;
+			  height: 0.92rem;
+			  line-height: 0.92rem;
+			  text-align: center;
+			}
+			.topBg .rmb {
+			  font-size: 1.24rem;
+			  height: 1.56rem;
+			  line-height: 1.56rem;
+			  margin-top: 0.18rem;
+			}
+			.topBg .rmb span {
+			  font-size: 1.4rem;
+			}
+			.declireBox {
+			  width: 12.84rem;
+			  height: 3.32rem;
+			  background-color: #fff;
+			  border-radius: 0.36rem;
+			  margin: -1.46rem auto 1.04rem;
+			  padding: 0.72rem 0 0 1.2rem;
+			  box-shadow: 0.03rem 0.2rem 0.2rem #7500bb;
+			}
+			.declireBox p {
+			  position: relative;
+			  font-size: 0.52rem;
+			  color: #4c4c4c;
+			  height: 0.68rem;
+			  margin-top: 0.3rem;
+			}
+			.declireBox p .markIcon {
+			  display: block;
+			  width: 0.44rem;
+			  height: 0.44rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/markIcon.png') left center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  position: absolute;
+			  left: 0;
+			  top: 50%;
+			  margin-top: -0.22rem;
+			}
+			.declireBox p span {
+			  margin-left: 0.8rem;
+			}
+			.declireBox p:first-child {
+			  margin-top: 0;
+			}
+			.zjJlTit {
+			  width: 15rem;
+			  height: 3.12rem;
+			  background: url('http://rescdn.sitezt.cn/618/images/zjjlTit_02.jpg') center center no-repeat;
+			  -webkit-background-size: 100% 100%;
+			  background-size: 100% 100%;
+			  margin: 0 auto;
+			}
+			.listBox {
+			  width: 12.6rem;
+			  background-color: #fff;
+			  position: relative;
+			  margin: 0 auto 2.28rem;
+			  box-shadow: 0rem 0.1rem 0.2rem #7500bb;
+			}
+			.listBox .list {
+			  width: 11.36rem;
+			  height: 10.8rem;
+			  overflow-x: hidden;
+			  overflow-y: auto;
+			  padding: 0 0.62rem 0.6rem;
+			}
+			.listBox .list .itemList {
+			  height: 2.2rem;
+			  padding-top: 0.6rem;
+			  border-bottom: 1px solid #ccc;
+			}
+			.listBox .list .itemList p {
+			  color: #666666;
+			  font-size: 0.48rem;
+			  height: 0.64rem;
+			}
+			.listBox .list .itemList p:last-child {
+			  margin-top: 0.3rem;
+			  font-size: 0.6rem;
+			  color: #4f4f4f;
+			  height: 0.68rem;
+			}
+			.listBox:before {
+			  display: block;
+			  content: '';
+			  width: 0.6rem;
+			  height: 0.6rem;
+			  border-radius: 50%;
+			  background-color: #9b00ce;
+			  position: absolute;
+			  top: -0.3rem;
+			  left: -0.3rem;
+			  z-index: 10;
+			}
+			.listBox:after {
+			  display: block;
+			  content: '';
+			  width: 0.6rem;
+			  height: 0.6rem;
+			  border-radius: 50%;
+			  background-color: #9b00ce;
+			  position: absolute;
+			  right: -0.3rem;
+			  top: -0.3rem;
+			  z-index: 10;
+			}
+			.noData {
+			  height: 2rem;
+			  line-height: 2rem;
+			  font-size: 0.52rem;
+			  text-align: center;
+			  color: #999;
+			  margin-top: 3rem;
+			}
+
+		</style>
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+
+	<body id="dom">
+		<div class="head2"></div>
+		<div class="head clearfix">
+			<div class="backBtn" style="display:block;">
+				<span class="back"></span>
+			</div>
+			<span class="tit">我的中奖记录</span>
+			<span class="share" style="display:none;">分享</span>
+		</div>
+		<div class="topBg">
+			<p>现金奖励金额</p>
+			<p class="rmb"><span class="rmbMoney">0</span>元</p>
+		</div>
+		<div class="declireBox">
+			<p>
+				<i class="markIcon"></i>
+				<span>中奖礼品将由平台在2019.06.19开始发放</span>
+			</p>
+			<p>
+				<i class="markIcon"></i>
+				<span>现金无需提现，平台将直接打入个人支付宝账户</span>
+			</p>
+			<p>
+				<i class="markIcon"></i>
+				<span>如有疑问请咨询官方客服</span>
+			</p>
+		</div>
+		<div class="zjJlTit"></div>
+		<div class="listBox">
+			
+			<ul class="list" id="list">
+				<!--中奖记录数据-->
+			</ul>
+		</div>
+		<!--遮罩层-->
+		<div id="loading"></div>
+		<div class="shade"></div>
+		<!--中奖记录数据模板-->
+		<script type="text/html" id="listTmpl">
+			{{each list as item}}
+				<li class="itemList">
+					<p class="time">{{item.RewardTime}}获得</p>
+					<p>
+						{{if item.LuckyMateriel==2}}
+						<span>现金红包</span>
+						<span>{{item.RewardAmount/100}}元</span>
+						{{else if item.LuckyMateriel==3}}
+						<span>IPhoneXR</span>
+						{{else if item.LuckyMateriel==4}}
+						<span>现金88元</span>
+						{{else if item.LuckyMateriel==5}}
+						<span>扫地机器人</span>
+						{{else if item.LuckyMateriel==6}}
+						<span>兰蔻护肤套装</span>
+						{{/if}}
+					</p>
+				</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			var dom = document.getElementById('dom');
+		    function GetQueryString(name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		        var r = window.location.search.substr(1).match(reg);
+		        if (r != null) return unescape(r[2]); return null;
+		    }
+		    var UiUrl=GetQueryString("ui");
+		    var resourcePath ='//rescdn.sitezt.cn';
+		    var jsArr=[resourcePath+"/A/c/CommonJs/jquery-1.8.2.min.js",resourcePath+"/A/c/CommonJs/md5.min.js",resourcePath+"/static/js/lib/jquery.cookie.js",resourcePath+"/A/c/CommonJs/template.js",resourcePath+"/static/js/dialog/dialog.min.js",resourcePath+"/618/src/lib/common.js",resourcePath+"/618/src/checkAwd.js"];
+		    for(var i=0 ;i<jsArr.length;i++){
+		        var newScript = document.createElement('script');
+		        newScript.type = 'text/javascript';
+		        newScript.async=false;
+		        newScript.src=jsArr[i];
+		        dom.appendChild(newScript);
+		    }
+		</script>
+	</body>
+
+</html>
