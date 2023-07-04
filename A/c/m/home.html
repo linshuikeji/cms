@@ -1,0 +1,690 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>首页</title>
+    <link href="//rescdn.sitezt.cn/A/c/m/css/common.css" rel="stylesheet">
+    <style>
+        .index {
+            padding-bottom: 2rem;
+            position: relative;
+        }
+
+        .index .m-search {
+            position: relative;
+            height: 1.52rem;
+            padding-top: 0.18rem;
+            background-color: #ef4878;
+            /*padding-left: 2.5rem;*/
+            z-index: 99;
+        }
+
+        .index .m-search input[type=text] {
+            border: 0 none;
+            background: none;
+            float: left;
+            width: 6.5rem;
+            height: 1.28rem;
+            padding: 0 1rem 0 1.5rem;
+            border: 0 none;
+            border-radius: 0.64rem;
+            background-color: #fcdae4;
+            font-size: 0.48rem;
+            outline: none;
+            margin-left: 0.2rem;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .index .m-search .coin {
+            position: absolute;
+            top: 0.48rem;
+            left: 0.5rem;
+            width: 0.68rem;
+            height: 0.68rem;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/search-coin.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .index .m-search .submit {
+            float: right;
+            width: 1.72rem;
+            height: 0.88rem;
+            /*margin-left: 0.7rem;*/
+            margin-top: 0.2rem;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/search-submit.png) center center no-repeat;
+            background-size: auto 100%;
+        }
+
+        .index .m-leimu {
+            position: absolute;
+            width: 15rem;
+            left: 0;
+            top: -4.4rem;
+            background-color: #fff;
+            z-index: 9;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .index .m-leimu a {
+            float: left;
+            display: border-box;
+            width: 25%;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            font-size: 0.52rem;
+            text-align: center;
+            color: #222;
+        }
+
+        .index .m-flash {
+            background-color: #fff;
+            height: 7.24rem;
+        }
+
+        .index .m-flash .m-banner {
+            position: relative;
+            width: 15rem;
+            height: 7.24rem;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .m-banner .ul-flash {
+            width: 500%;
+            overflow: hidden;
+        }
+
+        .m-banner .ul-flash li {
+            position: relative;
+            float: left;
+            width: 20%;
+            height: 7.24rem;
+        }
+
+        .m-banner .ul-flash li .a_img {
+            display: block;
+            width: 100%;
+            height: 7.24rem;
+        }
+
+        .m-banner .ul-list {
+            position: absolute;
+            right: 50%;
+            margin-right: -2.5rem;
+            bottom: 0.3rem;
+            width: 5rem;
+            height: 0.32rem;
+            font-size: 0;
+            text-align: center;
+        }
+
+        .m-banner .ul-list li {
+            display: inline-block;
+            width: 0.32rem;
+            height: 0.32rem;
+            margin-right: 0.2rem;
+            margin-left: 0.2rem;
+            border: 0 none;
+            border-radius: 100%;
+            background-color: #cccaca;
+        }
+
+        .m-banner .ul-list .cur_li {
+            background-color: #cc0244;
+        }
+
+        .m-nav {
+            padding-top: 0.62rem;
+            overflow: hidden;
+        }
+
+        .m-nav a {
+            float: left;
+            width: 25%;
+            height: 2.6rem;
+        }
+
+        .m-nav a img {
+            display: block;
+            width: 1.76rem;
+            height: 1.44rem;
+            margin: 0 auto;
+        }
+
+        .m-nav a i {
+            display: block;
+            height: 1.1rem;
+            line-height: 1.1rem;
+            text-align: center;
+            font-size: 0.48rem;
+            color: #373737;
+        }
+
+        .m-xsqg {
+            overflow: hidden;
+            border-bottom: 1px solid #f4f4f4;
+        }
+
+        .m-xsqg .title {
+            position: relative;
+            height: 1.16rem;
+            padding-top: 0.44rem;
+        }
+
+        .m-xsqg .title .h5 {
+            display: block;
+            width: 5.44rem;
+            height: 0.74rem;
+            margin: 0 auto;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/xsqg-title.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .m-xsqg .title a {
+            position: absolute;
+            display: block;
+            top: 0.2rem;
+            right: 0.6rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            text-align: center;
+            border: 0 none;
+            border-radius: 50%;
+            background-color: #ff1e52;
+            font-size: 0.4rem;
+            color: #fff;
+        }
+
+        .xsqg-list {
+            height: 6.9rem;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .xsqg-list .xsqg-content {
+            height: 8rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show {
+            height: 6.9rem;
+            width: 43.2rem;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single {
+            float: left;
+            width: 5rem;
+            height: 6.66rem;
+            padding-top: 0.24rem;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .img_a {
+            position: relative;
+            width: 4.2rem;
+            height: 4.2rem;
+            margin: 0 auto;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .img_a .start-tag {
+            display: none;
+            position: absolute;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .img_a .end-tag {
+            display: none;
+            position: absolute;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .pro-title {
+            padding-top: 0.4rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.44rem;
+            color: #333333;
+            width: 90%;
+            margin: 0 auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .price-line {
+            height: 0.76rem;
+            line-height: 0.76rem;
+            text-align: center;
+            overflow: hidden;
+            font-size: 0;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .price-line .old-price {
+            display: inline-block;
+            text-decoration: line-through;
+            font-size: 0.4rem;
+            color: #9d9d9d;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .price-line .quan-h {
+            display: inline-block;
+            font-size: 0.48rem;
+            color: #f62354;
+            padding: 0 0.2rem;
+        }
+
+        .xsqg-list .xsqg-content .xsqg-show .pro-single .price-line .qh-price {
+            display: inline-block;
+            font-size: 0.56rem;
+            color: #f62354;
+        }
+
+        .m-today {
+            overflow: hidden;
+        }
+
+        .m-today .u-title {
+            position: relative;
+            padding-top: 0.68rem;
+            height: 1.26rem;
+        }
+
+        .m-today .u-title i {
+            display: block;
+            width: 5.08rem;
+            height: 0.66rem;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/jrsx-title.jpg) center center no-repeat;
+            background-size: 100% 100%;
+            margin: 0 auto;
+        }
+
+/* 后续移动到common.css中 */
+        .applogo-download {
+            height: 2.4rem;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            z-index: 99;
+        }
+        .active-list ul{
+            overflow: hidden;
+            margin-top: 20px;
+            padding-left:0.4rem ;
+        }
+        .active-list ul li{
+            float: left;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 6.94rem;
+            height: 3.9rem;
+            margin-right: 0.36rem;
+            margin-top: 0.36rem;
+            background-size:100% 100%;
+            background-repeat: no-repeat;
+            padding: 0.5rem 0.3rem;
+            line-height: 1rem;
+        }
+        .active-list ul li a{
+            display: block;
+        }
+        .active-gy{
+            background-image: url("//rescdn.sitezt.cn/A/c/m/images/bg_03.jpg");
+        }
+        .active-qb{
+            background-image: url("//rescdn.sitezt.cn/A/c/m/images/bg_05.jpg");
+        }
+        .active-hb{
+            background-image: url("//rescdn.sitezt.cn/A/c/m/images/bg_07.jpg");
+        }
+        .active-xb{
+            background-image: url("//rescdn.sitezt.cn/A/c/m/images/bg_09.jpg");
+        }
+        .active-list ul li:last-child{
+            margin-right:0;
+        }
+        .bigsize{
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .minsize{
+            color: #fff;
+            font-size: 0.4rem;
+        }
+        .btn-go{
+            display:block;
+            margin-top: 0.2rem;
+            width: 1.9rem;
+            height: 0.8rem;
+            line-height: 0.9rem;
+            text-align: center;
+            font-size: 0.4rem;
+            background-color: #fff;
+            border-radius: 0.4rem;
+        }
+        .alert-11{
+            position: fixed;
+            display: none;
+            background-color: rgba(0,0,0,0.7);
+            z-index:1000;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .alert-11 img{
+            display: inline-block;
+            width: 14rem;
+            cursor: pointer;
+        }
+        .alert-11 a{
+            display: block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            border: 1px solid #fff;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+<body id="dom">
+    <div class="index">
+        <div class="applogo-download" id="appbtn" style="display:none;">
+            <div>
+                <img src="//rescdn.sitezt.cn/A/c/m/images/appdown.gif" alt="" style="width: 15rem;height:2.4rem;display: block;" id="downloadUrl" data-url="" onclick="appfn();" />
+                <img src="//rescdn.sitezt.cn/A/c/m/images/close.png" onclick="downclose();" alt="" style="position:  absolute;top: 0;left: 0;padding: .15rem;width: 15px;height: 15px;z-index: 9999;" />
+            </div>
+        </div>
+        <div class="m-search">
+            <!--<a class="logo" href="javascript:void(0);" style="position:  absolute;top: 0;left: 0;width: 2rem;height: 1.5rem;margin: .1rem .22rem;">-->
+            <!--<img id="logoUrl" alt="" style="width: 100%;height:  100%;display:none;">-->
+            <!--</a>-->
+
+            <span class="coin"></span>
+            <input type="text" name="q" placeholder="请输入商品名称" value="">
+            <div class="logo" style="position:  absolute;top: 0;left: 9.2rem;width: 4rem;height: 1.5rem;margin: .1rem .22rem;color:#fff;font-size: 0.55rem;line-height: 1.5rem">
+                <span class="submitself">搜站内</span>
+                <span class="submitall">搜全网</span>
+            </div>
+            <span class="submit"></span>
+        </div>
+        <div class="m-leimu">
+            <a data-ui="leimu" data-parm="&leimu=nvz" href="javascript:void(0)">
+                女装
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=naz" href="javascript:void(0)">
+                男装
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=my" href="javascript:void(0)">
+                母婴
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=mz" href="javascript:void(0)">
+                化妆品
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=jjry" href="javascript:void(0)">
+                居家日用
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=xp" href="javascript:void(0)">
+                鞋品
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=ms" href="javascript:void(0)">
+                美食
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=wycp" href="javascript:void(0)">
+                文娱车品
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=smjd" href="javascript:void(0)">
+                数码家电
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=mz" href="javascript:void(0)">
+                美妆
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=xb" href="javascript:void(0)">
+                箱包
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=ps" href="javascript:void(0)">
+                配饰
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=ny" href="javascript:void(0)">
+                内衣
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=jzjf" href="javascript:void(0)">
+                家装家纺
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=hwyd" href="javascript:void(0)">
+                户外运动
+            </a>
+            <a data-ui="leimu" data-parm="&leimu=qt" href="javascript:void(0)">
+                其他
+            </a>
+        </div>
+        <div class="m-flash">
+            <div class="m-banner">
+                <ul class="ul-flash">
+                </ul>
+                <ul class="ul-list">
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="m-nav">
+            <a data-ui="9k9" data-parm="" href="javascript:void(0)">
+                <img src="//rescdn.sitezt.cn/AllH5/CmsNew/PH/images/9k9.jpg" width="100%" height="100%">
+                <i>9.9包邮</i>
+            </a>
+            <a data-ui="tqg" data-parm="" href="javascript:void(0)">
+                <img src="//rescdn.sitezt.cn/AllH5/CmsNew/PH/images/qg.jpg" width="100%" height="100%">
+                <i>抢购</i>
+            </a>
+            <a data-ui="jhs" data-parm="" href="javascript:void(0)">
+                <img src="//rescdn.sitezt.cn/AllH5/CmsNew/PH/images/hs.jpg" width="100%" height="100%">
+                <i>榜单</i>
+            </a>
+            <a data-ui="pp" data-parm="" href="javascript:void(0)">
+                <img src="//rescdn.sitezt.cn/AllH5/CmsNew/PH/images/pp.jpg" width="100%" height="100%">
+                <i>品牌</i>
+            </a>
+        </div> -->
+        <div class="clearFix active-list">
+            <ul>
+                <li class="active-gy">
+                    <a data-ui="ssbd" data-parm="">
+                        <p class="bigsize">实时榜单</p>
+                        <p class="minsize">近2小时热销TOP榜</p>
+                        <span class="btn-go" style="color: #f85eb0">GO></span>
+                    </a>
+        
+                </li>
+                <li class="active-qb">
+                    <a data-ui="9k9" data-parm="">
+                        <p class="bigsize">9.9包邮</p>
+                        <p class="minsize">全场9.9元专场</p>
+                        <span class="btn-go" style="color: #f97c2a">GO></span>
+                    </a>
+                </li>
+                <li class="active-hb">
+                    <a data-ui="ppjx" data-parm="">
+                        <p class="bigsize">品牌精选</p>
+                        <p class="minsize">人气精选品牌商品</p>
+                        <span class="btn-go" style="color: #8056e0">GO></span>
+                    </a>
+                </li>
+                <li class="active-xb">
+                    <a data-ui="xsqg" data-parm="">
+                        <p class="bigsize">限时抢购</p>
+                        <p class="minsize">热卖好货 限时抢</p>
+                        <span class="btn-go" style="color: #6da9f5">GO></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="m-xsqg">
+            <div class="title">
+                <i class="h5"></i>
+                <a class="ui_jump" data-ui="xsqg" data-parm="" href="javascript:void(0)">更多</a>
+            </div>
+            <div class="xsqg-list">
+                <div class="xsqg-content">
+                    <div class="xsqg-show" id="xsqg-pro">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-today">
+            <div class="u-title">
+                <i></i>
+            </div>
+            <div class="pro-com-list" id="pro-list">
+            </div>
+        </div>
+        <div class="m-fixed-nav">
+            <a data-ui="home" data-parm="" href="javascript:void(0)" class="cur_a">
+                <span class="sy"></span>
+                <i>首页</i>
+            </a>
+            <a data-ui="xsqg" data-parm="" href="javascript:void(0)">
+                <span class="xsqg"></span>
+                <i>限时抢购</i>
+            </a>
+            <a data-ui="ppjx" data-parm="" href="javascript:void(0)">
+                <span class="xbjx"></span>
+                <i>品牌精选</i>
+            </a>
+            <a data-ui="ssbd" data-parm="" href="javascript:void(0)">
+                <span class="crqb"></span>
+                <i>实时榜单</i>
+            </a>
+        </div>
+    </div>
+    <a data-ui="kefu" data-parm="" class="g_wx_fixed"></a>
+    <script id="xsqglistTem" type="text/html">
+        {{each data as item i}}
+            <a class="pro-single ui_jump" data-ui="xsqg" data-parm=""  href="javascript:void(0)" >
+                <div class="img_a">
+                    <div class="start-tag">
+                        即将开始
+                    </div>
+                     <div class="end-tag">
+                        售罄
+                    </div>
+                    {{if i<5 }}
+                        <img class="lazy_xsqg" src="{{item.ItemImage}}" width="100%" height="100%">
+                    {{else}}
+                        <img class="lazy_xsqg" data-original="{{item.ItemImage}}" src="" width="100%" height="100%">
+                    {{/if}}
+                </div>
+                <div class="pro-title">
+                    {{item.ItemTitle}}
+                </div>
+                <div class="price-line">
+                    {{if item.QuanAmount}}
+                        <!-- <span class="old-price">
+                            ¥{{item.ShowPrice/100}}
+                        </span> -->
+                        <span class="quan-h">
+                            券后¥
+                        </span>
+                        <span class="qh-price">
+                            {{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}
+                        </span>
+                    {{else}}
+                        <span class="quan-h">
+                            折扣价:<em>¥</em><i>{{(item.DiscountPrice*item.ItemNum-item.ShopJian)/100}}</i>元
+                        </span>
+                    {{/if}}
+                </div>
+            </a>
+        {{/each}}
+    </script>
+    <script id="prolistTem" type="text/html">
+        {{each datajson as item i}}
+            <a class="pro ui_jump" data-ui="detail" data-parm="&i={{item.ItemId}}" >
+                <div class="img_a">
+                    <span class="tag">
+                    </span>
+                    <img class="lazy" src="" data-original="{{item.ItemImage}}" width="100%" height="100%">
+                </div>
+                <div class="content">
+                    <div class="title">
+                        {{item.ItemTitle}}
+                    </div>
+                    <div class="price-line">
+                        <div class="price">
+                        {{if item.QuanAmount}}
+                            <em>券后</em><i>¥</i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}
+                        {{else}}
+                            <em>折扣价</em><i>¥</i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}
+                        {{/if}}
+                        </div>
+                    </div>
+                    <div class="quan-line">
+                        <div class="quan">
+                            <em>领券</em>
+                            <i>减 {{item.QuanAmount/100}}</i>
+                        </div>
+                        <div class="from_t">{{item.SaleCount}}人买</div>
+                    </div>
+                </div>
+                <div class="buy-line">
+                    {{if item.IsTmall==1}}
+                        <div class="buy-num">天猫</div>
+                    {{else}}
+                        <div class="buy-num">淘宝</div>
+                    {{/if}}
+                    <div class="from">{{item.ShopName}}</div>
+                </div>
+            </a>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var dom = document.getElementById('dom');
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var url = window.location.search.substr(1);
+                var r = url.match(reg);
+                return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType = GetQueryString("test");
+            if (testType) {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/c/GlobalJsTest/sign.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/touch-0.2.14.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJsTest/jump.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/mTest/js/home.js"];
+            }
+            else {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/touch-0.2.14.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath + "/c/GlobalJs/jump.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js", resourcePath + "/c/GlobalJs/PhCommon.js", resourcePath + "/c/m/js/home.js"];
+            }
+
+
+            for (var i = 0; i < jsArr.length; i++) {
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async = false;
+                newScript.src = jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title></title>
+    <link href="//rescdn.sitezt.cn/A/c/m/css/common.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #f0f0f0;
+        }
+        .kefu{
+            overflow: hidden;
+            padding: 0.5rem;
+        }
+        .line{
+            height: 1.3rem;
+            margin-top: 0.5rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #f60;
+        }
+        .line .title{
+            float: left;
+            height: 1.3rem;
+            line-height: 1.3rem;
+            font-size: 0.6rem;
+            color: #333;
+            font-weight: bold;
+            width: 2.3rem;
+        }
+        .line .val{
+            float: left;
+            height: 1.3rem;
+            line-height: 1.3rem;
+            font-size: 0.5rem;
+            color: #333;
+        }
+        .line .copy_c_btn{
+            float: right;
+            height: 1.3rem;
+            line-height: 1.3rem;
+            width: 3rem;
+            text-align: center;
+            font-size: 0.55rem;
+            color: #fff;
+            background-color: #f60;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+
+<body id="dom">
+    <div class="common-title"><a href="javascript:history.back(-1);" class="back"></a><span>客服信息</span></div>
+    <div class="kefu">
+        <div class="kefu-block">
+            <div class="line"><span class="title">微信：</span><span class="val"></span>
+                <div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div>
+            </div>
+            <div class="line"><span class="title">QQ：</span><span class="val"></span>
+                <div class="copy copy_c_btn" data-clipboard-text="" type="button">复制</div>
+            </div>
+        </div>
+        <div class="m-fixed-nav">
+            <a data-ui="home" data-parm="" href="javascript:void(0)">
+                <span class="sy"></span>
+                <i>首页</i>
+            </a>
+            <a data-ui="xsqg" data-parm="" href="javascript:void(0)">
+                <span class="xsqg"></span>
+                <i>限时抢购</i>
+            </a>
+            <a data-ui="xbjx" data-parm="" href="javascript:void(0)">
+                <span class="xbjx"></span>
+                <i>小编精选</i>
+            </a>
+            <a data-ui="crqb" data-parm="" href="javascript:void(0)">
+                <span class="crqb"></span>
+                <i>超人气榜</i>
+            </a>
+        </div>
+    </div>
+    <a data-ui="kefu" data-parm="" class="g_wx_fixed"></a>
+    <script type="text/javascript">
+        (function () {
+            var dom = document.getElementById('dom');
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var url = window.location.search.substr(1);
+                var r = url.match(reg);
+                return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath = '//rescdn.sitezt.cn/A';
+            var testType=GetQueryString("test");
+            if (testType) {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js", resourcePath + "/c/GlobalJsTest/sign.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJsTest/jump.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/mTest/js/dan.js"];
+            } else {
+                var jsArr = [resourcePath + "/c/CommonJs/jquery-1.8.2.min.js",resourcePath + "/c/CommonJs/clipboard.min.js", resourcePath + "/c/CommonJs/md5.min.js", resourcePath + "/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath + "/c/GlobalJs/jump.js", resourcePath + "/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js", resourcePath + "/c/m/js/kefu.js"];
+            }
+            for (var i = 0; i < jsArr.length; i++) {
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async = false;
+                newScript.src = jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+
+</html>

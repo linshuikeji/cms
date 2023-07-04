@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>商品搜索页</title>
+    <link href="//rescdn.sitezt.cn/A/c/m/css/common.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #f0f0f0;
+        }
+        .search{
+            overflow: hidden;
+        }
+        .search .search-box{
+            position: relative;
+            height: 1.52rem;
+            padding-top: 0.24rem;
+            border-bottom: 1px solid #f0f0f0;
+            background-color: #fff;
+        }
+        .search input[type=text]{
+            /*display: block;*/
+            float: left;
+            background: none;
+            border-radius: 0 none;
+            width: 5.72rem;
+            height: 1.28rem;
+            background-color: #e6e6e6;
+            border: 0 none;
+            border-radius: 0.64rem;
+            margin-left:2rem;
+            padding-left: 1.48rem;
+            padding-right: 0.8rem;
+            outline: none;  
+            -webkit-tap-highlight-color: rgba(0,0,0,0);  
+        }
+        .search .back {
+            position: absolute;
+            top:50%;
+            margin-top: -0.36rem;
+            left: 0.6rem;
+            width: 0.42rem;
+            height: 0.72rem;
+            background:url(//rescdn.sitezt.cn/A/c/m/images/back2.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .search .search-coin {
+            position: absolute;
+            top:50%;
+            margin-top: -0.34rem;
+            left: 2.4rem;
+            width: 0.68rem;
+            height: 0.68rem;
+            background:url(//rescdn.sitezt.cn/A/c/m/images/search-coin.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .searchbtn{
+            float: left;
+            height: 1.52rem;
+            font-size: 0.6rem;
+            line-height: 1.52rem;
+        }
+        .searchbtn span{
+            padding-left: 0.2rem;
+        }
+        .search .pro-com-list-no{
+            display: none;
+            width: 100%;
+            padding-top: 2rem;
+            font-size: 0.6rem;
+            text-align: center;
+            line-height: 2rem;
+            color: #bbb;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+
+<body id="dom">
+    <div class="search">
+        <div class="search-box">
+            <a href="javascript:history.back(-1);"  class="back"></a>
+            <input type="text" name="q" value="" >
+            <span class="search-coin"></span>
+            <div class="searchbtn">
+                <span class="searchself">搜站内</span>
+                <span class="allsearch">搜全网</span>
+            </div>
+        </div>
+        <div class="common-fill">
+            <a class="cur_a p_default" data-type='0' style="width:5rem;" href="javascript:void(0)">
+                综合排序
+            </a>
+            <a class="p_price" style="width:5rem;" href="javascript:void(0)">
+                价格
+                <span style="left:3.5rem;"></span>
+            </a>
+            <a class="p_sale" data-type='1' style="width:5rem;" href="javascript:void(0)">
+                销量
+            </a>
+        </div>
+        <div class="pro-box">
+            <div class="pro-com-list" id="pro-list">
+            </div>
+            <div class="pro-com-list-no" id="pro-list-no">
+                <p>没有搜到相关数据！</p>
+            </div>
+        </div>
+    </div>
+    <a data-ui="kefu" data-parm="" class="g_wx_fixed"></a>
+    <script id="prolistTem" type="text/html">
+        {{each datajson as item i}}
+            <a class="pro ui_jump" data-ui="detail" data-parm="&i={{item.ItemId}}" >
+                <div class="img_a">
+                    <span class="tag">
+                    </span>
+                    {{if i<6}}
+                        <img class="lazy" src="{{item.ItemImage}}" width="100%" height="100%">
+                    {{else}}
+                        <img class="lazy" src="" data-original="{{item.ItemImage}}" width="100%" height="100%">
+                    {{/if}}
+                </div>
+                <div class="content">
+                    <div class="title">
+                        {{item.ItemTitle}}
+                    </div>
+                    <div class="price-line">
+                        <div class="price">
+                        {{if item.QuanAmount}}
+                            <em>券后</em><i>¥</i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}
+                        {{else}}
+                            <em>折扣价</em><i>¥</i>{{(item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ShopJian)/100}}
+                        {{/if}}
+                        </div>
+                       
+                    </div>
+                    <div class="quan-line">
+                        <div class="quan">
+                            <em>领券</em>
+                            <i>减 {{item.QuanAmount/100}}</i>
+                        </div>
+                        <div class="from_t">{{item.SaleCount}}人买</div>
+                    </div>
+                </div>
+                <div class="buy-line">
+                    {{if item.IsTmall==1}}
+                    <div class="buy-num">天猫</div>
+                    {{else}}
+                    <div class="buy-num">淘宝</div>
+                    {{/if}}
+                    <div class="from">{{item.ShopName}}</div>
+                </div>
+            </a>
+        {{/each}}
+    </script>
+    <script id="prolistTemAll" type="text/html">
+        {{each datajson as item i}}
+        <a class="pro ui_jump" data-ui="detail"
+           data-parm="&i={{item.num_iid}}">
+            <div class="img_a">
+                    <span class="tag">
+                    </span>
+                {{if i<6}}
+                <img class="lazy" src="{{item.pict_url}}" width="100%" height="100%">
+                {{else}}
+                <img class="lazy" src="" data-original="{{item.pict_url}}" width="100%" height="100%">
+                {{/if}}
+            </div>
+            <div class="content">
+                <div class="title">
+                    {{item.title}}
+                </div>
+                <div class="price-line">
+                    <div class="price">
+                        <em>券后</em><i>¥</i>{{item.lastprice}}
+                    </div>
+
+                </div>
+                <div class="quan-line">
+                    {{if item.quanamount>0}}
+                    <div class="quan">
+                        <em>领券</em>
+                        <i>减 {{item.quanamount}}</i>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="buy-line">
+                <div class="buy-num">{{item.volume}}人买</div>
+            </div>
+        </a>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        (function(){
+            var dom = document.getElementById('dom');
+            function GetQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var url=window.location.search.substr(1);
+                 var r = url.match(reg);
+                 return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType=GetQueryString("test");
+            if(testType){
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/GlobalJsTest/sign.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath+"/c/GlobalJsTest/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath+"/c/mTest/js/search.js"];
+            }else{
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js",resourcePath + "/c/GlobalJs/fn.js", resourcePath+"/c/GlobalJs/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js",  resourcePath + "/c/GlobalJs/PhCommon.js", resourcePath+"/c/m/js/search.js"];
+            }
+            
+            for(var i=0 ;i<jsArr.length;i++){
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async=false;
+                newScript.src=jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+</html>

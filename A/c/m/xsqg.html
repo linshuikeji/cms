@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>限时抢购</title>
+    <link href="//rescdn.sitezt.cn/A/c/m/css/common.css" rel="stylesheet">
+    <style>
+        .xs_buy{
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 2rem;
+        }
+        .xs_buy .m-nav{
+            width: 100%;
+            height: 2.33rem;
+        }
+        .xs_buy .m-nav .u-nav{
+            position: relative;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 2.33rem;
+            overflow: hidden;
+        }
+        .xs_buy .m-nav .u-nav .nav-line{
+            position: relative;
+            height: 4.553rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        .xs_buy .m-nav .u-nav .nav{
+            height: 2.5rem;
+            width: 36rem;
+        }
+        .xs_buy .m-nav .u-nav a{
+            position: relative;
+            float: left;
+            width: 3rem;
+            padding-top: 0.4rem;
+            height: 1.655rem;
+            color: #fff;
+            background: #282831;
+        }
+        .xs_buy .m-nav .u-nav .cur_a{
+            background-color: #ea0063;
+        }
+        .xs_buy .m-nav .u-nav a em{
+            display: none;
+        }
+        .xs_buy .m-nav .u-nav .cur_a em
+        {
+            position: absolute;
+            left:50%;
+            bottom: -0.25rem;
+            margin-left: -0.2775rem;
+            display: block;
+            width:0;
+            height:0;
+            border-width:0.2775rem 0.2775rem 0;
+            border-style:solid;
+            z-index: 9;
+            border-color:#ea0063 transparent transparent;
+        }
+        .xs_buy .m-nav .u-nav a span{
+            display: block;
+            height: 0.773rem;
+            line-height: 0.773rem;
+            text-align: center;
+            font-size: 0.4rem;
+            font-weight: bold;
+        }
+        .xs_buy .m-nav .u-nav a i{
+            display: block;
+            height: 0.665rem;
+            line-height: 0.665rem;
+            text-align: center;
+            font-size: 0.3633rem;
+        }
+        .m-list{
+
+        }
+        .m-list .single{
+            display: block;
+            padding-top: 0.278rem;
+            width: 14rem;
+            height: 6.05rem;
+            margin:0 auto 0.2rem;
+        }
+        .m-list#pro-1 .single{
+            /* display: none; */
+        }
+        .m-list .single .img_a{
+            position: relative;
+            float: left;
+            width: 6rem;
+            height: 6rem;
+        }
+        .m-list .single .img_a .state{
+            display: none;
+        }
+        .m-list .single .img_a .tag{
+            position: absolute;
+            top:0;
+            right: 0;
+            overflow: hidden;
+        }
+        .m-list .single .img_a .tag .zi{
+            float: right;
+            width: 0.85rem;
+            height: 0.85rem;
+            line-height: 0.85rem;
+            background-color: #eb221c;
+            text-align: center;
+            font-size: 0.4rem;
+            margin-left: 1px;
+            color: #fff;
+        }
+        .m-list .single .content{
+            float: right;
+            width: 7.4rem;
+        }
+        .m-list .single .content h5{
+            height: 1.15rem;
+            line-height: 0.6rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            font-size: 0.5rem;
+            margin-bottom: 0.24rem;
+            color: #000000;
+        }
+        .m-list .single .content p{
+            height: 1.75rem;
+            line-height: 0.6rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            font-size: 0.44rem;
+            color: #9b9b9b;
+        }
+        .m-list .single .content .price-line{
+            margin-top: 0.6rem;
+            height: 1.1rem;
+        }
+        .m-list .single .content .price-line .price{
+            float: left;
+            height: 1.1rem;
+            line-height: 1.1rem;
+            font-size: 0.42rem;
+            color: #000000;
+        }
+        .m-list .single .content .price-line .price em{
+            font-size: 0.84rem;
+            font-weight: bold;
+            margin-left: 2px;
+        }
+        .m-list .single .content .price-line .oldprice{
+            float: left;
+            height: 1.1rem;
+            line-height: 1.33rem;
+            font-size: 0.42rem;
+            color: #8f8f8f;
+            margin-left: 0.1rem;
+            text-decoration: line-through;
+        }
+        .m-list .single .content .price-line .buyinfo{
+            float: right;
+            height: 1.1rem;
+            line-height: 1.33rem;
+            font-size: 0.42rem;
+            color: #8f8f8f;
+            margin-left: 0.1rem;
+        }
+        .m-list .single .content .quan-line{
+            overflow: hidden;
+        }
+        .m-list .single .content .quan-line .quan{
+            float: left;
+            height: 0.8rem;
+            overflow: hidden;
+        }
+        .m-list .single .content .quan-line .quan em{
+            float: left;
+            padding:0 0.25rem;
+            text-align: center;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            border: 0 none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            background-color: #000;
+            color: #fff;
+            font-size: 0.38rem;
+            border-right:1px dashed #fff;
+        }
+        .m-list .single .content .quan-line .quan i{
+            float: left;
+            padding:0 0.3rem;
+            text-align: center;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            border: 0 none;
+            background-color: #ea0063;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            color: #fff;
+            font-size: 0.38rem;
+            margin-left: 2px;
+        }
+        .m-list .single-come .img_a .state,.m-list .single-over .img_a .state{
+            display: block;
+            position: absolute;
+            width: 3.18rem;
+            height: 3.18rem;
+            top:1.3rem;
+            left:50%;
+            margin-left: -1.59rem;
+            z-index: 99;
+        }
+        .m-list .single-come .img_a .state{
+            background: url(//rescdn.sitezt.cn/A/c/m/images/come.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .m-list .single-over .img_a .state{
+            background: url(//rescdn.sitezt.cn/A/c/m/images/over.png) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .m-no-list{
+            display: none;
+            padding-top:3.43rem;
+            padding-bottom: 1.667rem;
+        }
+        .m-no-list span{
+            display:block;
+            width:2.25rem;
+            height: 3.2rem;
+            background: url(//rescdn.sitezt.cn/A/c/m/images/none.png) center center no-repeat;
+            background-size: 100% 100%;
+            margin:0 auto;
+        }
+        .m-no-list i{
+            display:block;
+            line-height: 0.5rem;
+            font-size: 0.44rem;
+            width: 5.8rem;
+            text-align: center;
+            padding-top: 0.32rem;
+            color:#808080;
+            margin:0 auto;
+        }
+
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function o() { document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px" }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+    </script>
+</head>
+<body id="dom">
+    <div class="xs_buy">
+        <div class="common-title"><a href="javascript:history.back(-1);" class="back"></a><span>限时抢购</span></div>
+        <div class="m-nav">
+            <div class="u-nav">
+                <div class="nav-line">
+                    <div class="nav">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-list" id="pro-1">
+        </div>
+        <div class="m-no-list">
+            <span></span>
+            <i>
+                该场次商品还未上架，<br>
+                请看官稍后再来
+            </i>
+        </div>
+        <div class="m-fixed-nav">
+            <a data-ui="home" data-parm="" href="javascript:void(0)">
+                <span class="sy"></span>
+                <i>首页</i>
+            </a>
+            <a data-ui="xsqg" data-parm="" href="javascript:void(0)" class="cur_a">
+                <span class="xsqg"></span>
+                <i>限时抢购</i>
+            </a>
+            <a data-ui="ppjx" data-parm="" href="javascript:void(0)">
+                <span class="xbjx"></span>
+                <i>品牌精选</i>
+            </a>
+            <a data-ui="ssbd" data-parm="" href="javascript:void(0)">
+                <span class="crqb"></span>
+                <i>实时榜单</i>
+            </a>
+        </div>
+    </div>
+    <a data-ui="kefu" data-parm="" class="g_wx_fixed"></a>
+    <script id="prolistTem" type="text/html">
+        {{each datajson as item i}}
+            <a class="single {{item.addClass}} ui_jump" data-ui="detail" data-parm="&i={{item.ItemId}}"  href="javascript:void(0);" data-flag="{{item.ShowFlag}}">
+                <div class="img_a" href="##">
+                    <span class="state"></span>
+                    <span class="tag">
+                        <!-- {{if item.IsJHS==1}}
+                        <i class="zi">聚</i> 
+                        {{/if}}
+                        {{if item.IsBaoKuan==1}}
+                        <i class="zi">爆</i>
+                        {{/if}} -->
+                    </span>
+                    {{if i>5}}
+					<img class="lazy" data-original="{{item.ItemImage}}" src="" width="100%" height="100%">
+                    {{else}}
+                    <img class="lazy" src="{{item.ItemImage}}" width="100%" height="100%">
+                    {{/if}}
+                </div>
+                <div class="content">
+                    <h5>
+                        {{item.ItemTitle}}
+                    </h5>
+                    <p>
+                        {{item.Recommend}}
+                    </p>
+                    <div class="price-line">
+                        <div class="price">
+                            券后 ¥<em>{{((item.DiscountPrice*item.ItemNum-item.QuanAmount-item.ManJianAmount)/100).toFixed(2)}}</em>
+                        </div>
+             <!--            <div class="oldprice">{{(item.ShowPrice/100).toFixed(0)}}</div> -->
+                        <div class="buyinfo">
+                            {{item.SaleCount}}已买 | 
+                            {{if item.IsTmall==1}}
+                                天猫
+                            {{else}}
+                                淘宝
+                            {{/if}}
+                        </div>
+                    </div> 
+                    <div class="quan-line">
+                        <div class="quan" href="###">
+                            <em>领券</em>
+                            <i>减{{(item.QuanAmount/100).toFixed(0)}}</i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        (function(){
+            var dom = document.getElementById('dom');
+            function GetQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var url=window.location.search.substr(1);
+                 var r = url.match(reg);
+                 return r ? decodeURIComponent(r[2]) : null;
+            }
+            var resourcePath ='//rescdn.sitezt.cn/A';
+            var testType=GetQueryString("test");
+            if(testType){
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/GlobalJsTest/sign.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath+"/c/GlobalJsTest/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath+"/c/mTest/js/xsqg.js"];
+            }else{
+                var jsArr=[resourcePath+"/c/CommonJs/jquery-1.8.2.min.js", resourcePath+"/c/CommonJs/md5.min.js", resourcePath+"/c/CommonJs/template.js", resourcePath + "/c/GlobalJs/fn.js", resourcePath+"/c/GlobalJs/jump.js", resourcePath+"/c/CommonJs/jquery.lazyload.js", resourcePath + "/c/GlobalJs/init.js", resourcePath + "/c/GlobalJs/PhCommon.js", resourcePath+"/c/m/js/xsqg.js"];
+            }
+            for(var i=0 ;i<jsArr.length;i++){
+                var newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.async=false;
+                newScript.src=jsArr[i];
+                dom.appendChild(newScript);
+            }
+        })();
+    </script>
+</body>
+</html>
