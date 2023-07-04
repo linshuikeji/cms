@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+	</head>
+	<style>
+		/*common-css*/
+
+html,
+body,
+div,
+p,
+a,
+span,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+table,
+tr,
+td,
+textarea,
+input,
+em {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+button {
+    border: 0 none;
+    outline: none;
+}
+
+html {
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+body {
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
+    font-family: arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background-color: #fff;
+    position: relative;
+    font-size: 0.56rem;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-focus: none;
+    -moz-user-select: none;
+    outline: none;
+}
+
+input {
+    background-color: none;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+
+/*浮动*/
+
+.float_l {
+    float: left;
+}
+
+.float_r {
+    float: right;
+}
+
+.clearfix:after {
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.dialogView-m-buttons [data-btn=button][data-skin=yes] {
+    background: -webkit-linear-gradient(left, #f05c8c, #cd0244);
+}
+
+
+/*common-css*/
+
+
+/*index-css*/
+
+.wxpro,
+body,
+html {
+    height: 100%
+}
+
+.wxpro {
+    position: relative
+}
+
+.slogn {
+    position: relative;
+    height: 2.25rem;
+    background-color: #f5f5f5;
+    padding: 0 2%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 96%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: none;
+}
+.slogn .zms{
+    position: absolute;
+    top: 2.1rem;
+    right: 0.36rem;
+    display: inline-block;
+    height: 1.16rem;
+    line-height: 1.16rem;
+    padding:0 0.4rem;
+    font-size: 0.48rem;
+    color:#fff;
+    background-color: #000;
+    border:0 none;
+    border-radius: 0.2rem;
+}
+.slogn .zms::before{
+    content: '';
+    top:-0.4rem;
+    right: 1rem;
+    width:0;
+    height:0;
+    border-width:0 0.2rem 0.2rem;
+    border-style:solid;
+    border-color:transparent transparent #000;/*透明 透明  灰*/
+    margin:0.2rem auto;
+    position: absolute;
+}
+
+.slogn .logo {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-top: .25rem
+}
+
+.slogn .logo img {
+    width: 100%
+}
+
+.slogn .center {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-left: .375rem
+}
+
+.slogn .center .tt {
+    font-size: 0.6rem;
+    color: #212121;
+    margin-top: .4rem;
+    font-weight: 700;
+}
+
+.slogn .center .bot {
+    font-size: .5rem;
+    color: #424242;
+}
+
+.slogn .btn {
+    width: 2.6rem;
+    font-size: .45rem;
+    text-align: center;
+    background-color: #d81423;
+    border-radius: .3rem;
+    margin-top: .6rem;
+    height: 1.1rem;
+    line-height: 1.2rem;
+}
+.slogn .qqq{
+    position:absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    font-size: 0.4rem;
+    padding-right: 0.42rem;
+    color: #d81724;
+    background: url(//rescdn.sitezt.cn/A/resource/shopdetail/qqq.png) right center no-repeat;
+    background-size: auto 50%;
+}
+
+.slogn .btn a {
+    color: #fff
+}
+
+/*.proImg {
+  padding-top: 2rem;
+} */
+.proImg{
+    padding-top: 2.25rem;
+    width: 13.6rem;
+    height: 13.6rem;
+    margin: 0 auto;
+    text-align: center;
+}
+.proImg img {
+    width: auto;
+    height: 100%;
+}
+
+.container {
+    padding: 0rem 0.7rem 0.6rem;
+    position: relative;
+}
+
+.proname {
+    line-height: 1.125rem;
+    font-size: .6rem;
+    color: #424242;
+}
+
+.price_after {
+    color: #d12431;
+    font-size: .6rem;
+    line-height: 1.6rem;
+    height: 1.6rem;
+}
+
+.price_after .strongF {
+    font-size: 0.8rem;
+}
+
+.price_before {
+    color: #b2b2b2;
+    font-size: .7rem;
+    text-decoration: line-through;
+    padding-left: .5rem;
+}
+
+.price_box {
+    overflow: hidden
+}
+
+.price_box .price {
+    float: left;
+    /*margin-top: 1rem*/
+}
+
+.price_box .coupon {
+    float: right;
+    width: 3.18rem;
+    height: 1.12rem;
+    line-height: 1.3rem;
+    color: #fff;
+    font-size: 0.7rem;
+    background: url(//rescdn.sitezt.cn/A/resource/shopdetail/coupon.png) no-repeat;
+    -webkit-background-size: 3.18rem 1.12rem;
+    background-size: 3.18rem 1.12rem;
+    padding-left: .8rem;
+    /*margin-top: 1.1rem;*/
+}
+
+.clipboard {
+    /*margin-top: 1.2rem;*/
+    position: relative;
+    padding-top: 2.2rem;
+    margin-bottom: 2.4rem;
+    border: 1px dashed #fb6028;
+    border-radius: 0.2rem;
+    background-color: #fff1ee;
+}
+.NoData{
+    display: block;
+    position: absolute;
+    width: 13rem;
+    top: 10rem;
+    left: 50%;
+    margin-left: -6.5rem;
+}
+
+.clipboard .top {
+    border-radius: 0 0 0.2rem 0.2rem;
+    background-color: #fff1ee;
+    text-align: center;
+    font-size: .6rem;
+    line-height: 1.125rem;
+    height: 2.5rem;
+    padding-top: .4rem;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    border-top: none;
+}
+
+.clipboard .top .tkl_text {
+    background: transparent;
+    border: 0 none;
+    color: transparent;
+    outline: none;
+    resize: none;
+    width: 100%;
+    width: 6rem;
+    display: inline-block;
+    position: absolute;
+    top: 5.1rem;
+    margin-left: -300000px;
+}
+
+.clipboard .top p {
+    font-size: .48rem
+}
+
+.clipboard .bot {
+    position: absolute;
+    top:0.7rem;
+    left: 1.46rem;
+    text-align: center;
+    width: 4.9rem;
+    height: 1.54rem;
+    line-height: 1.54rem;
+    font-size: .56rem;
+    color:#fff;
+    border-radius: 0.2rem;
+    margin: 0 auto;
+    background-color: #cd0244;
+}
+.clipboard .bot_a{
+    display: block;
+    position: absolute;
+    top: 0.7rem;
+    left: 7.08rem;
+    width: 4.9rem;
+    height: 1.48rem;
+    background: url(//rescdn.sitezt.cn/A/resource/shopdetail/tocms.jpg) center center no-repeat;
+    background-size:100% 100%;
+}
+
+.clipboard .bot,
+.clipboard .bot button {
+    color: #fff;
+    background-color: #cd0244;
+}
+
+.clipboard .bot button {
+    border: 0;
+    width: 100%
+}
+
+.clipboard i {
+    display: inline-block;
+    height: .75rem
+}
+
+.clipboard i img {
+    height: 100%
+}
+
+.fixbox {
+    /*text-align: center;*/
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: .6rem;
+    border-radius: 0 0 .2rem .2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+}
+
+/*.fixbox,
+.fixbox button {
+    color: #fff;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#f05c8c), to(#cd0244));
+    background: -webkit-linear-gradient(left, #f05c8c, #cd0244);
+    width:100%;
+    text-align: center;
+}*/
+
+.slogn button {
+    display: block;
+    border: 0;
+    height: 2.25rem;
+    /* line-height: 1.8rem; */
+    width: 50%;
+    color: #000;
+    background-color: transparent;
+    font-size: 0.6rem;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 27%;
+}
+.fixbox .confirmBuy {
+    background-color: #cd0244;
+    text-align: center;
+    line-height: 2rem;
+    width: 100%;
+}
+.fixbox .confirmBuy .sureBPic{
+	display: inline-block;
+    background-color: #cd0244;
+    width: 3rem;
+    height: 0.7rem;
+    background: url(//rescdn.sitezt.cn/A/resource/shopdetail/sureBuy.png) center center no-repeat;
+    background-size: 100% 100%;
+}
+.slogn .lookYqmBox .yqmPic{
+	display: block;
+    width: 3rem;
+    height: 0.65rem;
+    background: url(//rescdn.sitezt.cn/A/resource/shopdetail/yqm.png) center center no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+/*弹框*/
+#dialogPop{
+	display: none;
+	width: 11rem;
+    height: 4.5rem;
+    background-color: #fff;
+    line-height: 4.5rem;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -3rem;
+    margin-left: -5.5rem;
+    z-index: 999;
+    padding-bottom: 1.5rem;
+    border-radius: 0.2rem;
+}
+#dialogPop .dialogWord{
+	font-size: 0.6rem;
+	
+}
+#dialogPop .dialogBtn{
+	display: inline-block;
+    width: 100%;
+    color: #fff;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.65rem;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#f05c8c), to(#cd0244));
+    background: -webkit-linear-gradient(left, #f05c8c, #cd0244);
+    border-bottom-left-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+}
+/*遮罩*/
+.shade{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 998;
+    display: none;
+}
+.Wx_shade{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 998;
+    display: none;
+}
+.Wx_shade .Wx_tishi{
+	display: block;
+	width: 11.08rem;
+	height: 7.4rem;
+	background: url(//rescdn.sitezt.cn/A/resource/shopdetail/tishi.png) center center no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+    top:0.4rem;
+    right:1.2rem;
+    z-index: 998;
+}	
+
+	</style>
+	<script type="text/javascript">
+	// http://cdn.temzt.cn/AppCms/UI/shopdetail/tishi.png
+		(function() {
+			function o() {
+				document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+			}
+			var e = null;
+			window.addEventListener("resize", function() {
+				clearTimeout(e), e = setTimeout(o, 300)
+			}, !1), o()
+		})(window);
+	</script>
+	<!--app分享商品详情-->
+
+	<body id="dom">
+		<div class="wxpro">
+			<div class="slogn">
+				<div class="logo"><img src="//rescdn.sitezt.cn/A/resource/shopdetail/mgkj_03.png" alt=""></div>
+				<div class="center">
+					<div class="tt">美逛</div>
+					<div class="bot">自用省钱</div>
+				</div>
+				<button class="copy_Yqmbtn lookYqmBox" data-clipboard-text="">
+					<i class="yqmPic"></i>
+					<i class="lookYqm"></i>
+                </button>
+                <!-- <a class="qqq">如何关闭下载提示?</a> -->
+				<div class="btn">
+					<a class="downl_app" href="javascript:void(0);">APP下载</a>
+                </div>
+                <div class="zms" style="display: none;"></div>
+			</div>
+			<div class="dataItem">
+				<!--数据模板 ↓ 避免接口数据问题要显示淘口令 DOM模板 -->
+				<div class="clipboard NoData">
+					<div class="bot copy">
+						<button class="copy_btn" data-clipboard-text="">
+                            一键复制
+						</button>
+                    </div>
+                    <a class="bot_a" href="javascript:void(0);"></a>
+					<div class="top">
+						<textarea class="tkl_text" id="copyVal" name="" rows="" cols="" value=""></textarea>
+						<i class="tkl_tag"></i>
+						<p>
+							长按复制框内文字，启动手机【<i class="icon_tao"><img src="//rescdn.sitezt.cn/A/resource/shopdetail/tao.png" alt=""></i>】即可领券购买
+						</p>
+					</div>
+				</div>
+				<!--数据模板 ↑-->
+			</div>
+		</div>
+		<div class="fixbox copy">
+			<textarea class="yqm_text" id="copyYqm" name="" rows="" cols="" value="" style="position: absolute;left: -6666666666666px;"></textarea>
+			<!--<button class="copy_Yqmbtn lookYqmBox" data-clipboard-action="copy" data-clipboard-target="#copyYqm">
+				<i class="yqmPic"></i>
+				<i class="lookYqm" style="padding-left: 2rem;"></i>
+			</button>-->
+			<button type="button" class="confirmBuy">
+				<i class="sureBPic"></i>
+			</button>
+					<!--<i class="icon_copy">
+				<img src="/wgz_items/shopDetail/img/copy.png" alt="" style="vertical-align: baseline;width: 0.75rem;height: 0.75rem;">
+					</i> 
+					一键复制淘口令-->
+		</div>
+		<!--dialog-->
+		<div id="dialogPop">
+			<p class="dialogWord"></p>
+			<button type="button" class="dialogBtn">确认</button>
+		</div>
+		<!--遮罩层-->
+		<div class="shade"></div>
+		<!--微信提示遮罩层-->
+		<div class="Wx_shade">
+			<span class="Wx_tishi"></span>
+		</div>
+		<!--模板渲染-->
+		<script type="text/html" id="detail_Tmpl">
+			<div class="proImg">
+				<img alt="" src="{{ItemInfo.Pic}}">
+			</div>
+			<div class="container">
+				<div>
+					<div class="proname">
+						{{ItemInfo.Title}}
+					</div>
+					<div class="price_box">
+                        <div class="price">
+                            <div class="price_after">
+                                {{if ItemInfo.Price-ItemInfo.QuanAmount>0}}
+                                券后价 ￥
+                                <span class="strongF">{{((ItemInfo.Price-ItemInfo.QuanAmount)/100).toFixed(2)}}</span> 
+                                {{else}}
+                                优惠价 ￥
+                                <span class="strongF">{{((ItemInfo.Price)/100).toFixed(2)}}</span> 
+                                {{/if}}
+                                
+                                {{if ItemInfo.QuanAmount}}
+                                    <span class="price_before">￥{{(ItemInfo.Price/100).toFixed(2)}}</span>
+                                {{/if}}
+                            </div>
+                        </div>
+                        {{if ItemInfo.QuanAmount}}
+                            <div class="coupon"><span>{{ItemInfo.QuanAmount/100}}</span></div>
+                        {{/if}}
+					</div>
+				</div>
+				<div class="clipboard">
+					<div class="bot copy">
+						<button class="copy_btn" data-clipboard-text="{{KL}}">
+							一键复制
+						</button>
+					</div>
+                    <a class="bot_a" href="javascript:void(0);"></a>
+					<div class="top">
+						<textarea class="tkl_text" id="copyVal" name="" rows="" cols="" value="">{{KL}}</textarea>{{KL}}
+						<p>
+							长按复制框内文字，启动手机【<i class="icon_tao"><img src="//rescdn.sitezt.cn/A/resource/shopdetail/tao.png" alt=""></i>】即可领券购买</p>
+					</div>
+				</div>
+			</div>
+		</script>
+		<script type="text/javascript">
+			var dom = document.getElementById('dom');
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]); return null;
+			}
+			var UiUrl=GetQueryString("ui");
+            var resourcePath ='//rescdn.sitezt.cn/A';
+			var jsArr=[resourcePath+"/resource/CommonJs/jquery-1.8.2.min.js",resourcePath+"/resource/CommonJs/clipboard.min.js",resourcePath+"/resource/js/initApp.js",resourcePath+"/resource/CommonJs/template.js",resourcePath+"/resource/CommonJs/md5.min.js",resourcePath+"/resource/js/shopdetail.js"];
+			for(var i=0 ;i<jsArr.length;i++){
+				var newScript = document.createElement('script');
+				newScript.type = 'text/javascript';
+				newScript.async=false;
+				newScript.src=jsArr[i];
+				dom.appendChild(newScript);
+			}
+		</script>
+	</body>
+</html>
